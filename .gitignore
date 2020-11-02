@@ -1,0 +1,4 @@
+vault/.vscode/*
+docs/_site
+node_modules
+build
