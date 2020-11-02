@@ -1,0 +1,135 @@
+---
+id: 28cfed31-0166-4784-a7d6-c76d3fcd269e
+title: Ch5 - Replication
+desc: ''
+updated: 1604295118157
+created: 1604263228200
+---
+
+Reasons for multi-machine:
+- scalability
+- HA
+- latency (route user closer to them)
+- Disconnected operation
+
+Scaling
+- shared-memory  
+- shared-disk - e.g. Oracle RAC? 
+- shared-nothing . i.e.  horizontal scaling 
+
+## Leader-follower replication
+
+* Leader take writes, all can take reads 
+* Used by: 
+    - relational: PostgreSQL, MySQL, Oracle Data Guard, SQL Server AlwaysOn Availability Groups
+    - noSQL: MongoDB, RethinkDB, Espresso
+    - Kafka, RabbitMQ
+* Sync vs Async replication
+    - impractical for all followers to be synchronous
+    - if database is configured for sync, usually one of followers is sync, others are async - "_semi-synchronous_" 
+* Implementation of Replication Logs
+    - Statement-based replication
+        - not generally used (MySQL before 5.1), because problems:
+            - nondeterministic functions e.g. NOW() or RAND()
+            - autoincrementing columns
+            - side effects (triggers, UDFs, etc)
+    - Write-ahead-log shipping
+        - WAG: in log structured storage engine, main palce for store. in Btree, WAL before B tree modified
+        - used in PostgreSQL and Oracle
+        - disadvantage: log very low level - specific disk block and bytes 
+            -> problem: **zero-downtime upgrade not possible** if leader and follower can't run with different version of storage engine 
+    - **Logical (row-based) log replication** 
+        - decoupled from storage engine internals
+        - used by MySQL binlog
+        - also can be used by external system, CDC 
+    - trigger-based - application layer
+        - Oracle GoldenGate or triggers and Stored Procs
+* Dealing with replication lag and eventual consistency
+    - Reading Your Own Writes 
+        - option 1: When reading something that the user may have modified, read it from the leader; otherwise, read it from a follower. 
+        - option 2: track time of last update, and query leader when within some time window
+        - option 3: client can remember timestamp and require serving replica up to date
+    - Monotonic Reads: second read lags behind first read 
+        - option 1: read from same replica
+        - option 2: use sequencer? 
+    - consistent prefix read: causual events observed out of order 
+        - option 1: causal udpates in the same partition 
+    - using transactions -  for a database to provide stronger guarantees so that the application can be simpler.              
+    
+## Multi-leader replication
+
+- use case:
+    - multi-datacenter
+    - Clients with offline operation
+        - offline device each has a local database that acts as leader
+    - Collaborative editing
+- conflict detection likely async - if sync, might as well use single leader
+- conflict avoidance
+    - different "home" cluster for diff users 
+- achieving convergent conflict resolution 
+    - each write unique ID, pick the highest ID 
+    - assign priority between writers 
+    - merge the values e.g. concat.
+    - record the conflict
+- custom conflict resolution logic 
+    - on write
+    - on read
+- auto conflict resolution research:
+    - Conflict-free replicated datatypes (CRDTs) - family of data structures for sets, maps, ordered lists, counters, etc
+        - [CRDTs slide deck](https://speakerdeck.com/lenary/crdts-an-update-or-just-a-put)
+    - Mergeable persistent data structures - like Git, 3 way merge function
+        - [Mergeable Persistent Data Structures paper](http://gazagnaire.org/pub/FGM15.pdf)
+    - Operational transformation for collab. editing e.g. Google Docs. 
+        - [papaer](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.53.933&rep=rep1&type=pdf)
+- Multi-Leader Replication Topologies
+    - all-to-all, circular, or star (generalize to trees)
+    - circular or star topology may be broken with one failed node
+    - all-to-all has problem of inconsistent ordering 
+    
+## Leaderless Replication - quorum based 
+
+* "Dynamo-style" - Riak, Cassandra, and Voldemort, inspired by Amazon Dynamo
+* catch-up options:
+    1. Read repair - reader can detect stale response and update
+    1. anti-entropy - background process
+* quorum condition: w + r > n  - b.c. set of nodes for w and r must overlap 
+* issues with quorum: 
+    - write partial failure needs to be rolled back
+    - eventual consistent without the type of replication lag gaurantees - hard to quantify
+    - difficult to mointor staleness
+* sloppy quorum:  writes and reads still require w and r successful responses, but those may include nodes that are not among the designated n “home” nodes for a value.
+    - once network inerruption is fixed, writes go back to "home" nodes - _hinted handoff_. so reads might not see the update. 
+* Multi-datacenter: 
+    - Cassandra and Voldemort extends quorum to multi-datacenter. high latency writes to other datacenters often async. 
+    - Riak - all local. cross-dc happen async in the background 
+* concurrent writes:
+    - the application developer neesd to understand the internals on this
+    - Last write wins based on a timestamp
+        - only option in Cassandra
+        - optionl on Riak 
+        - only safe way: each key is immutable 
+    - The “happens-before” relationship:
+        1. B depends on A -  “happens-before”
+        1. A and B are independent  - concurrent
+    - Option 1: Capturing the happens-before relationship (client send version number it depends on)
+        - server maintain version for each key 
+        - when client writes, must include the version of a prev read and merge with it
+        - server can clean up versions <= version number received in the write - since it knows it has been merged. then incre curr version # and return it in response 
+    - Option 2: Merging concurrently written values
+        - for collections, just union the writes
+        - deletes require a tombstones with a version number 
+    - version vectors: multiple replicas, each need a version number 
+        - collection of version numbers for all replicats 
+        - [Dotted Version Vectors: Logical Clocks for Optimistic Replication paper](https://arxiv.org/pdf/1011.5808v1.pdf)
+
+## Summary
+-  Single-leader replication is popular because it is fairly easy to understand and there is no conflict resolution
+- Multi-leader and quorum based can be more robust in the presence of faulty nodes, network interruptions, and latency spikes—at the cost of being harder to reason about and providing only very weak consistency guarantees.
+
+## Reseach: Chain replication 
+- [Chain Replication for Supporting High Throughput and Availability](https://static.usenix.org/events/osdi04/tech/full_papers/renesse/renesse.pdf) paper
+- [Object Storage on CRAQ
+High-throughput chain replication for read-mostly workloads](https://www.usenix.org/legacy/event/usenix09/tech/full_papers/terrace/terrace.pdf) paper 
+- [Windows Azure Storage: A Highly Available
+Cloud Storage Service with Strong Consistency](http://sigops.org/s/conferences/sosp/2011/current/2011-Cascais/printable/11-calder.pdf) paper
+
