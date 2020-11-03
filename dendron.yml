@@ -4,4 +4,4 @@ site:
         - root
     siteRootDir: docs
     usePrettyRefs: true
-    assetsPrefix: dendron-notes
+    assetsPrefix: /dendron-notes
