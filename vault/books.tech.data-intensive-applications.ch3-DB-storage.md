@@ -2,7 +2,7 @@
 id: 3722a8e7-0d0f-4460-b515-a66c21a18358
 title: Ch3 - Storage and Retrieval
 desc: ''
-updated: 1604343127904
+updated: 1604364191443
 created: 1604339346559
 ---
 
@@ -27,7 +27,7 @@ created: 1604339346559
 - Crash recovery: If the database is restarted, the in-memory hash maps are lost. Snapshot segment hashmap on disk to speed up recovery
 - **Concurrency control: one writer thread. Because of immutability, reads can be concurrent** 
 - Limitations:
-    - **Table must fit in memory**. Not good for large number of keys. Hashmap on disk bad perf: lots of random IO 
+    - **Table must fit in memory**. Not good for large number of keys. Hashmap on disk bad perf: lots of random IO  
     - **Range queries not efficient**
 
 
