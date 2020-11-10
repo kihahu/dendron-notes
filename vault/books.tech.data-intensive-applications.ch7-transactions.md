@@ -2,7 +2,7 @@
 id: 603d252d-91ec-4f35-950e-26211cd5112a
 title: Ch7 - Transactions
 desc: ''
-updated: 1604364576549
+updated: 1604976929119
 created: 1604290478828
 ---
 # Chapter 7: Transactions 
@@ -54,5 +54,6 @@ Serializable isolation has a performance cost, and many databases - including **
 - very popular - deulat in Oracle 11g, PostgreSQL, SQL Server 2012 etc.
 - implementation
     - prevent dirty writes by row level locks 
+    - prevent dirty reads: not by read locks, but by **keeping the old commited value and the new value set by the transaction that currently holds the write lock**.
 
 
