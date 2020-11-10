@@ -2,7 +2,7 @@
 id: ae4197f7-ef66-4d95-8500-f54327559d1d
 title: Week1
 desc: ''
-updated: 1605030475389
+updated: 1605030720696
 created: 1605022904291
 ---
 
@@ -62,7 +62,7 @@ https://www.coursera.org/learn/gis/supplement/lMYp2/glossary-of-terms
 
 ## resources 
 
-- [resources pdf](./assets/pdfs/gis-resources.pdf)
+- [resources pdf](/assets/pdfs/gis-resources.pdf)
     - source:  https://www.coursera.org/learn/gis/supplement/UFDWI/resources-and-help-for-gis
 - https://gis.stackexchange.com/ 
 - http://geonet.esri.com/ 
