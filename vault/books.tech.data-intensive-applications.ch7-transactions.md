@@ -2,7 +2,7 @@
 id: 603d252d-91ec-4f35-950e-26211cd5112a
 title: Ch7 - Transactions
 desc: ''
-updated: 1604976929119
+updated: 1604978794263
 created: 1604290478828
 ---
 # Chapter 7: Transactions 
@@ -56,4 +56,11 @@ Serializable isolation has a performance cost, and many databases - including **
     - prevent dirty writes by row level locks 
     - prevent dirty reads: not by read locks, but by **keeping the old commited value and the new value set by the transaction that currently holds the write lock**.
 
+### Snapshot Isolation and Repeatable Read
+
+- reads might see effect of part of the transaction 
+- use case where it's important and useful: **long-running, read-only queries**
+    - backup 
+    - Analytic queries and integrity checks
+- Snapshot Isolation: each transaction reads from a consistent snapshot of the database
 
