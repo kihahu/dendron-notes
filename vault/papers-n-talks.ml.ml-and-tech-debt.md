@@ -1,8 +1,8 @@
 ---
 id: 6011ad5f-c0b5-43f3-a3a0-cd6a09611c28
-title: Ml and technical debt
+title: ML and technical debt
 desc: ''
-updated: 1604978129756
+updated: 1604978257759
 created: 1604977893595
 ---
 
