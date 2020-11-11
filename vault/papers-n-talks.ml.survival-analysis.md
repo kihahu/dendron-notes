@@ -2,7 +2,7 @@
 id: d4dd9201-c58d-4f4d-aa38-498c8c6e6267
 title: Survival Analysis
 desc: ''
-updated: 1605128694316
+updated: 1605128724902
 created: 1605125570606
 ---
 # Survival analysis
@@ -16,5 +16,6 @@ created: 1605125570606
     - **Hazard**: HAZ = P(T< t + dt | T >t)
              = prob of dying in next few seconds, given alive now
     - **Hazard ratio** (HR)  , prob of dying in next few seconds given exposure vs. not 
+    
         \\(  HR = {HAZ, x=1 \over HAZ, x=0} \\)
     
