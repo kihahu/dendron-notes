@@ -2,7 +2,7 @@
 id: 603d252d-91ec-4f35-950e-26211cd5112a
 title: Ch7 - Transactions
 desc: ''
-updated: 1604978794263
+updated: 1605152982749
 created: 1604290478828
 ---
 # Chapter 7: Transactions 
@@ -63,4 +63,9 @@ Serializable isolation has a performance cost, and many databases - including **
     - backup 
     - Analytic queries and integrity checks
 - Snapshot Isolation: each transaction reads from a consistent snapshot of the database
-
+- Implementation
+    - prevent dirty writes by locks
+    - no read locks - instead, keep several different committed versions of an object - **multi-version concurrency control (MVCC)**.
+        - always-increasing transaction ID
+            ![](/assets/images/2020-11-11-22-47-29.png)
+        - when reading, only read the latest committed version of the row with write tx id < read tx id 
