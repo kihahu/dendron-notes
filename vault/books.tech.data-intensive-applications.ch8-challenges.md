@@ -1,8 +1,8 @@
 ---
 id: e9abdfa6-2451-442e-a681-5165daba5f36
-title: Ch8 - Problems with distributed systems
+title: Ch08 - Problems with distributed systems
 desc: ''
-updated: 1604976950965
+updated: 1605303411875
 created: 1604679379882
 ---
 
