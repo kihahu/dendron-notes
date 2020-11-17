@@ -2,7 +2,7 @@
 id: 603d252d-91ec-4f35-950e-26211cd5112a
 title: Ch07 - Transactions
 desc: ''
-updated: 1605303414552
+updated: 1605411543635
 created: 1604290478828
 ---
 # Chapter 7: Transactions 
@@ -69,3 +69,11 @@ Serializable isolation has a performance cost, and many databases - including **
         - always-increasing transaction ID
             ![](/assets/images/2020-11-11-22-47-29.png)
         - when reading, only read the latest committed version of the row with write tx id < read tx id 
+    - **Indexes** 
+        - option 1: index simply point to all versions of an object, filter at read time
+        - option 2: (PostgreSQL) avoid index updates if diff version on the same page
+        - option 3: append-only B-trees - updates generate a new page. all parents up to root is copied and updated to new.  a particular root is a consistent snapshot of the database at the point in time when it was created. require background compaction and garbage collection. 
+        
+- naming confusion
+    - different DB call it differently, and actual guarantees are different 
+    - because SQL standard has flawed defintion for **repeatable read** - 

@@ -5,3 +5,6 @@ site:
     siteRootDir: docs
     usePrettyRefs: true
     assetsPrefix: /dendron-notes
+vaults:
+    -
+        fsPath: vault

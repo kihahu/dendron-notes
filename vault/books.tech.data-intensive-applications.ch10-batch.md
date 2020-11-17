@@ -2,7 +2,7 @@
 id: b0ec61b7-70af-48f2-8c44-df56afab8f5d
 title: Ch10 - Batch processing
 desc: ''
-updated: 1605296413746
+updated: 1605411275637
 created: 1605153348300
 ---
 
@@ -25,4 +25,15 @@ example: linux `sort` util: do one thing really well, but only powerful when com
 - **A uniform interface**
     - interface is **file**: actual file, socket, stdin, stdout, device driver, etc. 
 - Separation of logic and wiring
-    - defaulting to stdin and stdout allows k
+    - defaulting to stdin and stdout allows loose coupling and program doesn’t know or care where input comes from or output going
+- Transparency and experimentation
+    - input immutable, can repeatly run
+    - can inspect intermediate results 
+    - piping output to file allows checkpointing progress
+
+# MapReduce
+
+Lots of parallel with Unix: 
+- 
+
+
