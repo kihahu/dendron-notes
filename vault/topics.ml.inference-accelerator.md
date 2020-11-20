@@ -2,11 +2,13 @@
 id: ee5aabfa-c76b-465e-8a60-63a8b391d6b4
 title: Inference  accelerator
 desc: ''
-updated: 1605896560303
+updated: 1605896904858
 created: 1605889552803
 ---
 
-## [A complete guide to AI accelerators for deep learning inference — GPUs, AWS Inferentia and Amazon Elastic Inference](https://towardsdatascience.com/a-complete-guide-to-ai-accelerators-for-deep-learning-inference-gpus-aws-inferentia-and-amazon-7a5d6804ef1c)
+## GPUs vs AWS Inferentia vs Amazon EIs 
+
+[A complete guide to AI accelerators for deep learning inference — GPUs, AWS Inferentia and Amazon Elastic Inference](https://towardsdatascience.com/a-complete-guide-to-ai-accelerators-for-deep-learning-inference-gpus-aws-inferentia-and-amazon-7a5d6804ef1c)
 
 Deep learning inference acceleration landscape
 - CPUs acquired support for advanced vector extensions (AVX-512)
@@ -61,9 +63,6 @@ Why choose Amazon EI over dedicated GPU instances?
 - The cost of the CPU instance + EI accelerator would still be cheaper than a dedicated GPU instance
 - EI adds some latency compared to GPU instance, but can be faster than CPU only 
 - need to use an EI enabled framework such as TensorFlow, PyTorch or Apache MXNet
-
-
-
 
 
 ## [Choosing the right GPU for deep learning on AWS](https://towardsdatascience.com/choosing-the-right-gpu-for-deep-learning-on-aws-d69c157d8c86)
