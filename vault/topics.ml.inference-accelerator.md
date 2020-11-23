@@ -2,7 +2,7 @@
 id: ee5aabfa-c76b-465e-8a60-63a8b391d6b4
 title: Inference  accelerator
 desc: ''
-updated: 1605896904858
+updated: 1605907344155
 created: 1605889552803
 ---
 
@@ -19,7 +19,7 @@ Deep learning inference acceleration landscape
 ### Considerations
 
 - Model type and programmability: model size, custom operators, supported frameworks
-    - AWS Inferentia - fixed set of supported operations exposed via it’s AWS Neuron SDK compiler 
+    - AWS Inferentia - fixed set of supported operations exposed via AWS Neuron SDK compiler 
     - CPU - fully programmable
     - GPU - in between 
     - if have custom code written in high level languages, fall back to CPU:
@@ -59,7 +59,7 @@ Deep learning inference acceleration landscape
 Attached through the network using an AWS PrivateLink
 
 Why choose Amazon EI over dedicated GPU instances?
-- if you don’t have sufficient demand or multiple models to serve and share the GPU to keep up utilization, can attach "just enough" GPU acceleration to a CPU instance
+- if don’t have sufficient demand or multiple models to serve and share the GPU to keep up utilization, can attach "just enough" GPU acceleration to a CPU instance
 - The cost of the CPU instance + EI accelerator would still be cheaper than a dedicated GPU instance
 - EI adds some latency compared to GPU instance, but can be faster than CPU only 
 - need to use an EI enabled framework such as TensorFlow, PyTorch or Apache MXNet
