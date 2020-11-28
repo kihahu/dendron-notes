@@ -2,22 +2,15 @@
     "folders": [
         {
             "path": "vault"
-        },
-        {
-            "name": "Dendron",
-            "path": "."
         }
     ],
     "settings": {
         "dendron.rootDir": ".",
-        "editor.minimap.enabled": false,
         "files.autoSave": "onFocusChange",
         "pasteImage.path": "${currentFileDir}/assets/images",
         "pasteImage.prefix": "/",
         "markdown-preview-enhanced.enableWikiLinkSyntax": true,
         "markdown-preview-enhanced.wikiLinkFileExtension": ".md",
-        "vscodeMarkdownNotes.noteCompletionConvention": "noExtension",
-        "vscodeMarkdownNotes.slugifyCharacter": "NONE",
         "editor.snippetSuggestions": "inline",
         "editor.suggest.snippetsPreventQuickSuggestions": false,
         "editor.suggest.showSnippets": true,
@@ -33,6 +26,7 @@
             "github.github-vscode-theme"
         ],
         "unwantedRecommendations": [
+            "dendron.dendron-markdown-notes",
             "shd101wyy.markdown-preview-enhanced",
             "kortina.vscode-markdown-notes",
             "mushan.vscode-paste-image"
