@@ -10,7 +10,7 @@ markdown: kramdown
 enable_mathjax: true
 kramdown:
   math_engine: mathjax
-url: "https://angelarwang.com/dendron-notes/"
+url: "https://angelarwang.com"
 
 gh_edit_link: true 
 gh_edit_repository: "https://github.com/angelarw/dendron-notes"
