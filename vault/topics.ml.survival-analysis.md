@@ -2,7 +2,7 @@
 id: d4dd9201-c58d-4f4d-aa38-498c8c6e6267
 title: Survival Analysis
 desc: ''
-updated: 1606167751818
+updated: 1606764093252
 created: 1605125570606
 ---
 # Survival analysis
@@ -73,7 +73,7 @@ Historically, originally developed and used by acturaries and medical researcher
 
 
 ---- 
-[Couresra: AI for Medical Prognosis](https://www.coursera.org/learn/ai-for-medical-prognosis/home/welcome)
+[Coursera: AI for Medical Prognosis](https://www.coursera.org/learn/ai-for-medical-prognosis/home/welcome)
  
 - **prognosis** vs diagnosis: 
     - prognosis = predicting the likely or expected development of a disease
@@ -85,22 +85,23 @@ Historically, originally developed and used by acturaries and medical researcher
     - ASCVD (Atherosclerotic Cardiovascular Disease) Risk Calculator
         - **interaction terms** - capture dependence btw variables 
             - e.g. blood pressure has less effect of risk when patient is older 
-- Evaluating risk scores 
-    - Concordant Pairs: 
-        - ![](/assets/images/2020-11-23-15-38-09.png)
-        - Concordant = patient with worse outcome has higher risk score
-        - if outcome ties => exclude
-        - if outcome different => permissible pair => inlcude   
-        - rule:
-            - +1 for permissible pair that is Concordant
-            - +0.5 for permissible pair with risk tie (outcome different, but same risk score)
-    - C-index 
-    
-        \\( C-index = { Count_{concordant} + 0.5 Count_{ties} \over Count_{permissible}} \\)
-    - Applying c-index on censored data - **Harrel's C-Index**
-        - patient A & B both not censored => always permissible, even if A & B has same time-to-event
-        - patient A & B both censored => not permissible
-        - patient A censored, B not censored:
-            - if A < B - not permissible
-            - if A >= B - permissible
-        ![](/assets/images/2020-11-23-16-40-58.png)
+
+## Evaluating risk scores
+- Concordant Pairs: 
+    - ![](/assets/images/2020-11-23-15-38-09.png)
+    - Concordant = patient with worse outcome has higher risk score
+    - if outcome ties => exclude
+    - if outcome different => permissible pair => inlcude   
+    - rule:
+        - +1 for permissible pair that is Concordant
+        - +0.5 for permissible pair with risk tie (outcome different, but same risk score)
+- C-index 
+
+    \\( C-index = { Count_{concordant} + 0.5 Count_{ties} \over Count_{permissible}} \\)
+- Applying c-index on censored data - **Harrel's C-Index**
+    - patient A & B both not censored => always permissible, even if A & B has same time-to-event
+    - patient A & B both censored => not permissible
+    - patient A censored, B not censored:
+        - if A < B - not permissible
+        - if A >= B - permissible
+    ![](/assets/images/2020-11-23-16-40-58.png)
