@@ -6,16 +6,15 @@ updated: 1608411908993
 created: 1608406675698
 ---
 
-Capital Asset Pricing Model (CAPM)
+### Capital Asset Pricing Model (CAPM)
 
 Excess return of a stock is proportional to its beta 
  ![](/assets/images/2020-12-19-14-39-00.png)
 
-
+ \\( \beta \\): covariance - systemtic risk - sensitivity to the market 
 
  ![](/assets/images/2020-12-19-14-39-52.png)
 
- \\( \beta \\): covariance - systemtic risk - sensitivity to the market 
  
 - \\( \beta \\) = 1, stock moves with the market exactly
 - \\( \beta \\) > 1, stock amplifies market
@@ -23,9 +22,9 @@ Excess return of a stock is proportional to its beta
 
 Stadard deviation (\\(\sigma\\)): measure of total risk  
 
-CAPM emphasizes assets with higher \\( \beta \\)  (not standard deviation) should have higher benchmarks. Can't sipmly compare returns of assets. Prices and expected returns should reflect how sensitive it is to overall market 
+CAPM: assets with higher \\( \beta \\) should have higher benchmarks. Can't sipmly compare returns of assets. Prices and expected returns should reflect how sensitive it is to overall market 
 
-Alpha (\\ (\alpha) \\): performance of an asset relative to its CAPM predicte return. 
+Alpha (\\(\alpha)\\): performance of an asset relative to its CAPM predicte return. 
 
  ![](/assets/images/2020-12-19-14-51-28.png)
 
