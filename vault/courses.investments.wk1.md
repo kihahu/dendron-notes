@@ -69,6 +69,9 @@ Efficieint Market Hypothesis (EMH)
 
 ## Compositions of Returns
 
+- Definition of return 
+
+    \\( Return_t = { ( Price_t - Price_{t-1} + Dividend_t ) \over Price_{t-1} }\\)
 
 ### Realization-based capital gains tax
 - realize loss within a year. so deduction is valued at regular income tax 
@@ -78,4 +81,13 @@ Efficieint Market Hypothesis (EMH)
 - Tax delayed = tax saved 
     - example: if asset is 10% return, 20% cap gain tax, sell after 10 years -> equivalent annual tax rate = 14.3% 
     - ![](/assets/images/2020-12-20-11-08-34.png)
-- basis step-up at death - when inheriting, basis step-up so cap gain tax is minimized 
+- basis step-up at death 
+    - when someone dies, potential cap gain liability dies with them 
+
+### Seasonality in stock returns
+
+- january effect
+    ![](/assets/images/2020-12-20-11-16-30.png)
+    - hypothesis:
+        - window-dressing by institutions - sell losing stock at end of the year so avoid reporting holding losing stocks 
+        - tax loss by individuals  
