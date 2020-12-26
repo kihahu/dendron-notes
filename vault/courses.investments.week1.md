@@ -1,8 +1,8 @@
 ---
 id: 683498b7-eb79-4363-8ec7-bbbf909e9ba5
-title: Week 1
+title: Week 1 - Foundamentals review & Compositions of Returns
 desc: ''
-updated: 1608411908993
+updated: 1609007935696
 created: 1608406675698
 ---
 ## Foundamentals review
