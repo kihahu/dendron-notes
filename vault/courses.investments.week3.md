@@ -1,8 +1,8 @@
 ---
 id: 4e0beeba-4c09-4da5-85de-2afd17f126ae
-title: Week3 - Individual investors
+title: Week 3 - Individual investors
 desc: ''
-updated: 1609018011623
+updated: 1609019582181
 created: 1609014111215
 ---
 
@@ -28,3 +28,19 @@ created: 1609014111215
             ![](/assets/images/2020-12-26-16-25-19.png) 
         - tend to capture gains 
             ![](/assets/images/2020-12-26-16-26-19.png)
+    - loss-aversion good or bad?
+        - go against **momentum effects**
+        - against tax incentives
+            - loss aversion effect is stronger in tax-deferred accounts (in regular accounts, the tax incentive reduces the loss aversion effect) - so tax motivation still matters  
+    - personal connection to asset
+        - emotional connection: house 
+        - Genesove and Mayer(2001):
+            - if house has fallen value since purchase:
+                - takes longer to sell
+                - effect 2x for owner-occupants
+        - having someone to blame affects trading
+            - ![](/assets/images/2020-12-26-16-51-07.png)
+            - effect is reversed for mutual funds - loss -> more likely to sell - tax effect more important, easy to blame the fund manager
+            - 
+            
+                
