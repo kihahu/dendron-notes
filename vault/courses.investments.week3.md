@@ -2,7 +2,7 @@
 id: 4e0beeba-4c09-4da5-85de-2afd17f126ae
 title: Week 3 - Individual investors
 desc: ''
-updated: 1609019582181
+updated: 1609021721729
 created: 1609014111215
 ---
 
@@ -41,6 +41,12 @@ created: 1609014111215
         - having someone to blame affects trading
             - ![](/assets/images/2020-12-26-16-51-07.png)
             - effect is reversed for mutual funds - loss -> more likely to sell - tax effect more important, easy to blame the fund manager
-            - 
-            
-                
+    -  impact on corporate finance decisions       
+        - firm acquisition: 
+            - offer's chance of success jumps discontinously when offer price exceeds past 52-week peak
+        - equity issuance (sell stock to raise cash):
+            - influenced by the stock price when a CEO joined the firm
+                -> suggest a firm with past poor stock return may need to fire current CEO if they wish to raise cash by selling equity
+    - explanation for momentum?
+        - when the stock goes up with good news, the cashing-in effect dampens the initial price increase
+        - when stock goes down with bad news, the hold effect dampens initial drop

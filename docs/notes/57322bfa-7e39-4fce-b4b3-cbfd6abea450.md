@@ -1,9 +1,9 @@
 ---
-id: 40a1ce2f-693f-4bd9-a4a3-48141a189594
+id: 57322bfa-7e39-4fce-b4b3-cbfd6abea450
 title: Aws
 desc: ''
-updated: 1609019616376
-created: 1609019616376
+updated: 1609021803770
+created: 1609021803770
 stub: true
 parent: 48575b62-61b9-4ee8-be31-67c48966a2fe
 children:
