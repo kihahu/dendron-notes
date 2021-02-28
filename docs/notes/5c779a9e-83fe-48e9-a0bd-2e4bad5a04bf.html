@@ -159,7 +159,7 @@
     <meta itemprop="headline" content="Spring Boot up and Running">
     
     <meta itemprop="datePublished" content="2021-02-28T13:50:31+00:00">
-    <meta itemprop="dateModified" content="2021-02-28T13:50:51+00:00">
+    <meta itemprop="dateModified" content="2021-02-28T16:46:59+00:00">
 
     <div class="page__inner-wrap">
 
@@ -170,7 +170,109 @@
         
 
         <h1 id="spring-boot-up-and-running"><a aria-hidden="true" class="anchor-heading" href="#spring-boot-up-and-running"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Spring Boot up and Running</h1>
-<h2 id="chap1-in-nutshell"><a aria-hidden="true" class="anchor-heading" href="#chap1-in-nutshell"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chap1: in nutshell</h2><span id="navId" data="5c779a9e-83fe-48e9-a0bd-2e4bad5a04bf"></span>
+<h2 id="chap-1-in-nutshell"><a aria-hidden="true" class="anchor-heading" href="#chap-1-in-nutshell"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chap 1: in nutshell</h2>
+<p>3 foundational features:</p>
+<ol>
+<li>starters for dependency management</li>
+<li>Executable JARs for Simplified Deployment
+<ul>
+<li>instead of <strong>shading</strong> (combining dependency + app JARs into one), <strong>nest JARs</strong></li>
+<li>can run the app 
+<ul>
+<li>simple <code>java -jar &#x3C;SpringBootAppName.jar></code></li>
+<li>make the Jar self-executable</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>convention over configuration
+<ul>
+<li>autoconfig</li>
+<li>defaults favor local dev environment</li>
+</ul>
+</li>
+</ol>
+<h2 id="chap-2-choosing-tools-and-getting-started"><a aria-hidden="true" class="anchor-heading" href="#chap-2-choosing-tools-and-getting-started"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chap 2: Choosing Tools and Getting Started</h2>
+<ul>
+<li>Maven vs Gradle
+<ul>
+<li>Maven:
+<ul>
+<li>project structure strict convention
+<ul>
+<li>rigic declarative -> consistency -> less issues</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Gradle:
+<ul>
+<li>Incremental compilation, only compile changes</li>
+<li>allows scripting/programming</li>
+<li>flexibility -> more tweaking and troubleshooting</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Java vs Kotlin
+<ul>
+<li>Kotlin
+<ul>
+<li>benefits:
+<ul>
+<li>less verbose</li>
+<li>safe: by default no null values</li>
+<li>define own syntax with "extension function" and "infix" - more readable</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="chap-3-rest-api"><a aria-hidden="true" class="anchor-heading" href="#chap-3-rest-api"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chap 3: REST API</h2>
+<ul>
+<li>
+<p>use <a href="https://httpie.io/">https://httpie.io/</a> to test REST APIs (over Curl, postman)</p>
+</li>
+<li>
+<p>Use class-level @RequestMapping annotation for shared URL portion</p>
+<pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/coffees"</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">RestApiDemoController</span> <span class="token punctuation">{</span>
+</code></pre>
+</li>
+<li>
+<p>Use ResponseEntity to include status codes.</p>
+<pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@PutMapping</span><span class="token punctuation">(</span><span class="token string">"/{id}"</span><span class="token punctuation">)</span>
+<span class="token class-name">ResponseEntity</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token class-name">Coffee</span><span class="token punctuation">></span></span> <span class="token function">putCoffee</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token class-name">String</span> id<span class="token punctuation">,</span>
+        <span class="token annotation punctuation">@RequestBody</span> <span class="token class-name">Coffee</span> coffee<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>coffeeIndex <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">?</span>
+            <span class="token keyword">new</span> <span class="token class-name">ResponseEntity</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token function">postCoffee</span><span class="token punctuation">(</span>coffee<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">HttpStatus</span><span class="token punctuation">.</span>CREATED<span class="token punctuation">)</span> <span class="token operator">:</span>
+            <span class="token keyword">new</span> <span class="token class-name">ResponseEntity</span><span class="token generics"><span class="token punctuation">&#x3C;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>coffee<span class="token punctuation">,</span> <span class="token class-name">HttpStatus</span><span class="token punctuation">.</span>OK<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ul>
+<h2 id="chap-4-db-access"><a aria-hidden="true" class="anchor-heading" href="#chap-4-db-access"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chap 4: DB access</h2>
+<ul>
+<li><code>@entity</code> on model, no-arg constructor, setters on all fields</li>
+<li><strong>Repository</strong>
+<ul>
+<li><code>CrudRepository</code> with generic CRUD operations</li>
+<li><code>JpaRepository</code> extends <code>CrudRepository</code> </li>
+</ul>
+</li>
+</ul>
+<h2 id="chap-5-config"><a aria-hidden="true" class="anchor-heading" href="#chap-5-config"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chap 5: Config</h2>
+<ul>
+<li><code>@ConfigurationProperties(prefix = "greeting")</code></li>
+<li><code>@ConfigurationPropertiesScan</code> </li>
+<li>need <code>spring-boot-configuration-processor</code> dependency</li>
+</ul><span id="navId" data="5c779a9e-83fe-48e9-a0bd-2e4bad5a04bf"></span>
 
 
 
@@ -194,6 +296,11 @@
             
             
 
+            
+              <div class="d-flex mt-2">
+              <p class="text-small text-grey-dk-000 mb-0 mr-2">
+                Page last modified: <span class="d-inline-block">2/28/2021</span>.
+              </p>
             
                 
                   <p class="text-small text-grey-dk-000 mb-0">

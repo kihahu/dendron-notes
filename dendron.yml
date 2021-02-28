@@ -28,6 +28,7 @@ site:
     gh_edit_view_mode: "edit" # or "edit" if you want the user to jump into the editor immediately
     gh_root: "docs/"
 
+    siteLastModified: true
     title: Angela's note universe
     description: "This is where I keep and share my notes on books, tech, travel, and other hobbies :)"
     twitter:
