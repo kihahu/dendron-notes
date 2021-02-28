@@ -1,5 +1,5 @@
 # uncomment to preview locally
-#theme: "just-the-docs"
+#theme: "dendron-jekyll"
 remote_theme: dendronhq/dendron-jekyll
 title: Angela's note universe
 logo: "/assets/images/logo.png"

@@ -2,7 +2,7 @@
 id: 3bf41e97-8aeb-4462-bb76-168cebb241b4
 title: Graphql
 desc: ''
-updated: 1606161584466
+updated: 1614537039731
 created: 1606145715534
 ---
 

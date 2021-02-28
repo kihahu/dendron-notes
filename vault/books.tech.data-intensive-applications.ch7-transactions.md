@@ -2,7 +2,7 @@
 id: 603d252d-91ec-4f35-950e-26211cd5112a
 title: Ch07 - Transactions
 desc: ''
-updated: 1605411543635
+updated: 1614537039718
 created: 1604290478828
 ---
 # Chapter 7: Transactions 

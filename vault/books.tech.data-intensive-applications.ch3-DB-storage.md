@@ -2,7 +2,7 @@
 id: 3722a8e7-0d0f-4460-b515-a66c21a18358
 title: Ch03 - Storage and Retrieval
 desc: ''
-updated: 1605303436677
+updated: 1614537007788
 created: 1604339346559
 ---
 

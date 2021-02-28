@@ -1,4 +1,4 @@
-vault/.vscode/*
-docs/_site
 node_modules
+.dendron.*
 build
+

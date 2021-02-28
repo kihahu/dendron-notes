@@ -2,7 +2,7 @@
 id: d9b98137-dd44-478a-a7d0-5831287cfdbc
 title: Week2 - ArcGIS Basics
 desc: ''
-updated: 1605113061159
+updated: 1614537039724
 created: 1605040553424
 ---
 

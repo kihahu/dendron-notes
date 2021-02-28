@@ -2,7 +2,7 @@
 id: d4dd9201-c58d-4f4d-aa38-498c8c6e6267
 title: Survival Analysis
 desc: ''
-updated: 1606764093252
+updated: 1614537039741
 created: 1605125570606
 ---
 # Survival analysis
