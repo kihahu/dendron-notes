@@ -159,7 +159,7 @@
     <meta itemprop="headline" content="Spring Boot up and Running">
     
     <meta itemprop="datePublished" content="2021-02-28T13:50:31+00:00">
-    <meta itemprop="dateModified" content="2021-02-28T16:46:59+00:00">
+    <meta itemprop="dateModified" content="2021-02-28T17:26:06+00:00">
 
     <div class="page__inner-wrap">
 
@@ -272,6 +272,42 @@
 <li><code>@ConfigurationProperties(prefix = "greeting")</code></li>
 <li><code>@ConfigurationPropertiesScan</code> </li>
 <li>need <code>spring-boot-configuration-processor</code> dependency</li>
+<li>Autoconfiguration Report
+<ul>
+<li><code>java -jar bootapplication.jar --debug</code></li>
+<li><code>java -Ddebug=true -jar bootapplication.jar</code></li>
+<li><code>export DEBUG=true</code> in shell</li>
+<li>add <code>debug=true</code> to <code>application.properties</code> file</li>
+</ul>
+</li>
+<li>Actuator
+<ul>
+<li>runtime info get/set</li>
+<li>need <code>spring-boot-starter-actuator</code> dependency</li>
+<li>secure by default with little info</li>
+<li>opening it up
+<ul>
+<li><code>management.endpoints.web.exposure.include</code></li>
+<li><code>management.endpoint.health.show-details=always</code>  or <code>when_authorized</code></li>
+</ul>
+</li>
+<li>query
+<ul>
+<li><code>/actuator/env</code> - get env variable and where config props comes from</li>
+<li><code>/actuator/beans</code> - all beans created</li>
+<li><code>actuator/health</code> - Health info (basic or expanded, depending on settings)</li>
+<li><code>/actuator/loggers</code> 
+<ul>
+<li><code>echo '{"configuredLevel": "TRACE"}'  | http :8080/actuator/loggers/org.springframework.data.web</code> change logger level on the fly</li>
+</ul>
+</li>
+<li><code>/actuator/mappings</code></li>
+<li><code>/actuator/heapdump</code> and <code>/actuator/threaddump</code></li>
+<li><code>/actuator/metrics</code></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul><span id="navId" data="5c779a9e-83fe-48e9-a0bd-2e4bad5a04bf"></span>
 
 

@@ -2,7 +2,7 @@
 id: 5c779a9e-83fe-48e9-a0bd-2e4bad5a04bf
 title: Spring Boot up and Running
 desc: ''
-updated: 1614549629378
+updated: 1614551166802
 created: 1614538231072
 ---
 
@@ -78,3 +78,19 @@ created: 1614538231072
   - `java -Ddebug=true -jar bootapplication.jar`
   - `export DEBUG=true` in shell
   - add `debug=true` to `application.properties` file
+- Actuator
+  - runtime info get/set
+  - need `spring-boot-starter-actuator` dependency
+  - secure by default with little info
+  - opening it up
+    - `management.endpoints.web.exposure.include`
+    - `management.endpoint.health.show-details=always`  or `when_authorized`
+  - query
+    - `/actuator/env` - get env variable and where config props comes from
+    - `/actuator/beans` - all beans created
+    - `actuator/health` - Health info (basic or expanded, depending on settings)
+    - `/actuator/loggers` 
+      -  `echo '{"configuredLevel": "TRACE"}'  | http :8080/actuator/loggers/org.springframework.data.web` change logger level on the fly
+    - `/actuator/mappings`
+    - `/actuator/heapdump` and `/actuator/threaddump`
+    - `/actuator/metrics`
