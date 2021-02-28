@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en-US"><head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  
+  <title>Ch04 - Encoding and evolution - Angela's note universe</title>
+  
+
+  <link
+    rel="shortcut icon"
+    href="https://angelarwang.com/dendron-notes/favicon.ico"
+    type="image/x-icon"
+  />
+  <link
+    rel="stylesheet"
+    href="https://angelarwang.com/dendron-notes/assets/css/just-the-docs-default.css"
+  />
+  <script
+    type="text/javascript"
+    src="https://angelarwang.com/dendron-notes/assets/js/just-the-docs.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+    crossorigin="anonymous"
+  />
+  <script
+    type="text/javascript"
+    src="https://angelarwang.com/dendron-notes/assets/js/vendor/lunr.min.js"
+  ></script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+  
+<meta name="description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
+<meta name="author" content="[object Object]">
+
+<link rel="canonical" href="https://angelarwang.com/notes/e22dd5a3-f940-4548-b1d7-22a26b5386ce.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://angelarwang.com/notes/e22dd5a3-f940-4548-b1d7-22a26b5386ce.html">
+<meta property="og:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
+<meta property="og:image" content="https://angelarwang.com/logo.png">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@{"card":"summary","username":"angelaw_ruohan"}">
+<meta name="twitter:url" content="https://angelarwang.com/notes/e22dd5a3-f940-4548-b1d7-22a26b5386ce.html">
+<meta name="twitter:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
+<meta name="twitter:image" content="https://angelarwang.com/logo.png">
+
+
+  <meta property="og:title" content="Ch04 - Encoding and evolution - Angela's note universe" />
+  <meta name="twitter:title" content="Ch04 - Encoding and evolution - Angela's note universe" />
+  
+</head>
+
+
+<body style="">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="svg-link" viewBox="0 0 24 24">
+        <title>Link</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+      </symbol>
+      <symbol id="svg-search" viewBox="0 0 24 24">
+        <title>Search</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+          <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </symbol>
+      <symbol id="svg-menu" viewBox="0 0 24 24">
+        <title>Menu</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+          <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </symbol>
+      <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+        <title>Expand</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </symbol>
+      <symbol id="svg-doc" viewBox="0 0 24 24">
+        <title>Document</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+        </svg>
+      </symbol>
+    </svg>
+
+    <div class="side-bar">
+      <div class="site-header">
+        <a href="https://angelarwang.com/dendron-notes" class="site-title lh-tight">
+  <div class="site-logo"></div>
+
+ </a>
+        <a href="#" id="menu-button" class="site-button">
+          <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+        </a>
+      </div>
+
+      <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+      </nav>
+      <footer class="site-footer">
+        🌱 with 💕 using <a href="https://www.dendron.so/"> Dendron 🌲 </a>
+      </footer>
+    </div>
+    <div class="main" id="top">
+        <div id="main-header" class="main-header">
+          
+            <div class="search">
+              <div class="search-input-wrap">
+                <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Angela's note universe" aria-label="Search Angela's note universe" autocomplete="off">
+                <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+              </div>
+              <div id="search-results" class="search-results"></div>
+            </div>
+          
+          
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      
+        
+          <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes">Root</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes/d088ab77-c2f6-4f7a-be4a-7597b00daff0.html">Books</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes/ede45f4d-8d30-42a9-bd27-f1b3ba37d6e0.html">Tech</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes/a42eba1d-b978-4cdc-9160-1f3e9c7cf025.html">Designing Data-intensive Applications</a></li><li class="breadcrumb-nav-list-item">Ch04 - Encoding and evolution</li></ol>
+          </nav>
+        
+      
+      <div id="main-content" class="main-content" role="main">
+
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+        
+
+        <script>
+          $(function () {
+            $('[data-toggle="popover"]').popover({html: true})
+          })
+        </script>
+
+        
+
+<div id="main" role="main">
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Ch04 - Encoding and evolution">
+    
+    <meta itemprop="datePublished" content="2020-11-01T14:58:11+00:00">
+    <meta itemprop="dateModified" content="2020-11-13T16:37:18+00:00">
+
+    <div class="page__inner-wrap">
+
+      
+
+      <section class="page__content" itemprop="text">
+
+        
+
+        <h1 id="ch04---encoding-and-evolution"><a aria-hidden="true" class="anchor-heading" href="#ch04---encoding-and-evolution"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Ch04 - Encoding and evolution</h1>
+<h1 id="chapter-4-encoding-and-evolution"><a aria-hidden="true" class="anchor-heading" href="#chapter-4-encoding-and-evolution"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chapter 4: Encoding and evolution</h1>
+<ul>
+<li><strong>Backward compatibility</strong>: Newer code can read data that was written by older code.</li>
+<li><strong>Forward compatibility</strong>: Older code can read data that was written by newer code.</li>
+</ul>
+<h2 id="formats-of-encoding"><a aria-hidden="true" class="anchor-heading" href="#formats-of-encoding"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Formats of encoding</h2>
+<h3 id="lang-specific-format"><a aria-hidden="true" class="anchor-heading" href="#lang-specific-format"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Lang specific format</h3>
+<ul>
+<li>Tied to a particular langaguage</li>
+<li>Security concern - decoding process needs to be able to instantiate arbitrary classes </li>
+<li>Versioning is after thought</li>
+</ul>
+<h3 id="json-xml-csv"><a aria-hidden="true" class="anchor-heading" href="#json-xml-csv"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>JSON, XML, CSV</h3>
+<ul>
+<li>Usually good choice for comm between organizations</li>
+<li>Problems:
+<ul>
+<li>ambiguity around the encoding of numbers. 
+<ul>
+<li>e.g. large numbers - integers greater than 2^53 cannot be exactly represented  in floating point in javascript</li>
+</ul>
+</li>
+<li>Lack support for binary string - base64 enciding as workaround. -- increase data size by 33%</li>
+<li>Schema support not widely used. Decoding logic needs hardcoding</li>
+</ul>
+</li>
+</ul>
+<h3 id="binary-format"><a aria-hidden="true" class="anchor-heading" href="#binary-format"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Binary format</h3>
+<ul>
+<li>Benefits 
+<ul>
+<li>More compact (JSON etc. needs to be self describing. Lots of space used in each record)</li>
+<li>The <strong>schema is a valuable form of documentation</strong>  </li>
+<li><strong>Keeping a database of schemas</strong> allows you to check forward and backward compatibility of schema changes, before anything is deployed. 
+<ul>
+<li><strong>Code gen for static typed languages</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Apach Thrift</strong> (originally Facebook) and <strong>ProtoBuf</strong> (ori. Google)
+<ul>
+<li>example Protobuf schema
+<pre><code>message Person {
+    required string user_name       = 1;
+    optional int64  favorite_number = 2;
+    repeated string interests       = 3;
+} 
+</code></pre>
+</li>
+<li>Field tags and schema evolution 
+<ul>
+<li>Each field contain the tag number and value</li>
+<li>Tag number can't change</li>
+<li>Protobuf has no list type, but <code>repeated</code> flag - can evolve from single to repeated </li>
+<li>Thrift has dedicated list type => supports nested lists</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Avro</strong> - designed for hadoop
+<ul>
+<li>No reference to field tag</li>
+<li>Record appear in order</li>
+<li><strong>Translate between The writer’s schema and the reader’s schema</strong></li>
+<li>To maintain compatibility, you must only add or remove a field that has a <strong>default value</strong> </li>
+<li>how to find writer schema: different options 
+<ul>
+<li>Large file with lots of records  - include the writer’s schema once at the beginning of the large  file </li>
+<li>Version number + database to look up schema</li>
+<li>Negotiate version on connection setup - AVRO RPC </li>
+</ul>
+</li>
+<li>Benefit: 
+<ul>
+<li>Support dynamically generated schemas  - e.g. no need to hardcode translation between DB columns and schema if doing a dump</li>
+<li>Code generation and dynamically typed languages - Thrift and Protocol Buffers rely on code generation, not great for dynamic lang. In Avro code gen is optional - for dynamic type, can read directly</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="the-merits-of-schemas"><a aria-hidden="true" class="anchor-heading" href="#the-merits-of-schemas"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>The Merits of Schemas</h4>
+<ul>
+<li>Many DBs proprietary binary encoding: JDBC/ODBC driver can decode responses from the DBs’s network protocol into in-memory data structures. </li>
+<li>Thrift, Protobuf and Avro all support schema, but simpler than XML or json (e.g. regex constraints)</li>
+</ul>
+<h2 id="modes-of-dataflow"><a aria-hidden="true" class="anchor-heading" href="#modes-of-dataflow"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Modes of dataflow</h2>
+<h3 id="through-databases"><a aria-hidden="true" class="anchor-heading" href="#through-databases"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Through Databases</h3>
+<ul>
+<li>Backward compatibility is clearly necessary: same client, newer version needs to read older writes</li>
+<li>Forward compatibility is also needed: newer client writes a record, a older client reads</li>
+<li>Common error: newer client adds a field, older client update the row, that unknown field get dropped-- if it can't parse new field, should keep as-is </li>
+<li>Data outlives code: App updates fast. Data from a long time ago is still stored 
+<ul>
+<li>Schema evolution thus allows the entire database to appear as if it was encoded with a single schema, even though the underlying storage may contain records encoded with various historical versions of the schema. </li>
+</ul>
+</li>
+<li>Archival storage:
+<ul>
+<li>data dump will typically be encoded using the latest schema </li>
+<li>Avro object container often good fit - or parquet for analytic friendliness </li>
+</ul>
+</li>
+</ul>
+<h3 id="through-services-rest-and-rpc"><a aria-hidden="true" class="anchor-heading" href="#through-services-rest-and-rpc"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Through Services: REST and RPC</h3>
+<ul>
+<li>REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP - "REST-ful"
+<ul>
+<li>URL as resource</li>
+<li>HTTP features for cache control, authentication, and content type negotiation </li>
+<li>it doesn’t try to hide the fact that it’s a network protocol</li>
+</ul>
+</li>
+<li>SOAP: 
+<ul>
+<li>avoid HTTP specific features</li>
+<li>WSDL enables code generation so that a client can access a remote service using local classes and method calls  - not as useful for dynamically typed languages</li>
+</ul>
+</li>
+<li>problems with RPCs pretending to be local calls - is flawed idea: 
+<ul>
+<li>Unpredictable, may require retry</li>
+<li>may not know whether succeeded or failed (in case of timeout) </li>
+<li>Retry and idempotence - request may be going through but didn't get successful response</li>
+<li>Latency longer</li>
+<li>Passing data</li>
+</ul>
+</li>
+<li>REST is usually used for external comm, RPC may be internal</li>
+<li>Evolution:
+<ul>
+<li>can assume all the servers will be updated first, and all the clients second -> only need backward compatibility on requests, and forward compatibility on responses. </li>
+<li>REST api provider can store client APIs + version they are requesting to help manage. E.g. <a href="https://stripe.com/docs/upgrades">stripe</a>
+<ul>
+<li>Thrift, gRPC (Protocol Buffers), and Avro RPC can be evolved according to the compatibility rules of the respective encoding format</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="message-passing-dataflow"><a aria-hidden="true" class="anchor-heading" href="#message-passing-dataflow"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Message-Passing Dataflow</h3>
+<ul>
+<li><strong>Actor programming model</strong>: communicates by send/receiving async messages. process one message at a time. assume message may be lost </li>
+<li>Compared to RPC, less mismatch between local vs remote communication </li>
+<li>example distributed actor frameworks: message broker + actor programming model
+<ul>
+<li>Akka - Java’s built-in serialization by default -> no fw/bw compatibility. supports using with ProtoBuf etc. to do rolling upgrades</li>
+<li>Orleans - also support custom serailization plug-ins </li>
+<li>Erlang OTP  </li>
+</ul>
+</li>
+</ul><span id="navId" data="e22dd5a3-f940-4548-b1d7-22a26b5386ce"></span>
+
+
+
+                
+      </section>
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+        
+          <hr>
+          <footer>
+            
+            
+
+            
+                
+                  <p class="text-small text-grey-dk-000 mb-0">
+                    <a href="https://github.com/angelarw/dendron-notes/edit/gh-pages/vault/books.tech.data-intensive-applications.ch4-encoding.md" id="edit-this-page">Edit this page on GitHub</a>
+                  </p>
+                
+              </div>
+          </footer>
+        
+    </div>
+</div>
+
+
+  
+
+  <div class="search-overlay"></div>
+
+</div>
+</body>
+</html>

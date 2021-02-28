@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="en-US"><head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  
+  <title>Inference  accelerator - Angela's note universe</title>
+  
+
+  <link
+    rel="shortcut icon"
+    href="https://angelarwang.com/dendron-notes/favicon.ico"
+    type="image/x-icon"
+  />
+  <link
+    rel="stylesheet"
+    href="https://angelarwang.com/dendron-notes/assets/css/just-the-docs-default.css"
+  />
+  <script
+    type="text/javascript"
+    src="https://angelarwang.com/dendron-notes/assets/js/just-the-docs.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+    crossorigin="anonymous"
+  />
+  <script
+    type="text/javascript"
+    src="https://angelarwang.com/dendron-notes/assets/js/vendor/lunr.min.js"
+  ></script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+  
+<meta name="description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
+<meta name="author" content="[object Object]">
+
+<link rel="canonical" href="https://angelarwang.com/notes/ee5aabfa-c76b-465e-8a60-63a8b391d6b4.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://angelarwang.com/notes/ee5aabfa-c76b-465e-8a60-63a8b391d6b4.html">
+<meta property="og:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
+<meta property="og:image" content="https://angelarwang.com/logo.png">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@{"card":"summary","username":"angelaw_ruohan"}">
+<meta name="twitter:url" content="https://angelarwang.com/notes/ee5aabfa-c76b-465e-8a60-63a8b391d6b4.html">
+<meta name="twitter:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
+<meta name="twitter:image" content="https://angelarwang.com/logo.png">
+
+
+  <meta property="og:title" content="Inference  accelerator - Angela's note universe" />
+  <meta name="twitter:title" content="Inference  accelerator - Angela's note universe" />
+  
+</head>
+
+
+<body style="">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="svg-link" viewBox="0 0 24 24">
+        <title>Link</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+      </symbol>
+      <symbol id="svg-search" viewBox="0 0 24 24">
+        <title>Search</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+          <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </symbol>
+      <symbol id="svg-menu" viewBox="0 0 24 24">
+        <title>Menu</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+          <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </symbol>
+      <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+        <title>Expand</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </symbol>
+      <symbol id="svg-doc" viewBox="0 0 24 24">
+        <title>Document</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+        </svg>
+      </symbol>
+    </svg>
+
+    <div class="side-bar">
+      <div class="site-header">
+        <a href="https://angelarwang.com/dendron-notes" class="site-title lh-tight">
+  <div class="site-logo"></div>
+
+ </a>
+        <a href="#" id="menu-button" class="site-button">
+          <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+        </a>
+      </div>
+
+      <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+      </nav>
+      <footer class="site-footer">
+        🌱 with 💕 using <a href="https://www.dendron.so/"> Dendron 🌲 </a>
+      </footer>
+    </div>
+    <div class="main" id="top">
+        <div id="main-header" class="main-header">
+          
+            <div class="search">
+              <div class="search-input-wrap">
+                <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Angela's note universe" aria-label="Search Angela's note universe" autocomplete="off">
+                <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+              </div>
+              <div id="search-results" class="search-results"></div>
+            </div>
+          
+          
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      
+        
+          <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes">Root</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes/bee70da8-e282-4d98-9709-1bad45e8a734.html">Topics</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes/056961d3-aba0-4fc6-ba6f-598dbc38294c.html">Machine Learning</a></li><li class="breadcrumb-nav-list-item">Inference  accelerator</li></ol>
+          </nav>
+        
+      
+      <div id="main-content" class="main-content" role="main">
+
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+        
+
+        <script>
+          $(function () {
+            $('[data-toggle="popover"]').popover({html: true})
+          })
+        </script>
+
+        
+
+<div id="main" role="main">
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Inference  accelerator">
+    
+    <meta itemprop="datePublished" content="2020-11-20T11:25:52+00:00">
+    <meta itemprop="dateModified" content="2020-11-20T16:22:24+00:00">
+
+    <div class="page__inner-wrap">
+
+      
+
+      <section class="page__content" itemprop="text">
+
+        
+
+        <h1 id="inference--accelerator"><a aria-hidden="true" class="anchor-heading" href="#inference--accelerator"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Inference  accelerator</h1>
+<h2 id="gpus-vs-aws-inferentia-vs-amazon-eis"><a aria-hidden="true" class="anchor-heading" href="#gpus-vs-aws-inferentia-vs-amazon-eis"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>GPUs vs AWS Inferentia vs Amazon EIs</h2>
+<p><a href="https://towardsdatascience.com/a-complete-guide-to-ai-accelerators-for-deep-learning-inference-gpus-aws-inferentia-and-amazon-7a5d6804ef1c">A complete guide to AI accelerators for deep learning inference — GPUs, AWS Inferentia and Amazon Elastic Inference</a></p>
+<p>Deep learning inference acceleration landscape</p>
+<ul>
+<li>CPUs acquired support for advanced vector extensions (AVX-512)</li>
+<li>GPUs acquired new capabilities such as support for reduced precision arithmetic (FP16 and INT8) further accelerating inference</li>
+<li>AWS Inferentia, a custom-designed ASIC </li>
+</ul>
+<h3 id="considerations"><a aria-hidden="true" class="anchor-heading" href="#considerations"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Considerations</h3>
+<ul>
+<li>
+<p>Model type and programmability: model size, custom operators, supported frameworks</p>
+<ul>
+<li>AWS Inferentia - fixed set of supported operations exposed via AWS Neuron SDK compiler </li>
+<li>CPU - fully programmable</li>
+<li>GPU - in between </li>
+<li>if have custom code written in high level languages, fall back to CPU:
+<img src="/dendron-notes/assets/images/2020-11-20-11-31-03.png">
+<ul>
+<li>NVIDIA GPUs: option to <strong>reimplement custom code using CUDA</strong>.
+<img src="/dendron-notes/assets/images/2020-11-20-11-52-23.png"></li>
+<li>this is hard to do w ASIC </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Target throughput, latency and cost: </p>
+<ul>
+<li>
+<p><strong>GPUs</strong> are throughput processors </p>
+<ul>
+<li>If latency is not critical, GPU utilization can be kept high and cost low - great for batch processing &#x26; offline inference</li>
+<li>if you are unable to keep your GPU utilization at its maximum at all times, due to e.g. sporadic inference request, cost / inference request goes up 
+<ul>
+<li>better to use <strong>Amazon Elastic Inference</strong> which lets you access just enough GPU acceleration for lower cost.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>CPUs are not parallel, but may be better for realtime inference of smaller models as long as latency is acceptable</p>
+</li>
+<li>
+<p>Inferentia’s performance and lower cost could be most cost effective and performant option if model is fully supported </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Compiler and runtime toolchain and ease of use</p>
+<ul>
+<li>GPU:
+<ul>
+<li>deep learning framework is good but not optimized</li>
+<li>use a dedicated inference compiler such as NVIDIA TensorRT for up to 10x speedup 
+<ul>
+<li>Quantization: reduce precision - from FP32 -> FR16 or INT8</li>
+<li>Graph fusion: fusing multiple layers/ops into a single function call</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="aws-inferentia"><a aria-hidden="true" class="anchor-heading" href="#aws-inferentia"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>AWS Inferentia</h3>
+<ul>
+<li>precisions:
+<ul>
+<li>automatically cast your FP32 model to BF16 </li>
+<li>or can provide model in FP16 </li>
+</ul>
+</li>
+<li>increase performance by:
+<ul>
+<li>batching: reducing cost of loading weights for each layer from external memory for each input</li>
+<li>pipelining: load weights of different subgraphs on different NeuronCores</li>
+<li>both require setting options during compilation </li>
+</ul>
+</li>
+<li>Using all NeuronCores on your Inf1 instances: 
+<ul>
+<li>smallest instance type: inf1.xlarge automatically perform data parallel execution on all 4 NeuronCores (=replicating your model 4 times and loading it into each NeuronCore and running 4 Python threads to feed input to data to each core)</li>
+<li>larger instance: must spawn multiple threads and use python threadpools </li>
+</ul>
+</li>
+<li>divide NeuronCores to run different models</li>
+</ul>
+<h3 id="amazon-elastic-inference"><a aria-hidden="true" class="anchor-heading" href="#amazon-elastic-inference"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Amazon Elastic Inference</h3>
+<p>Attached through the network using an AWS PrivateLink</p>
+<p>Why choose Amazon EI over dedicated GPU instances?</p>
+<ul>
+<li>if don’t have sufficient demand or multiple models to serve and share the GPU to keep up utilization, can attach "just enough" GPU acceleration to a CPU instance</li>
+<li>The cost of the CPU instance + EI accelerator would still be cheaper than a dedicated GPU instance</li>
+<li>EI adds some latency compared to GPU instance, but can be faster than CPU only </li>
+<li>need to use an EI enabled framework such as TensorFlow, PyTorch or Apache MXNet</li>
+</ul>
+<h2 id="choosing-the-right-gpu-for-deep-learning-on-aws"><a aria-hidden="true" class="anchor-heading" href="#choosing-the-right-gpu-for-deep-learning-on-aws"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a><a href="https://towardsdatascience.com/choosing-the-right-gpu-for-deep-learning-on-aws-d69c157d8c86">Choosing the right GPU for deep learning on AWS</a></h2>
+<ul>
+<li>G4 instance: NVIDIA T4 GPUs 
+<ul>
+<li>go-to for inference</li>
+<li>FP64, FP32, FP16, Tensor Cores (mixed-precision), and INT8 precision types</li>
+<li>16 GB of GPU memory   </li>
+</ul>
+</li>
+<li>P3: if need more throughput or need more memory per GPU</li>
+</ul><span id="navId" data="ee5aabfa-c76b-465e-8a60-63a8b391d6b4"></span>
+
+
+
+                
+      </section>
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+        
+          <hr>
+          <footer>
+            
+            
+
+            
+                
+                  <p class="text-small text-grey-dk-000 mb-0">
+                    <a href="https://github.com/angelarw/dendron-notes/edit/gh-pages/vault/topics.ml.inference-accelerator.md" id="edit-this-page">Edit this page on GitHub</a>
+                  </p>
+                
+              </div>
+          </footer>
+        
+    </div>
+</div>
+
+
+  
+
+  <div class="search-overlay"></div>
+
+</div>
+</body>
+</html>

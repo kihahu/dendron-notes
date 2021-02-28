@@ -1,0 +1,110 @@
+---
+id: e22dd5a3-f940-4548-b1d7-22a26b5386ce
+title: Ch04 - Encoding and evolution
+desc: ''
+updated: 1605303438660
+created: 1604260691239
+---
+
+# Chapter 4: Encoding and evolution 
+
+* **Backward compatibility**: Newer code can read data that was written by older code.
+* **Forward compatibility**: Older code can read data that was written by newer code.
+
+## Formats of encoding
+### Lang specific format
+
+- Tied to a particular langaguage
+- Security concern - decoding process needs to be able to instantiate arbitrary classes 
+- Versioning is after thought
+
+### JSON, XML, CSV
+
+- Usually good choice for comm between organizations
+- Problems:
+    - ambiguity around the encoding of numbers. 
+        - e.g. large numbers - integers greater than 2^53 cannot be exactly represented  in floating point in javascript
+    - Lack support for binary string - base64 enciding as workaround. -- increase data size by 33%
+    - Schema support not widely used. Decoding logic needs hardcoding
+
+### Binary format
+
+- Benefits 
+    - More compact (JSON etc. needs to be self describing. Lots of space used in each record)
+	- The **schema is a valuable form of documentation**  
+	- **Keeping a database of schemas** allows you to check forward and backward compatibility of schema changes, before anything is deployed. 
+    - **Code gen for static typed languages**
+- **Apach Thrift** (originally Facebook) and **ProtoBuf** (ori. Google)
+    - example Protobuf schema
+        
+        ```
+		message Person {
+            required string user_name       = 1;
+            optional int64  favorite_number = 2;
+            repeated string interests       = 3;
+		} 
+        ```
+    - Field tags and schema evolution 
+        - Each field contain the tag number and value
+        - Tag number can't change
+        - Protobuf has no list type, but `repeated` flag - can evolve from single to repeated 
+        - Thrift has dedicated list type => supports nested lists
+- **Avro** - designed for hadoop
+    - No reference to field tag
+    - Record appear in order
+    - **Translate between The writer’s schema and the reader’s schema**
+    - To maintain compatibility, you must only add or remove a field that has a **default value** 
+    - how to find writer schema: different options 
+        - Large file with lots of records  - include the writer’s schema once at the beginning of the large  file 
+        - Version number + database to look up schema
+        - Negotiate version on connection setup - AVRO RPC 
+    - Benefit: 
+        - Support dynamically generated schemas  - e.g. no need to hardcode translation between DB columns and schema if doing a dump
+        - Code generation and dynamically typed languages - Thrift and Protocol Buffers rely on code generation, not great for dynamic lang. In Avro code gen is optional - for dynamic type, can read directly
+
+#### The Merits of Schemas 
+
+- Many DBs proprietary binary encoding: JDBC/ODBC driver can decode responses from the DBs’s network protocol into in-memory data structures. 
+- Thrift, Protobuf and Avro all support schema, but simpler than XML or json (e.g. regex constraints)
+
+## Modes of dataflow
+
+### Through Databases 
+
+- Backward compatibility is clearly necessary: same client, newer version needs to read older writes
+- Forward compatibility is also needed: newer client writes a record, a older client reads
+- Common error: newer client adds a field, older client update the row, that unknown field get dropped-- if it can't parse new field, should keep as-is 
+- Data outlives code: App updates fast. Data from a long time ago is still stored 
+	- Schema evolution thus allows the entire database to appear as if it was encoded with a single schema, even though the underlying storage may contain records encoded with various historical versions of the schema. 
+- Archival storage:
+	- data dump will typically be encoded using the latest schema 
+	- Avro object container often good fit - or parquet for analytic friendliness 
+
+### Through Services: REST and RPC 
+
+- REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP - "REST-ful"
+    - URL as resource
+    - HTTP features for cache control, authentication, and content type negotiation 
+    - it doesn’t try to hide the fact that it’s a network protocol
+- SOAP: 
+    - avoid HTTP specific features
+    - WSDL enables code generation so that a client can access a remote service using local classes and method calls  - not as useful for dynamically typed languages
+- problems with RPCs pretending to be local calls - is flawed idea: 
+    - Unpredictable, may require retry
+    - may not know whether succeeded or failed (in case of timeout) 
+    - Retry and idempotence - request may be going through but didn't get successful response
+    - Latency longer
+    - Passing data
+- REST is usually used for external comm, RPC may be internal
+- Evolution:
+    - can assume all the servers will be updated first, and all the clients second -> only need backward compatibility on requests, and forward compatibility on responses. 
+	- REST api provider can store client APIs + version they are requesting to help manage. E.g. [stripe](https://stripe.com/docs/upgrades)
+    - Thrift, gRPC (Protocol Buffers), and Avro RPC can be evolved according to the compatibility rules of the respective encoding format
+
+### Message-Passing Dataflow 
+- **Actor programming model**: communicates by send/receiving async messages. process one message at a time. assume message may be lost 
+- Compared to RPC, less mismatch between local vs remote communication 
+- example distributed actor frameworks: message broker + actor programming model
+    * Akka - Java’s built-in serialization by default -> no fw/bw compatibility. supports using with ProtoBuf etc. to do rolling upgrades
+    * Orleans - also support custom serailization plug-ins 
+    * Erlang OTP  
