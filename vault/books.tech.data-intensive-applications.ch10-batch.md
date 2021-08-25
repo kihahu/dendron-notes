@@ -2,7 +2,7 @@
 id: b0ec61b7-70af-48f2-8c44-df56afab8f5d
 title: Ch10 - Batch processing
 desc: ''
-updated: 1605411275637
+updated: 1614537039718
 created: 1605153348300
 ---
 

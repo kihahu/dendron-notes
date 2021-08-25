@@ -2,7 +2,7 @@
 id: fbfe00ff-109f-4d84-8e62-22298363c305
 title: Building tech standards at AWS
 desc: ''
-updated: 1607359360301
+updated: 1614537039741
 created: 1607356210195
 ---
 

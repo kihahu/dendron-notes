@@ -2,7 +2,7 @@
 id: c61cfa31-05a8-47de-897d-0fbd0a884e69
 title: Ch06 - Partitioning
 desc: ''
-updated: 1605303416437
+updated: 1614537039717
 created: 1604287587873
 ---
 

@@ -1,11 +1,38 @@
+version: 1
+vaults:
+    -
+        fsPath: vault
+useFMTitle: true
 site:
     copyAssets: true
     siteHierarchies:
         - root
     siteRootDir: docs
+
+    duplicateNoteBehavior:
+        action: useVault
+        payload:
+            - vault
+
+    logo: "vault/assets/images/logo.png"
+
+    siteFaviconPath: "vault/assets/images/favicon.ico"
     usePrettyRefs: true
     assetsPrefix: /dendron-notes
-vaults:
-    -
-        fsPath: vault
-version: 0
+    siteUrl: "https://angelarwang.com"
+
+    gh_edit_link: true 
+    gh_edit_repository: "https://github.com/angelarw/dendron-notes"
+    gh_edit_link_text: "Edit this page on GitHub"
+    gh_edit_branch: "gh-pages" # the branch that your docs is served from
+    gh_edit_view_mode: "edit" # or "edit" if you want the user to jump into the editor immediately
+    gh_root: "docs/"
+
+    siteLastModified: true
+    title: Angela's note universe
+    description: "This is where I keep and share my notes on books, tech, travel, and other hobbies :)"
+    twitter:
+        card: summary
+        username: angelaw_ruohan
+    author:
+        name: "Angela Ruohan Wang"

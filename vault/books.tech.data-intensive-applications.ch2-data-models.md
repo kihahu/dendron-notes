@@ -1,8 +1,8 @@
 ---
 id: 45199987-a515-40d0-8bc8-c447503f21b1
-title: Ch02 - Data Models and Query Languages 
+title: Ch02 - Data Models and Query Languages
 desc: ''
-updated: 1605303435220
+updated: 1614536991037
 created: 1604342702043
 ---
 
