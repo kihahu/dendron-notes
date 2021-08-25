@@ -40,6 +40,7 @@ site:
     usePrettyRefs: true
     assetsPrefix: /dendron-notes
     siteUrl: 'https://angelarwang.com'
+    githubCname: "angelarwang.com"
     gh_edit_link: true
     gh_edit_repository: 'https://github.com/angelarw/dendron-notes'
     gh_edit_link_text: Edit this page on GitHub
