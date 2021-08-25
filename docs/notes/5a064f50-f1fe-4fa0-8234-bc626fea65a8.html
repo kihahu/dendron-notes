@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<html lang="en-US"><head>
+<html lang="en-US">
+<head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   
@@ -37,6 +38,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    
+   
   
 <meta name="description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
 <meta name="author" content="[object Object]">
@@ -61,7 +63,8 @@
 </head>
 
 
-<body style="">
+
+<body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="svg-link" viewBox="0 0 24 24">
         <title>Link</title>
@@ -129,7 +132,7 @@
       
         
           <nav aria-label="Breadcrumb" class="breadcrumb-nav">
-            <ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes">Root</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes/bee70da8-e282-4d98-9709-1bad45e8a734.html">Topics</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes/27ffe8ae-20ff-4850-a31e-aafff2c30b3f.html">Distributed Systems</a></li><li class="breadcrumb-nav-list-item">Orchestration</li></ol>
+            <ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes">Root</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\bee70da8-e282-4d98-9709-1bad45e8a734.html">Topics</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\27ffe8ae-20ff-4850-a31e-aafff2c30b3f.html">Distributed Systems</a></li><li class="breadcrumb-nav-list-item">Orchestration</li></ol>
           </nav>
         
       
@@ -137,11 +140,20 @@
 
         
         
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+        
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        
+        
+
+        
+
+        
 
         
 
@@ -208,8 +220,6 @@
 
 <table><thead><tr><th>Category</th><th>Variations</th><th>Tradeoffs</th></tr></thead><tbody><tr><td>Activity trigger</td><td>Push or Pull</td><td>cheap/fast (good for fast and lightweight steps) vs. throughput decoupled</td></tr><tr><td>Persistence level</td><td>Only as needed or after each step</td><td>cheap/fast vs. consistent</td></tr><tr><td>Process Execution</td><td>Sync or Async</td><td></td></tr><tr><td>Activity execution</td><td>Remote or Local</td><td></td></tr><tr><td>Process Trigger</td><td>Request driven or Event driven</td><td></td></tr></tbody></table><span id="navId" data="5a064f50-f1fe-4fa0-8234-bc626fea65a8"></span>
 
-
-
                 
       </section>
 
@@ -223,6 +233,7 @@
   
 </div>
 
+        <div class="thumbs feedback_trigger right-bottom"></div>
 
         
           <hr>
@@ -253,5 +264,6 @@
   <div class="search-overlay"></div>
 
 </div>
+
 </body>
 </html>
