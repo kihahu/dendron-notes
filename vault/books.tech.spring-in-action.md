@@ -2,7 +2,7 @@
 id: KYZS7dUMRSIagJiwlZl1X
 title: Spring in Action
 desc: ''
-updated: 1629858175014
+updated: 1630455041824
 created: 1629858155875
 ---
 
@@ -57,3 +57,10 @@ Manual wiring:
     - scope proxy 
    
     
+## Chpt4: Aspect oriented Spring
+
+- basic concepts:
+  ![](/assets/images/2021-08-31-20-04-25.png)
+- unlike AspectJ, spring is proxy based, and only supports **method interception**
+
+ ![](/assets/images/2021-08-31-20-05-48.png)
