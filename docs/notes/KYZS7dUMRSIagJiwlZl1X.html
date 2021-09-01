@@ -171,7 +171,7 @@
     <meta itemprop="headline" content="Spring in Action">
     
     <meta itemprop="datePublished" content="2021-08-24T22:22:35+00:00">
-    <meta itemprop="dateModified" content="2021-08-24T22:22:55+00:00">
+    <meta itemprop="dateModified" content="2021-09-01T09:21:03+00:00">
 
     <div class="page__inner-wrap">
 
@@ -255,6 +255,27 @@ public @interface Cold {
 </li>
 </ul>
 </li>
+</ul>
+<h2 id="chpt4-aspect-oriented-spring"><a aria-hidden="true" class="anchor-heading" href="#chpt4-aspect-oriented-spring"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chpt4: Aspect oriented Spring</h2>
+<ul>
+<li>
+<p>basic concepts:
+<img src="/dendron-notes/assets/images/2021-08-31-20-04-25.png"></p>
+</li>
+<li>
+<p>unlike AspectJ, spring is proxy based, and only supports <strong>method interception</strong></p>
+<p><img src="/dendron-notes/assets/images/2021-08-31-20-05-48.png"></p>
+</li>
+<li>
+<p>wrap method options:</p>
+<ul>
+<li><code>@After</code>
+@AfterReturning	The advice method is called after the advised method returns.
+@AfterThrowing	The advice method is called after the advised method throws an exception.
+@Around	The advice method wraps the advised method.
+@Before	The advice method is called before the advised method is called.</li>
+</ul>
+</li>
 </ul><span id="navId" data="KYZS7dUMRSIagJiwlZl1X"></span>
 
                 
@@ -281,7 +302,7 @@ public @interface Cold {
             
               <div class="d-flex mt-2">
               <p class="text-small text-grey-dk-000 mb-0 mr-2">
-                Page last modified: <span class="d-inline-block">8/24/2021</span>.
+                Page last modified: <span class="d-inline-block">9/1/2021</span>.
               </p>
             
                 
