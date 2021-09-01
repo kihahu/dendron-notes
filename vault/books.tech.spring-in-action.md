@@ -2,7 +2,7 @@
 id: KYZS7dUMRSIagJiwlZl1X
 title: Spring in Action
 desc: ''
-updated: 1630502463276
+updated: 1630503806951
 created: 1629858155875
 ---
 
@@ -67,7 +67,11 @@ Manual wiring:
 
 - wrap method options:
   - `@After`
-@AfterReturning	The advice method is called after the advised method returns.
-@AfterThrowing	The advice method is called after the advised method throws an exception.
-@Around	The advice method wraps the advised method.
-@Before	The advice method is called before the advised method is called.
+  - `@AfterReturning`
+  - `@AfterThrowing`	
+  - `@Around`	
+  - `@Before`	
+- also possible to add methods using **Introduction**
+
+  ![](/assets/images/2021-09-01-09-26-38.png)
+
