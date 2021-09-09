@@ -2,7 +2,7 @@
 id: 8ElJoIeJIuv6tJ1yeE27w
 title: Neuroscience
 desc: ''
-updated: 1631208589898
+updated: 1631210075983
 created: 1631194617058
 ---
 
@@ -142,5 +142,37 @@ created: 1631194617058
       - most commonly found
       - learning & memory
       - execessive production is toxic (ALS)
+      - binds to AMPA, open, allow Na+ in
+      - binds to NMDA, open, allow Ca++ in
+      - ![](/assets/images/2021-09-09-13-33-16.png)
   - different receptor react to different neurotransmitters 
-  -
+    - ![](/assets/images/2021-09-09-13-34-11.png)
+    - agonist 激动剂
+    - competitive antagonist - blocks other agonist from binding
+    - non-competitive antagonist - different site 
+- interaction with body
+  - direct innvervation through spinal cord + peripheral nerve system 
+    - cranial nerves
+      
+      ![](/assets/images/2021-09-09-13-41-15.png)
+    - corticospinal tracts
+      
+      ![](/assets/images/2021-09-09-13-41-42.png)
+  - through hormones in vascular system
+    - brain is neurochemically protected by BBB **blood-brain barrier**
+      - ![](/assets/images/2021-09-09-13-46-06.png)
+      - endothelial cells line blood vessels
+      - needed material is actively transported, like glucose
+      - only small hydrophobic molecules e.g. O2 are allowed through
+      - prevents toxins, bacateria, etc. 
+    - parts not protected by BBB：
+      - hypothalamus 下丘脑
+      - pituitary 脑下垂体
+      - pineal glands 松果体
+      - regulates temperature, thirst, hunger, circadian rhythm, sleep, stress response, etc. 
+    - bi-directional 
+      - e.g. adrenaline/epinephrine
+        - through blood, activates sympathetic nervous system 交感神经: fight/flight responses
+        - binds to receptors on vagal nerve -> releases glutamate -> encode the event to remember for future
+
+        
