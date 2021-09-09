@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   
-  <title>Spring in Action - Angela's note universe</title>
+  <title>Neuroscience - Angela's note universe</title>
   
 
   <link
@@ -43,22 +43,22 @@
 <meta name="description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
 <meta name="author" content="[object Object]">
 
-<link rel="canonical" href="https://angelarwang.com/notes/KYZS7dUMRSIagJiwlZl1X.html">
+<link rel="canonical" href="https://angelarwang.com/notes/8ElJoIeJIuv6tJ1yeE27w.html">
 
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://angelarwang.com/notes/KYZS7dUMRSIagJiwlZl1X.html">
+<meta property="og:url" content="https://angelarwang.com/notes/8ElJoIeJIuv6tJ1yeE27w.html">
 <meta property="og:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
 <meta property="og:image" content="https://angelarwang.com/logo.png">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@{"card":"summary","username":"angelaw_ruohan"}">
-<meta name="twitter:url" content="https://angelarwang.com/notes/KYZS7dUMRSIagJiwlZl1X.html">
+<meta name="twitter:url" content="https://angelarwang.com/notes/8ElJoIeJIuv6tJ1yeE27w.html">
 <meta name="twitter:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
 <meta name="twitter:image" content="https://angelarwang.com/logo.png">
 
 
-  <meta property="og:title" content="Spring in Action - Angela's note universe" />
-  <meta name="twitter:title" content="Spring in Action - Angela's note universe" />
+  <meta property="og:title" content="Neuroscience - Angela's note universe" />
+  <meta name="twitter:title" content="Neuroscience - Angela's note universe" />
   
 </head>
 
@@ -132,7 +132,7 @@
       
         
           <nav aria-label="Breadcrumb" class="breadcrumb-nav">
-            <ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes">Root</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\d088ab77-c2f6-4f7a-be4a-7597b00daff0.html">Books</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\ede45f4d-8d30-42a9-bd27-f1b3ba37d6e0.html">Tech</a></li><li class="breadcrumb-nav-list-item">Spring in Action</li></ol>
+            <ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes">Root</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\b0e90360-9cfe-47a5-b978-d007c2f1f305.html">Courses</a></li><li class="breadcrumb-nav-list-item">Neuroscience</li></ol>
           </nav>
         
       
@@ -168,10 +168,10 @@
 <div id="main" role="main">
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Spring in Action">
+    <meta itemprop="headline" content="Neuroscience">
     
-    <meta itemprop="datePublished" content="2021-08-24T22:22:35+00:00">
-    <meta itemprop="dateModified" content="2021-09-01T09:43:26+00:00">
+    <meta itemprop="datePublished" content="2021-09-09T09:36:57+00:00">
+    <meta itemprop="dateModified" content="2021-09-09T13:29:49+00:00">
 
     <div class="page__inner-wrap">
 
@@ -181,106 +181,271 @@
 
         
 
-        <h1 id="spring-in-action"><a aria-hidden="true" class="anchor-heading" href="#spring-in-action"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Spring in Action</h1>
-<h2 id="chpt-2-wiring-beans"><a aria-hidden="true" class="anchor-heading" href="#chpt-2-wiring-beans"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chpt 2: Wiring beans</h2>
-<p>Auto configuration</p>
+        <h1 id="neuroscience"><a aria-hidden="true" class="anchor-heading" href="#neuroscience"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Neuroscience</h1>
+<h2 id="anatomy"><a aria-hidden="true" class="anchor-heading" href="#anatomy"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Anatomy</h2>
 <ul>
-<li><code>@Autowired</code> works on both constructor and method (will create dependent beans, and throw error if can't find)</li>
-<li><code>@Autowired</code> is spring specific, use <code>@Inject</code> from java, mostly interchangable </li>
-<li>when using <code>@ComponentScan</code>, better to use <code>basePackageClasses</code> to be refactor proof</li>
+<li>Neurons 神经元细胞
+<ul>
+<li><img src="/dendron-notes/assets/images/2021-09-09-09-38-10.png"></li>
+<li>Axon: transmits electrical signal 轴突</li>
+<li>axon terminal: = presynaptic terminal, end on adjoining dendrites or cell body</li>
+<li>Dendrites: receives contact 树突</li>
 </ul>
-<p>Manual wiring:</p>
-<ul>
-<li>
-<p><code>@bean</code> by default ID = method name. override it with <code>name=</code></p>
 </li>
-<li>
-<p>by default, all beans in spring are singletons.</p>
-<pre><code>@Bean
-public CompactDisc sgtPeppers(){
-  return new SgtPappers();
-}
-</code></pre>
-<p>if directly call the method that a bean annotation is on, e.g. <code>sgtPepeprs()</code> will return the singleton rather than creating another instance. </p>
-<h2 id="chpt-3-advanced-wiring"><a aria-hidden="true" class="anchor-heading" href="#chpt-3-advanced-wiring"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chpt 3: Advanced wiring</h2>
-</li>
-<li>
-<p><code>@Profile("dev")</code> annotation for beans only created when active profiles include dev</p>
-</li>
-<li>
-<p><code>@Conditional(MagicExistsCondition.class)</code> for custom conditions </p>
+<li>Glia  神经胶质细胞
 <ul>
-<li>Condition interface comes with 2 params: <code>matches(ConditionContext context, AnnotatedTypeMetadata metadata)</code></li>
-<li><a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ConditionContext.html">ConditionContext</a>
+<li>majority of cells </li>
+<li>function
 <ul>
-<li>bean registry: bean definitions</li>
-<li>bean factory: presence of beans</li>
-<li>environment: env varialbes</li>
-<li>resource loader: resources loaded</li>
-<li>class loader: class loaded </li>
+<li>connective tissue</li>
+<li>metabolic support roles</li>
+<li>remove excessive secretions</li>
+<li>produces myelin=insulates neurons</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<p>disambiguating beans</p>
+<li>Structural anatomy
+<ul>
+<li>cytoarchitectural organization</li>
+<li>dissociable brain structure </li>
+<li>dissociable brain networks</li>
+<li>rudimental classification
+<img src="/dendron-notes/assets/images/2021-09-09-09-53-59.png"></li>
+</ul>
+</li>
+<li>vascular anatomy
+<ul>
+<li><img src="/dendron-notes/assets/images/2021-09-09-10-07-58.png"></li>
+<li>circle of willis: blood enter brain
+<ul>
+<li>anterior cerebral artery</li>
+</ul>
+</li>
+<li><img src="/dendron-notes/assets/images/2021-09-09-10-13-09.png"></li>
+</ul>
+</li>
+<li>Similarity with other animals
+<ul>
+<li>similar structure, human just bigger cortex</li>
+<li>allows experiment on simpler animals</li>
+</ul>
+</li>
+<li>development stages
+<ul>
+<li>cortex last </li>
+<li><img src="/dendron-notes/assets/images/2021-09-09-11-40-53.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="terminology"><a aria-hidden="true" class="anchor-heading" href="#terminology"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Terminology</h2>
+<p>-axis</p>
 <ul>
 <li>
-<p><code>@Primary</code></p>
+<p>Rostrum 嘴 cauda 尾</p>
 </li>
 <li>
-<p><code>@Qualifier("cold)</code></p>
+<p>dorsal 背 ventrum 腹</p>
+<p><img src="/dendron-notes/assets/images/2021-09-09-11-44-44.png"></p>
 </li>
 <li>
-<p>Use custom qualifier annotations to allow multiple qualifiers - <code>@Cold</code> </p>
-<pre><code>@Target({ElementType.FIELD, ElementType.PARAMETER, ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
-@Qualifier
-public @interface Cold {
-}
-</code></pre>
+<p>human</p>
+<p><img src="/dendron-notes/assets/images/2021-09-09-11-46-49.png"></p>
+<ul>
+<li>superior - inferior</li>
+<li>antirior - posterior</li>
+<li>medial - lateral </li>
+</ul>
+</li>
+<li>
+<p>planes</p>
+<p><img src="/dendron-notes/assets/images/2021-09-09-11-47-54.png"></p>
+<ul>
+<li>
+<p>in MRI</p>
+<ul>
+<li>coronal = frontal</li>
+<li>axial - transverse</li>
+<li>sagittal</li>
+</ul>
+<p><img src="/dendron-notes/assets/images/2021-09-09-11-48-41.png"></p>
+<ul>
+<li>
+<p>left vs right in frontal view </p>
+<ul>
+<li>radiological convention: left on right side of image
+<ul>
+<li>face forward</li>
+</ul>
+</li>
+<li>neurological convention: left is left in image
+<ul>
+<li>face backward</li>
+</ul>
 </li>
 </ul>
 </li>
 <li>
-<p><code>@Scope</code></p>
+<p>use fiduciary marker - right side</p>
+<p><img src="/dendron-notes/assets/images/2021-09-09-11-53-58.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>proximal 近vs distal</p>
+</li>
+<li>
+<p>ipsilateral 同側vs contralateral 異側</p>
+</li>
+</ul>
+<h2 id="methods-of-communication-in-the-brain"><a aria-hidden="true" class="anchor-heading" href="#methods-of-communication-in-the-brain"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Methods of Communication in the Brain</h2>
 <ul>
-<li>singleton</li>
-<li>prototype - created each time is injected </li>
-<li>session - in web app, one for each session. e.g. shopping cart </li>
-<li>request 
+<li>
+<p>reticular 网状 theory (Golgi)</p>
 <ul>
-<li>scope proxy </li>
+<li>connected reticular net </li>
+</ul>
+</li>
+<li>
+<p>neuron doctrine</p>
+<ul>
+<li>neurons are independent, contigual not continual </li>
+</ul>
+</li>
+<li>
+<p>types:</p>
+<ul>
+<li>sensory neuron - external stimuli -> electrical signals</li>
+<li>interneuron - processing &#x26; relay</li>
+<li>motor neuron - electrical signals-> muscle or gland movement</li>
+</ul>
+</li>
+<li>
+<p>ion channels &#x26; ion pumps </p>
+<ul>
+<li><img src="/dendron-notes/assets/images/2021-09-09-12-54-33.png"></li>
+</ul>
+<ol>
+<li>influx of Ca++ -> synaptic vesicles fuse with pre-synaptic membrane</li>
+<li>transmitter released into cleft</li>
+<li>transmitter binds receptor molecules on post-synaptic membrane</li>
+<li>post-synaptic channels then open/close based on binding</li>
+<li>opneing -> influx of ions (Na+/K+) / close -> prevents</li>
+<li>causes either depolarize or hyper-polarize </li>
+<li>if post-synaptic voltage large enough -> electrochemical pual is generated = action potential</li>
+<li>simultaneously
+<ul>
+<li>action potential travels down axon. </li>
+<li>used vesicle is retrieved and recycled</li>
+</ul>
+</li>
+<li>new transmitter is synthesized </li>
+</ol>
+<ul>
+<li><img src="/dendron-notes/assets/images/2021-09-09-12-55-57.png"></li>
+<li>Excitatory post-synaptic potential (EPSP)
+<ul>
+<li>sometimes sum of EPSPs from multiple neuros are necessary for action potential<br>
+<img src="/dendron-notes/assets/images/2021-09-09-13-02-43.png"></li>
+</ul>
+</li>
+<li>recording 
+<ul>
+<li><img src="/dendron-notes/assets/images/2021-09-09-13-04-08.png"></li>
+<li>inside neuron (1)</li>
+<li>outside neuron (2)
+<ul>
+<li>extracellular eletrode can only measure local neuronal environment (local field potential LFP)</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="chpt4-aspect-oriented-spring"><a aria-hidden="true" class="anchor-heading" href="#chpt4-aspect-oriented-spring"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chpt4: Aspect oriented Spring</h2>
-<ul>
-<li>
-<p>basic concepts:
-<img src="/dendron-notes/assets/images/2021-08-31-20-04-25.png"></p>
 </li>
 <li>
-<p>unlike AspectJ, spring is proxy based, and only supports <strong>method interception</strong></p>
-<p><img src="/dendron-notes/assets/images/2021-08-31-20-05-48.png"></p>
-</li>
-<li>
-<p>wrap method options:</p>
+<p>different neurotransmitters (>50)</p>
 <ul>
-<li><code>@After</code></li>
-<li><code>@AfterReturning</code></li>
-<li><code>@AfterThrowing</code>	</li>
-<li><code>@Around</code>	</li>
-<li><code>@Before</code>	</li>
+<li>by makeup
+<ul>
+<li>amino acids
+<ul>
+<li>glutamate</li>
+<li>aspartate</li>
+<li>glycine
+...</li>
 </ul>
 </li>
-<li>
-<p>also possible to add methods using <strong>Introduction</strong></p>
-<p><img src="/dendron-notes/assets/images/2021-09-01-09-26-38.png"></p>
+<li>peptides
+<ul>
+<li>somatostatin
+...</li>
+</ul>
 </li>
-</ul><span id="navId" data="KYZS7dUMRSIagJiwlZl1X"></span>
+<li>others 
+<ul>
+<li>Serotonin 血清素</li>
+<li>Histamine 组胺</li>
+<li>Melatonin 褪黑素</li>
+<li>Norepinephrine 去甲肾上腺素</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>by excitatory vs inhibooary
+<ul>
+<li>excitatory 
+<ul>
+<li>epinephrine 肾上腺素</li>
+<li>norepinephrine</li>
+</ul>
+</li>
+<li>inhibitory
+<ul>
+<li>serotonin</li>
+<li>GABA</li>
+</ul>
+</li>
+<li>both
+<ul>
+<li>dopamine</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>important examples
+<ul>
+<li>acetylcholine 乙酰胆碱
+<ul>
+<li>excitatory </li>
+<li>activates motor neurons</li>
+<li>attention, arounsal, learning, memory</li>
+<li>low levels in Alzheimers</li>
+</ul>
+</li>
+<li>dopamine
+<ul>
+<li>fine movements</li>
+<li>positive emotions</li>
+<li>abnorally low levels in Parkinsons</li>
+<li>abnorally high in frontal areas of schizophrenia</li>
+</ul>
+</li>
+<li>glutamate 穀氨酸
+<ul>
+<li>most commonly found</li>
+<li>learning &#x26; memory</li>
+<li>execessive production is toxic (ALS)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>different receptor react to different neurotransmitters </li>
+<li></li>
+</ul>
+</li>
+</ul><span id="navId" data="8ElJoIeJIuv6tJ1yeE27w"></span>
 
                 
       </section>
@@ -306,12 +471,12 @@ public @interface Cold {
             
               <div class="d-flex mt-2">
               <p class="text-small text-grey-dk-000 mb-0 mr-2">
-                Page last modified: <span class="d-inline-block">9/1/2021</span>.
+                Page last modified: <span class="d-inline-block">9/9/2021</span>.
               </p>
             
                 
                   <p class="text-small text-grey-dk-000 mb-0">
-                    <a href="https://github.com/angelarw/dendron-notes/edit/gh-pages/vault/books.tech.spring-in-action.md" id="edit-this-page">Edit this page on GitHub</a>
+                    <a href="https://github.com/angelarw/dendron-notes/edit/gh-pages/vault/courses.neuroscience.md" id="edit-this-page">Edit this page on GitHub</a>
                   </p>
                 
               </div>
