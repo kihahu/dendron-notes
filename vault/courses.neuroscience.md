@@ -2,7 +2,7 @@
 id: 8ElJoIeJIuv6tJ1yeE27w
 title: Neuroscience
 desc: ''
-updated: 1631210075983
+updated: 1631223745063
 created: 1631194617058
 ---
 
@@ -175,4 +175,64 @@ created: 1631194617058
         - through blood, activates sympathetic nervous system 交感神经: fight/flight responses
         - binds to receptors on vagal nerve -> releases glutamate -> encode the event to remember for future
 
-        
+## Functional anatomy
+- cerebrospinal fluid CSF 脑脊液
+  - protects brain and spinal cord from trauma
+  - supply nutrients
+- grey matter
+  - contains neuronal cell bodies
+  - info processing 
+- white matter
+  - fiber bundles of axon projects 
+  - information transmission 
+- primary motor cortex
+  - dorsal portion of frontal lobe
+  - plan movements
+  - send long axons down spinal cord 
+  - ![](/assets/images/2021-09-09-14-07-37.png)
+- primary somatosensory cortex
+  - receives sensory input
+  - ![](/assets/images/2021-09-09-14-09-10.png)
+  - amount of cortex is proportional to density of tactile receptors 
+- thalamus 丘脑 
+  - relay sensory and motor signal
+  - regulation of sleep and consciousness
+- visual cortex
+  - orientation 
+    - ![](/assets/images/2021-09-09-14-13-08.png)
+  - what or where pathway
+    - ![](/assets/images/2021-09-09-14-13-47.png)
+- cerebellum 小脑
+  - seperate structure
+  - receive from sensory, spinal
+  - coordinates posture, balance, timing coordination
+
+- Organization of Cognitive Domains
+  - language
+    - Broca's aphasia
+      - ![](/assets/images/2021-09-09-14-21-48.png)
+      - understand words and simple sentences
+      - know what they want to say
+      - unable to generate fluent speech
+    - Wernicke area - silent, writing 
+      - receptive aphasia
+      - unable to comprehend. can express 
+    - ![](/assets/images/2021-09-09-14-24-25.png)
+  - Gage 1848 accident
+    - speech/motor still functions
+    - severe personality change 
+      ![](/assets/images/2021-09-09-14-26-15.png)
+  - memory 
+    - patient H.M.
+      - removed bilateral hippocampus 海马体, amygdala 杏仁体 and surrounding cortext to fix seizure
+      - intact language, IQ, working memory and motor control
+      - unable to learn new facts/events
+      - unable to remember anything since the surgery 
+      - but he's able to improve some motor skills (draw star) but don't consciously remember -> must be multiple area
+    - multiple systems
+      - medial temporal lobe
+      - basal ganglia 基底核
+        - fine motor planning and movements
+        - stratum: reward, reinforcement
+        - motor learning, stimulus response learning
+        - ![](/assets/images/2021-09-09-17-26-16.png)
