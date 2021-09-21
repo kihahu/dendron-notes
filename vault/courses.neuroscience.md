@@ -2,7 +2,7 @@
 id: 8ElJoIeJIuv6tJ1yeE27w
 title: Neuroscience
 desc: ''
-updated: 1631223745063
+updated: 1632192707189
 created: 1631194617058
 ---
 
@@ -236,3 +236,158 @@ created: 1631194617058
         - stratum: reward, reinforcement
         - motor learning, stimulus response learning
         - ![](/assets/images/2021-09-09-17-26-16.png)
+  - specific tasks
+    - fusiform face area - recognizing faces
+      ![](/assets/images/2021-09-13-20-39-39.png)
+
+### Neuropsychological Assessment of Cognition
+
+Neuropsychology: behavioral expression of brain function
+
+- cognition
+  - initially: single function of intelligence. IQ=100 is median
+- emotionality
+- executive 
+
+- Screening testing
+  - RBANS
+  - MMSE
+  - MOCA
+- Hypothesis testing
+-  Neuropsychological battery approach
+  - comprehensive
+
+Example
+- memory assessment
+  - Wechsler memory scale
+    - personal and current info
+    - orientation
+    - mental control
+    - logical memory
+    - digit span 
+    - visual repro
+    - paired associate
+  - word list learning
+- Executive
+  - volition
+  - planning
+  - purposive action
+  - effective performance
+  - e.g. Stroop word test - word "red" colored in blue 
+
+
+## Approaches to Neuroimaging
+
+- Categories
+  - structural 
+    - anatomy
+    - pathology
+  - functional 
+    - metabolic
+    - pharmacologic
+    - cognitive
+- techniques 
+  - EEG 
+    - measure activity through electrodes on scalp
+  - CT - computed axial tomography
+    - series of xrays
+    - many cross sections rescontructed to a 3D volume
+    - fast, but moderate radiation
+  - single photoon emission computed tomograph - SPECT 单光子发射计算机断层成像术
+    - gamma emitter tracer through 静脉注射
+    - spacial resolution not good - a few cm
+  - PET - positron emission tomography
+    - positron emitting radionuclide that binds to biologically active molecule
+      - FDG-PET: marker for glucose uptake (tumors, Alzheimers)
+      - 18F-AV-45 PET market for beta amyloid (protein occursi in Alzheimer's)
+        ![](/assets/images/2021-09-20-21-22-35.png)
+    - detects pairs of gamma rays 
+    - higher resolution than SPECT
+    ![](/assets/images/2021-09-20-21-19-25.png)
+  - MRI
+    - static + variable 磁场 perturb H atoms
+    - resulting resonance is masured by radio frequency receivers
+    - different pulse sequence -> different contrast for tissue type
+    - magnetic field is 60x stronger than earth
+      - ppl w pace maker should never do MRI
+      - dangerous to ave metallic objects in vicinity
+    - no radiation/known side effects 
+    - high resolution
+    
+    ![](/assets/images/2021-09-20-21-24-39.png)
+    ![](/assets/images/2021-09-20-21-29-43.png)
+    - -270C super conducting metal
+    - additional head antenae
+      ![](/assets/images/2021-09-20-21-31-06.png)
+  - fMRI
+    - magnetic resonance from oxygenated vs non-oxygenated blood 
+  - diffusion tensor imagining 
+    - refined application of MRI 
+    - measures directionality of water molecules 
+    - assess fiber projecttions & white matter integrity
+      ![](/assets/images/2021-09-20-21-33-28.png)
+  - spectroscopy
+    - refined application of MRI 
+    - magnetic signatures of various metabolites 
+      ![](/assets/images/2021-09-20-21-34-25.png)
+
+### Basics of MRI
+
+- MRI signal
+  - spin both its own axis and the magnetic field
+    ![](/assets/images/2021-09-20-21-39-02.png)
+    - parallel: low energy
+    - anti-parallel: high energy 
+  - after a few seconds, reach equilibrium, all protons are aligned 
+  - static field can't be measured. MRI signal introduces different direction perpendicular to the main field, causes protons to move away from axis
+    ![](/assets/images/2021-09-20-22-16-11.png)
+    - when stops, procession back to original alignment
+    - t1 & t2 plane
+      - t1: longitutional (original field position)
+        ![](/assets/images/2021-09-20-22-14-26.png)
+      - t2: transverse
+      ![](/assets/images/2021-09-20-22-10-11.png)
+    - the procession induces a signal in receiver coil
+    - relaxation time: time it takes to recover after being disturbed 
+    - different biological matter have different but consistent t1 and t2 relaxation times
+      ![](/assets/images/2021-09-20-22-12-11.png)
+      - tumor also different 
+      ![](/assets/images/2021-09-20-22-12-29.png)
+    - ![](/assets/images/2021-09-20-22-13-24.png)
+  - spatial specificity 
+    - **Larmor frequency** frequeny needed to changea spin from low to high energy spin 
+      ![](/assets/images/2021-09-20-22-17-44.png)
+      ![](/assets/images/2021-09-20-22-18-02.png)
+      - MRI mostly targeting water molecules
+    - Larmor frequency depends on local magnetic strength
+    - create bands of frequency/magnetic gradient 
+    - put together:
+      - linear gradients create sptial specificity
+      - radio purlse selectively excites slices
+      ![](/assets/images/2021-09-20-22-25-17.png)
+- fMRI 
+  - ![](/assets/images/2021-09-20-22-29-29.png)
+  - oxygenated hemoglobin vs de-O hemoglobin have different effects on dephasing - de-O hemoglobin cause more dephasing 
+    ![](/assets/images/2021-09-20-22-31-19.png)
+  - Blood Oxygen Level Dependent (BOLD) MRI 
+  - measure changes in homogeneity in magnetic field (T2*)
+    - T2: transverse magnetization decay of a spin after radio frequency pulse
+    - T2*: transverse magnetization decay from local magnetic field variations
+    - ![](/assets/images/2021-09-20-22-36-34.png)
+    - de-O hemoglobin: paramagnetic, introduces inhomogeneity
+    - O hemoglobin: little effect 
+  - BOLD signal:
+    - HRF: hemodynamic response function  
+    ![](/assets/images/2021-09-20-22-41-50.png)
+    - it doesn't measure neural activity directly
+    - measures metabolic demands
+  - physiological basis:
+    ![](/assets/images/2021-09-20-22-44-12.png)
+    1. glutamate releases 
+    1. open post-synaptic ion channels
+    1. re-uptake of glutamate by astrocyte triggers glucose metabolism
+    1. astrocytes pump out ions to restor ionic gradients
+    1. processes use glucose + O2
+    - MUA- multi-unit activity
+    - LFP local field potential = summation of post-synaptic potential more correlated (but delayed) w BOLD activity 
+    ![](/assets/images/2021-09-20-22-48-21.png)
