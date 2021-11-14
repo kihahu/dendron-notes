@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   
-  <title>Async job scheduling - Angela's note universe</title>
+  <title>F1 - Angela's note universe</title>
   
 
   <link
@@ -43,22 +43,22 @@
 <meta name="description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
 <meta name="author" content="[object Object]">
 
-<link rel="canonical" href="https://angelarwang.com/notes/7ec6a7fa-7000-45e0-bec0-e3aa2e3493c5.html">
+<link rel="canonical" href="https://angelarwang.com/notes/eUn6KV2jn4iAjDQtu3cpr.html">
 
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://angelarwang.com/notes/7ec6a7fa-7000-45e0-bec0-e3aa2e3493c5.html">
+<meta property="og:url" content="https://angelarwang.com/notes/eUn6KV2jn4iAjDQtu3cpr.html">
 <meta property="og:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
 <meta property="og:image" content="https://angelarwang.com/logo.png">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@{"card":"summary","username":"angelaw_ruohan"}">
-<meta name="twitter:url" content="https://angelarwang.com/notes/7ec6a7fa-7000-45e0-bec0-e3aa2e3493c5.html">
+<meta name="twitter:url" content="https://angelarwang.com/notes/eUn6KV2jn4iAjDQtu3cpr.html">
 <meta name="twitter:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
 <meta name="twitter:image" content="https://angelarwang.com/logo.png">
 
 
-  <meta property="og:title" content="Async job scheduling - Angela's note universe" />
-  <meta name="twitter:title" content="Async job scheduling - Angela's note universe" />
+  <meta property="og:title" content="F1 - Angela's note universe" />
+  <meta name="twitter:title" content="F1 - Angela's note universe" />
   
 </head>
 
@@ -132,7 +132,7 @@
       
         
           <nav aria-label="Breadcrumb" class="breadcrumb-nav">
-            <ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes">Root</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\bee70da8-e282-4d98-9709-1bad45e8a734.html">Topics</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\27ffe8ae-20ff-4850-a31e-aafff2c30b3f.html">Distributed Systems</a></li><li class="breadcrumb-nav-list-item">Async job scheduling</li></ol>
+            <ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes">Root</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\ky9vudzTOnjEJmLajz0Vk.html">Sports</a></li><li class="breadcrumb-nav-list-item">F1</li></ol>
           </nav>
         
       
@@ -168,10 +168,10 @@
 <div id="main" role="main">
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Async job scheduling">
+    <meta itemprop="headline" content="F1">
     
-    <meta itemprop="datePublished" content="2020-11-15T15:45:52+00:00">
-    <meta itemprop="dateModified" content="2021-02-28T13:30:39+00:00">
+    <meta itemprop="datePublished" content="2021-10-25T21:47:07+00:00">
+    <meta itemprop="dateModified" content="2021-10-25T21:47:07+00:00">
 
     <div class="page__inner-wrap">
 
@@ -181,53 +181,12 @@
 
         
 
-        <h1 id="async-job-scheduling"><a aria-hidden="true" class="anchor-heading" href="#async-job-scheduling"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Async job scheduling</h1>
-<h3 id="blog-asynchronous-computing-facebook-private"><a aria-hidden="true" class="anchor-heading" href="#blog-asynchronous-computing-facebook-private"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>[Blog] Asynchronous computing <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@Facebook (Private)</a></h3>
-<ul>
-<li><a href="https://engineering.fb.com/2020/08/17/production-engineering/async/">https://engineering.fb.com/2020/08/17/production-engineering/async/</a></li>
-<li>Problem with simple priority queues: 
-<ul>
-<li>large use cases dominate</li>
-<li>bad jobs stuck </li>
-<li>uneven utilization between peaks &#x26; valleys </li>
-</ul>
-</li>
-<li>Building to scale
-<ul>
-<li>introduce <strong>delay tolerance</strong></li>
-<li>Capacity optimization: 
-<ul>
-<li>classifying use cases:
-<ul>
-<li>daily traffic: predictable</li>
-<li>major events: semi-predictable</li>
-<li>Incident response: short and spikey, unpredictable</li>
-</ul>
-</li>
-<li>Time shifting: 
-<ul>
-<li>Predictive - which data may need, precomputes and cache</li>
-<li>Deferred compute
-<img src="/dendron-notes/assets/images/2020-11-15-15-53-52.png"></li>
-</ul>
-</li>
-<li>batching: 
-<ul>
-<li>reduce # of requests to other components </li>
-<li>potential high cache reuse and code warmup</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Capacity policy: quota and rate limiting
-<ul>
-<li>CPU instruction utilization and memory limit - when exceeded, throttle and send alert</li>
-<li>rate limit on intake</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul><span id="navId" data="7ec6a7fa-7000-45e0-bec0-e3aa2e3493c5"></span>
+        <h1 id="f1"><a aria-hidden="true" class="anchor-heading" href="#f1"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>F1</h1>
+<hr>
+<h2 id="children"><a aria-hidden="true" class="anchor-heading" href="#children"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Children</h2>
+<ol>
+<li><a href="https://angelarwang.com/dendron-notes/notes/o8B6QWQOFpuSY3iqoh8YM.html">2021</a></li>
+</ol><span id="navId" data="eUn6KV2jn4iAjDQtu3cpr"></span>
 
                 
       </section>
@@ -253,12 +212,12 @@
             
               <div class="d-flex mt-2">
               <p class="text-small text-grey-dk-000 mb-0 mr-2">
-                Page last modified: <span class="d-inline-block">2/28/2021</span>.
+                Page last modified: <span class="d-inline-block">10/25/2021</span>.
               </p>
             
                 
                   <p class="text-small text-grey-dk-000 mb-0">
-                    <a href="https://github.com/angelarw/dendron-notes/edit/gh-pages/vault/topics.distributed-systems.async.md" id="edit-this-page">Edit this page on GitHub</a>
+                    <a href="https://github.com/angelarw/dendron-notes/edit/gh-pages/vault/sports.f1.md" id="edit-this-page">Edit this page on GitHub</a>
                   </p>
                 
               </div>

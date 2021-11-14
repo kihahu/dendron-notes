@@ -1,0 +1,61 @@
+version: 1
+vaults:
+    -
+        fsPath: vault
+useFMTitle: true
+useNoteTitleForLink: true
+noAutoCreateOnDefinition: true
+noLegacyNoteRef: true
+noXVaultWikiLink: true
+lookupConfirmVaultOnCreate: false
+mermaid: true
+useKatex: true
+autoFoldFrontmatter: true
+dev:
+    enablePreviewV2: true
+lookup:
+    note:
+        selectionType: selectionExtract
+journal:
+    dailyDomain: daily
+    name: journal
+    dateFormat: y.MM.dd
+    addBehavior: childOfDomain
+    firstDayOfWeek: 1
+scratch:
+    name: scratch
+    dateFormat: y.MM.dd.HHmmss
+    addBehavior: asOwnDomain
+site:
+    copyAssets: true
+    siteHierarchies:
+        - root
+    siteRootDir: docs
+    duplicateNoteBehavior:
+        action: useVault
+        payload:
+            - vault
+    logo: vault/assets/images/logo.png
+    siteFaviconPath: vault/assets/images/favicon.ico
+    usePrettyRefs: true
+    assetsPrefix: /dendron-notes
+    siteUrl: 'https://angelarwang.com'
+    githubCname: "angelarwang.com"
+    gh_edit_link: true
+    gh_edit_repository: 'https://github.com/angelarw/dendron-notes'
+    gh_edit_link_text: Edit this page on GitHub
+    gh_edit_branch: gh-pages
+    gh_edit_view_mode: edit
+    gh_root: docs/
+    siteLastModified: true
+    title: Angela's note universe
+    description: >-
+        This is where I keep and share my notes on books, tech, travel, and
+        other hobbies :)
+    twitter:
+        card: summary
+        username: angelaw_ruohan
+    author:
+        name: Angela Ruohan Wang
+initializeRemoteVaults: true
+dendronVersion: 0.56.0

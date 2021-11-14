@@ -1,10 +1,27 @@
 {
-    "scripts": {
-        "dendron-cli": "dendron-cli"
-    },
-    "license": "CC BY 4.0",
-    "devDependencies": {
-        "@dendronhq/dendron-cli": "*",
-        "@dendronhq/dendron-11ty": ""
-    }
+  "scripts": {
+    "dendron-cli": "dendron-cli"
+  },
+  "license": "CC BY 4.0",
+  "devDependencies": {
+    "@dendronhq/dendron-cli": "*",
+    "@dendronhq/dendron-11ty-legacy": ""
+  },
+  "name": "dendron-notes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angelarw/dendron-notes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/angelarw/dendron-notes/issues"
+  },
+  "homepage": "https://github.com/angelarw/dendron-notes#readme",
+  "description": ""
 }

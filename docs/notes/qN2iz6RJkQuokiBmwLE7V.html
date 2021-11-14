@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   
-  <title>Async job scheduling - Angela's note universe</title>
+  <title>When Breathe Becomes Air - Angela's note universe</title>
   
 
   <link
@@ -43,22 +43,22 @@
 <meta name="description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
 <meta name="author" content="[object Object]">
 
-<link rel="canonical" href="https://angelarwang.com/notes/7ec6a7fa-7000-45e0-bec0-e3aa2e3493c5.html">
+<link rel="canonical" href="https://angelarwang.com/notes/qN2iz6RJkQuokiBmwLE7V.html">
 
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://angelarwang.com/notes/7ec6a7fa-7000-45e0-bec0-e3aa2e3493c5.html">
+<meta property="og:url" content="https://angelarwang.com/notes/qN2iz6RJkQuokiBmwLE7V.html">
 <meta property="og:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
 <meta property="og:image" content="https://angelarwang.com/logo.png">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@{"card":"summary","username":"angelaw_ruohan"}">
-<meta name="twitter:url" content="https://angelarwang.com/notes/7ec6a7fa-7000-45e0-bec0-e3aa2e3493c5.html">
+<meta name="twitter:url" content="https://angelarwang.com/notes/qN2iz6RJkQuokiBmwLE7V.html">
 <meta name="twitter:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
 <meta name="twitter:image" content="https://angelarwang.com/logo.png">
 
 
-  <meta property="og:title" content="Async job scheduling - Angela's note universe" />
-  <meta name="twitter:title" content="Async job scheduling - Angela's note universe" />
+  <meta property="og:title" content="When Breathe Becomes Air - Angela's note universe" />
+  <meta name="twitter:title" content="When Breathe Becomes Air - Angela's note universe" />
   
 </head>
 
@@ -132,7 +132,7 @@
       
         
           <nav aria-label="Breadcrumb" class="breadcrumb-nav">
-            <ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes">Root</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\bee70da8-e282-4d98-9709-1bad45e8a734.html">Topics</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\27ffe8ae-20ff-4850-a31e-aafff2c30b3f.html">Distributed Systems</a></li><li class="breadcrumb-nav-list-item">Async job scheduling</li></ol>
+            <ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes">Root</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\d088ab77-c2f6-4f7a-be4a-7597b00daff0.html">Books</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\q4JN59s3Az93r9d0FnTxg.html">Autobiographies</a></li><li class="breadcrumb-nav-list-item">When Breathe Becomes Air</li></ol>
           </nav>
         
       
@@ -168,10 +168,10 @@
 <div id="main" role="main">
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Async job scheduling">
+    <meta itemprop="headline" content="When Breathe Becomes Air">
     
-    <meta itemprop="datePublished" content="2020-11-15T15:45:52+00:00">
-    <meta itemprop="dateModified" content="2021-02-28T13:30:39+00:00">
+    <meta itemprop="datePublished" content="2021-10-31T21:48:46+00:00">
+    <meta itemprop="dateModified" content="2021-11-07T14:12:51+00:00">
 
     <div class="page__inner-wrap">
 
@@ -181,53 +181,15 @@
 
         
 
-        <h1 id="async-job-scheduling"><a aria-hidden="true" class="anchor-heading" href="#async-job-scheduling"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Async job scheduling</h1>
-<h3 id="blog-asynchronous-computing-facebook-private"><a aria-hidden="true" class="anchor-heading" href="#blog-asynchronous-computing-facebook-private"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>[Blog] Asynchronous computing <a title="Private" style="color: brown" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank">@Facebook (Private)</a></h3>
-<ul>
-<li><a href="https://engineering.fb.com/2020/08/17/production-engineering/async/">https://engineering.fb.com/2020/08/17/production-engineering/async/</a></li>
-<li>Problem with simple priority queues: 
-<ul>
-<li>large use cases dominate</li>
-<li>bad jobs stuck </li>
-<li>uneven utilization between peaks &#x26; valleys </li>
-</ul>
-</li>
-<li>Building to scale
-<ul>
-<li>introduce <strong>delay tolerance</strong></li>
-<li>Capacity optimization: 
-<ul>
-<li>classifying use cases:
-<ul>
-<li>daily traffic: predictable</li>
-<li>major events: semi-predictable</li>
-<li>Incident response: short and spikey, unpredictable</li>
-</ul>
-</li>
-<li>Time shifting: 
-<ul>
-<li>Predictive - which data may need, precomputes and cache</li>
-<li>Deferred compute
-<img src="/dendron-notes/assets/images/2020-11-15-15-53-52.png"></li>
-</ul>
-</li>
-<li>batching: 
-<ul>
-<li>reduce # of requests to other components </li>
-<li>potential high cache reuse and code warmup</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Capacity policy: quota and rate limiting
-<ul>
-<li>CPU instruction utilization and memory limit - when exceeded, throttle and send alert</li>
-<li>rate limit on intake</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul><span id="navId" data="7ec6a7fa-7000-45e0-bec0-e3aa2e3493c5"></span>
+        <h1 id="when-breathe-becomes-air"><a aria-hidden="true" class="anchor-heading" href="#when-breathe-becomes-air"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>When Breathe Becomes Air</h1>
+<p>"Throughout college, my monastic, scholarly study of human meaning would conflict with my urge to forge and strengthn the human relationships that formed that meaning. <strong>If the unexamined life was not worth living, was the unlived life worth examining?</strong> "</p>
+<p>Whitman ahd had no better luck than the rest of us at building a coherent "physiological-spiritual" vocabulary, but at least the ways in which he'd faied were illuminating.</p>
+<p>Words began to feel as weightless as the breath that carried them. Moral speculation was puny compared to moral action. </p>
+<p>Any neursurgical problem fores a patient and family to answer this question: What makes life meaningful enough to go on living? </p>
+<p>From his friend: "There is a moment, a cusp, when the sum of gathered experience is worn down by the details of living"</p>
+<p>The way forward would seem obivous, if only I knew how many months or years I had left. Tell me three months, I'd spend time with family. Tell me one year, I'd write a book. Give me ten years, I'd get back to treating diseases. The truth that you live one day at a time didn't help： What was I supposed to do with that day? </p>
+<p>A physician's duety is not to stave off death or return patients to their old lives, but to take into our arms a patient and family whose lives have disintegrated and work until they can stand back up and face, and make sense of, their own existence. </p>
+<p>From the Englightenment onward, the individual occupied center stage. But now I lived in a different world, a more ancient one, where human action paled against superhuman forces, a wolrd that was more Greek tragedy than Shakespeare</p><span id="navId" data="qN2iz6RJkQuokiBmwLE7V"></span>
 
                 
       </section>
@@ -253,12 +215,12 @@
             
               <div class="d-flex mt-2">
               <p class="text-small text-grey-dk-000 mb-0 mr-2">
-                Page last modified: <span class="d-inline-block">2/28/2021</span>.
+                Page last modified: <span class="d-inline-block">11/7/2021</span>.
               </p>
             
                 
                   <p class="text-small text-grey-dk-000 mb-0">
-                    <a href="https://github.com/angelarw/dendron-notes/edit/gh-pages/vault/topics.distributed-systems.async.md" id="edit-this-page">Edit this page on GitHub</a>
+                    <a href="https://github.com/angelarw/dendron-notes/edit/gh-pages/vault/books.autobiographies.when-breathe-becomes-air.md" id="edit-this-page">Edit this page on GitHub</a>
                   </p>
                 
               </div>
