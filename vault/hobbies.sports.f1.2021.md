@@ -2,11 +2,9 @@
 id: o8B6QWQOFpuSY3iqoh8YM
 title: '2021'
 desc: ''
-updated: 1636312402925
+updated: 1636868328838
 created: 1635212846305
 ---
-`
-
 
 ## 10/24 Austin 
 - circuit of americas 
