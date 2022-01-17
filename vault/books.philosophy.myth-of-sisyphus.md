@@ -2,7 +2,7 @@
 id: 8sk6E4TV15OCUC131WWDk
 title: Myth of Sisyphus
 desc: ''
-updated: 1636862482837
+updated: 1638151518133
 created: 1635130260920
 ---
 
@@ -43,4 +43,6 @@ world in itself is not absurd, what's absurd is the confrontation between man's 
   - if man imagine a purpose to his life, he becomes slave to the demands of the purpose - you are free to choose, but if you choose, you are no longer free 
   
 
-absurd highlights my freedom of action 
+### Myth of sisyphus
+
+"Each atom of that stone, each mineral flake of that night-filled mountain, in itself forms a world. The struggle itself toward the heights is enough to fill a man’s heart. One must imagine Sisyphus happy"
