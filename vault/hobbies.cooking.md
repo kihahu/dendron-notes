@@ -2,7 +2,7 @@
 id: e64b6f7d-e6b5-4528-9b0e-f91965791ca0
 title: Cooking
 desc: ''
-updated: 1636869848452
+updated: 1643895659516
 created: 1607960731534
 ---
 
@@ -48,3 +48,25 @@ steps：
 ### Gazpacho
 
 https://cookieandkate.com/ultimate-gazpacho-recipe/
+
+### Chili 
+
+- onion
+- celery
+- beans
+- corn 
+- ground beef or turkey
+- canned green chili
+- jalapeno
+- chicken broth
+- spice: 
+  - cumin
+  - paprika
+  - cocoa powder
+  - chili powder
+
+remember: DO NOT ADD EXTRA WATER! 
+
+garnish:
+- **onion** - important, don't use all the onion in the beginning 
+- cilantro 

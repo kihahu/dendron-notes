@@ -2,7 +2,7 @@
 id: abdea430-a6e2-494c-922e-bf64fc1d86c4
 title: Skiing
 desc: ''
-updated: 1642134513727
+updated: 1642992933688
 created: 1614553354951
 ---
 
@@ -13,3 +13,4 @@ created: 1614553354951
 - [Skiing tucks](https://angelarw.medium.com/easter-weekend-2021-tuckerman-ravine-e146ecae96d9)
 
 ## 2022
+

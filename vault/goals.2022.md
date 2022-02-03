@@ -2,7 +2,7 @@
 id: JPjbZzDCQnpFwSbOvRUCK
 title: '2022'
 desc: ''
-updated: 1642445370917
+updated: 1642992901015
 created: 1642444995300
 ---
 
@@ -10,22 +10,28 @@ created: 1642444995300
 - each morning:
     - set clear goal every morning - both work & personal 
     - drink water 
+- be a better partner, ask and care for how he is feeling/doing more often  
 - read 1 hr a day 
 - no snacking after meal 
 - evening journaling daily 
-- medidate once a week （not as sleeping aid） 
+- meditate once a week （not as sleeping aid） 
 
 ## Accomplish
 - Reading 
   - 20 books a year
+    1. Limitless
+    
+  - New Yorker mag 
 - Improve reading speed
 - Sharing learning 
 - Hobbies
   - skiing 
-    - start instructor course
+    - 20 day skiing 
     - at least 5 days in backcountry  
+    - start instructor course
   - cycling
     - join a cycling club 
   - rock climbing 
+    - 3 times a week 
     - at least 1 outdoor climbing trip 
     - can traverse home gym beginning to end and back 
