@@ -1,5 +1,2 @@
 site_name: 'My Docs'
-
-nav:
-  - Home: ./notes/root.md
-
+docs_dir: 'vault'
