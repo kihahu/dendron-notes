@@ -1,2 +1,4 @@
-site_name: 'My Docs'
+site_name: 'Releng Docs'
 docs_dir: 'vault'
+plugins:
+  - techdocs-core
