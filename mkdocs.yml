@@ -1,6 +1,5 @@
 site_name: 'Releng Docs'
-docs_dir: 'docs'
+docs_dir: 'vault'
+site_dir: 'site'
 plugins:
   - techdocs-core
-nav:
-  - Home: index.html
