@@ -1,0 +1,4 @@
+site_name: 'ADRs Docs'
+docs_dir: 'notes'
+plugins:
+  - techdocs-core

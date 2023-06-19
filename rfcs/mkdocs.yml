@@ -1,0 +1,4 @@
+site_name: 'RFCs Docs'
+docs_site: 'notes'
+plugins:
+  - techdocs-core
