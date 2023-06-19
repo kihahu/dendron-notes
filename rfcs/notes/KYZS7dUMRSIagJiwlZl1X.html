@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  
+  <title>Spring in Action - Angela's note universe</title>
+  
+
+  <link
+    rel="shortcut icon"
+    href="https://angelarwang.com/dendron-notes/favicon.ico"
+    type="image/x-icon"
+  />
+  <link
+    rel="stylesheet"
+    href="https://angelarwang.com/dendron-notes/assets/css/just-the-docs-default.css"
+  />
+  <script
+    type="text/javascript"
+    src="https://angelarwang.com/dendron-notes/assets/js/just-the-docs.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+    crossorigin="anonymous"
+  />
+  <script
+    type="text/javascript"
+    src="https://angelarwang.com/dendron-notes/assets/js/vendor/lunr.min.js"
+  ></script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+   
+  
+<meta name="description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
+<meta name="author" content="[object Object]">
+
+<link rel="canonical" href="https://angelarwang.com/notes/KYZS7dUMRSIagJiwlZl1X.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://angelarwang.com/notes/KYZS7dUMRSIagJiwlZl1X.html">
+<meta property="og:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
+<meta property="og:image" content="https://angelarwang.com/logo.png">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@{"card":"summary","username":"angelaw_ruohan"}">
+<meta name="twitter:url" content="https://angelarwang.com/notes/KYZS7dUMRSIagJiwlZl1X.html">
+<meta name="twitter:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
+<meta name="twitter:image" content="https://angelarwang.com/logo.png">
+
+
+  <meta property="og:title" content="Spring in Action - Angela's note universe" />
+  <meta name="twitter:title" content="Spring in Action - Angela's note universe" />
+  
+</head>
+
+
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="svg-link" viewBox="0 0 24 24">
+        <title>Link</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+      </symbol>
+      <symbol id="svg-search" viewBox="0 0 24 24">
+        <title>Search</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+          <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </symbol>
+      <symbol id="svg-menu" viewBox="0 0 24 24">
+        <title>Menu</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+          <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </symbol>
+      <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+        <title>Expand</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </symbol>
+      <symbol id="svg-doc" viewBox="0 0 24 24">
+        <title>Document</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+        </svg>
+      </symbol>
+    </svg>
+
+    <div class="side-bar">
+      <div class="site-header">
+        <a href="https://angelarwang.com/dendron-notes" class="site-title lh-tight">
+  <div class="site-logo"></div>
+
+ </a>
+        <a href="#" id="menu-button" class="site-button">
+          <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+        </a>
+      </div>
+
+      <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+      </nav>
+      <footer class="site-footer">
+        🌱 with 💕 using <a href="https://www.dendron.so/"> Dendron 🌲 </a>
+      </footer>
+    </div>
+    <div class="main" id="top">
+        <div id="main-header" class="main-header">
+          
+            <div class="search">
+              <div class="search-input-wrap">
+                <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Angela's note universe" aria-label="Search Angela's note universe" autocomplete="off">
+                <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+              </div>
+              <div id="search-results" class="search-results"></div>
+            </div>
+          
+          
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      
+        
+          <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes">Root</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\d088ab77-c2f6-4f7a-be4a-7597b00daff0.html">Books</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\ede45f4d-8d30-42a9-bd27-f1b3ba37d6e0.html">Tech</a></li><li class="breadcrumb-nav-list-item">Spring in Action</li></ol>
+          </nav>
+        
+      
+      <div id="main-content" class="main-content" role="main">
+
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        
+        
+
+        
+
+        
+
+        
+
+        <script>
+          $(function () {
+            $('[data-toggle="popover"]').popover({html: true})
+          })
+        </script>
+
+        
+
+<div id="main" role="main">
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Spring in Action">
+    
+    <meta itemprop="datePublished" content="2021-08-24T22:22:35+00:00">
+    <meta itemprop="dateModified" content="2021-09-01T09:43:26+00:00">
+
+    <div class="page__inner-wrap">
+
+      
+
+      <section class="page__content" itemprop="text">
+
+        
+
+        <h1 id="spring-in-action"><a aria-hidden="true" class="anchor-heading" href="#spring-in-action"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Spring in Action</h1>
+<h2 id="chpt-2-wiring-beans"><a aria-hidden="true" class="anchor-heading" href="#chpt-2-wiring-beans"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chpt 2: Wiring beans</h2>
+<p>Auto configuration</p>
+<ul>
+<li><code>@Autowired</code> works on both constructor and method (will create dependent beans, and throw error if can't find)</li>
+<li><code>@Autowired</code> is spring specific, use <code>@Inject</code> from java, mostly interchangable </li>
+<li>when using <code>@ComponentScan</code>, better to use <code>basePackageClasses</code> to be refactor proof</li>
+</ul>
+<p>Manual wiring:</p>
+<ul>
+<li>
+<p><code>@bean</code> by default ID = method name. override it with <code>name=</code></p>
+</li>
+<li>
+<p>by default, all beans in spring are singletons.</p>
+<pre><code>@Bean
+public CompactDisc sgtPeppers(){
+  return new SgtPappers();
+}
+</code></pre>
+<p>if directly call the method that a bean annotation is on, e.g. <code>sgtPepeprs()</code> will return the singleton rather than creating another instance. </p>
+<h2 id="chpt-3-advanced-wiring"><a aria-hidden="true" class="anchor-heading" href="#chpt-3-advanced-wiring"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chpt 3: Advanced wiring</h2>
+</li>
+<li>
+<p><code>@Profile("dev")</code> annotation for beans only created when active profiles include dev</p>
+</li>
+<li>
+<p><code>@Conditional(MagicExistsCondition.class)</code> for custom conditions </p>
+<ul>
+<li>Condition interface comes with 2 params: <code>matches(ConditionContext context, AnnotatedTypeMetadata metadata)</code></li>
+<li><a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ConditionContext.html">ConditionContext</a>
+<ul>
+<li>bean registry: bean definitions</li>
+<li>bean factory: presence of beans</li>
+<li>environment: env varialbes</li>
+<li>resource loader: resources loaded</li>
+<li>class loader: class loaded </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>disambiguating beans</p>
+<ul>
+<li>
+<p><code>@Primary</code></p>
+</li>
+<li>
+<p><code>@Qualifier("cold)</code></p>
+</li>
+<li>
+<p>Use custom qualifier annotations to allow multiple qualifiers - <code>@Cold</code> </p>
+<pre><code>@Target({ElementType.FIELD, ElementType.PARAMETER, ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Qualifier
+public @interface Cold {
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><code>@Scope</code></p>
+<ul>
+<li>singleton</li>
+<li>prototype - created each time is injected </li>
+<li>session - in web app, one for each session. e.g. shopping cart </li>
+<li>request 
+<ul>
+<li>scope proxy </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="chpt4-aspect-oriented-spring"><a aria-hidden="true" class="anchor-heading" href="#chpt4-aspect-oriented-spring"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chpt4: Aspect oriented Spring</h2>
+<ul>
+<li>
+<p>basic concepts:
+<img src="/dendron-notes/assets/images/2021-08-31-20-04-25.png"></p>
+</li>
+<li>
+<p>unlike AspectJ, spring is proxy based, and only supports <strong>method interception</strong></p>
+<p><img src="/dendron-notes/assets/images/2021-08-31-20-05-48.png"></p>
+</li>
+<li>
+<p>wrap method options:</p>
+<ul>
+<li><code>@After</code></li>
+<li><code>@AfterReturning</code></li>
+<li><code>@AfterThrowing</code>	</li>
+<li><code>@Around</code>	</li>
+<li><code>@Before</code>	</li>
+</ul>
+</li>
+<li>
+<p>also possible to add methods using <strong>Introduction</strong></p>
+<p><img src="/dendron-notes/assets/images/2021-09-01-09-26-38.png"></p>
+</li>
+</ul><span id="navId" data="KYZS7dUMRSIagJiwlZl1X"></span>
+
+                
+      </section>
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+        <div class="thumbs feedback_trigger right-bottom"></div>
+
+        
+          <hr>
+          <footer>
+            
+            
+
+            
+              <div class="d-flex mt-2">
+              <p class="text-small text-grey-dk-000 mb-0 mr-2">
+                Page last modified: <span class="d-inline-block">9/1/2021</span>.
+              </p>
+            
+                
+                  <p class="text-small text-grey-dk-000 mb-0">
+                    <a href="https://github.com/angelarw/dendron-notes/edit/gh-pages/vault/books.tech.spring-in-action.md" id="edit-this-page">Edit this page on GitHub</a>
+                  </p>
+                
+              </div>
+          </footer>
+        
+    </div>
+</div>
+
+
+  
+
+  <div class="search-overlay"></div>
+
+</div>
+
+</body>
+</html>

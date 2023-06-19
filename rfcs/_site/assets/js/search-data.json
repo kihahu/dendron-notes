@@ -1,0 +1,751 @@
+{"0": {
+    "doc": "Lambda",
+    "title": "Lambda",
+    "hpath": "topics.cloud.aws.lambda",
+    "content": "Container support- 12/2020 New: . | original lifecycle: | container support lifecycle: | inactivity: | . ",
+    "url": "http://localhost:4000/notes/02421f98-cab3-4955-9175-9db60819e5f1.html",
+    "relUrl": "/notes/02421f98-cab3-4955-9175-9db60819e5f1.html"
+  },"1": {
+    "doc": "Machine Learning",
+    "title": "Machine Learning",
+    "hpath": "topics.ml",
+    "content": " ",
+    "url": "http://localhost:4000/notes/056961d3-aba0-4fc6-ba6f-598dbc38294c.html",
+    "relUrl": "/notes/056961d3-aba0-4fc6-ba6f-598dbc38294c.html"
+  },"2": {
+    "doc": "Aws",
+    "title": "Aws",
+    "hpath": "topics.cloud.aws",
+    "content": " ",
+    "url": "http://localhost:4000/notes/1c8375cc-9127-4509-9601-7748e3669ffd.html",
+    "relUrl": "/notes/1c8375cc-9127-4509-9601-7748e3669ffd.html"
+  },"3": {
+    "doc": "Png",
+    "title": "Png",
+    "hpath": null,
+    "content": " ",
+    "url": "http://localhost:4000/assets/images/2020-12-19-14-39-52.png.html",
+    "relUrl": "/assets/images/2020-12-19-14-39-52.png.html"
+  },"4": {
+    "doc": "Png",
+    "title": "Png",
+    "hpath": null,
+    "content": " ",
+    "url": "http://localhost:4000/assets/images/2020-12-19-15-53-59.png.html",
+    "relUrl": "/assets/images/2020-12-19-15-53-59.png.html"
+  },"5": {
+    "doc": "Apache Beam",
+    "title": "Overview",
+    "hpath": "frameworks.big-data.beam",
+    "content": ". | 2018 PyCon talk - Streaming data processing pipelines with Apache Beam in Python | . | Beam is a collection of SDKs for streaming processing pipeline . | name come from ‘Batch’ + ‘strEAM’ | https://github.com/apache/beam | | . | Streaming + accumulation: built-in fucntionality for handle late packets | . | Beam Pipeline is a DAG graph | Bounded (batch) vs Unbounded (streaming, with windows) | PCollection == data elements . | iterable collection | immutable -readonly | . | PTransform == nodes in the graph . records = (p | 'Read from PubSub' &gt;&gt; beam.io.ReadStringsFromPubSub(topic=..., id_label='MESSAGE_ID') | 'Parse JSON to dict' &gt;&gt; beam.Map(lambda e: json.load(e)) # branch 1 records | beam.ParDo(AddTimstampToDict()) | beam.WindowInto(window.SlidingWindows(..)) | beam.ParDo(AddKeyToDict()) | beam.GroupByKey() | beam.Pardo(CountAverages()) | beam.io.WriteToBigQuery(...) # branch 2 records | beam.io.WriteToBigQuery(...) . | . | Cloud Dataflow - managed service . | . On AWS . | Workshop on using Beam with Kinesis Flink: https://beam-streaming-analytics.workshop.aws/en/beam-on-kda.html | . ",
+    "url": "http://localhost:4000/notes/270884d9-210b-42e0-88a3-7193738d3233.html#overview",
+    "relUrl": "/notes/270884d9-210b-42e0-88a3-7193738d3233.html#overview"
+  },"6": {
+    "doc": "Apache Beam",
+    "title": "Apache Beam",
+    "hpath": "frameworks.big-data.beam",
+    "content": " ",
+    "url": "http://localhost:4000/notes/270884d9-210b-42e0-88a3-7193738d3233.html",
+    "relUrl": "/notes/270884d9-210b-42e0-88a3-7193738d3233.html"
+  },"7": {
+    "doc": "Distributed Systems",
+    "title": "Distributed Systems",
+    "hpath": "topics.distributed-systems",
+    "content": " ",
+    "url": "http://localhost:4000/notes/27ffe8ae-20ff-4850-a31e-aafff2c30b3f.html",
+    "relUrl": "/notes/27ffe8ae-20ff-4850-a31e-aafff2c30b3f.html"
+  },"8": {
+    "doc": "Ch05 - Replication",
+    "title": "Leader-follower replication",
+    "hpath": "books.tech.data-intensive-applications.ch5-replication",
+    "content": ". | Leader take writes, all can take reads | Used by: . | relational: PostgreSQL, MySQL, Oracle Data Guard, SQL Server AlwaysOn Availability Groups | noSQL: MongoDB, RethinkDB, Espresso | Kafka, RabbitMQ | . | Sync vs Async replication . | impractical for all followers to be synchronous | if database is configured for sync, usually one of followers is sync, others are async - “semi-synchronous” | . | Implementation of Replication Logs . | Statement-based replication . | not generally used (MySQL before 5.1), because problems: . | nondeterministic functions e.g. NOW() or RAND() | autoincrementing columns | side effects (triggers, UDFs, etc) | . | . | Write-ahead-log shipping . | WAG: in log structured storage engine, main palce for store. in Btree, WAL before B tree modified | used in PostgreSQL and Oracle | disadvantage: log very low level - specific disk block and bytes -&gt; problem: zero-downtime upgrade not possible if leader and follower can’t run with different version of storage engine | . | Logical (row-based) log replication . | decoupled from storage engine internals | used by MySQL binlog | also can be used by external system, CDC | . | trigger-based - application layer . | Oracle GoldenGate or triggers and Stored Procs | . | . | Dealing with replication lag and eventual consistency . | Reading Your Own Writes . | option 1: When reading something that the user may have modified, read it from the leader; otherwise, read it from a follower. | option 2: track time of last update, and query leader when within some time window | option 3: client can remember timestamp and require serving replica up to date | . | Monotonic Reads: second read lags behind first read . | option 1: read from same replica | option 2: use sequencer? | . | consistent prefix read: causual events observed out of order . | option 1: causal udpates in the same partition | . | using transactions - for a database to provide stronger guarantees so that the application can be simpler. | . | . ",
+    "url": "http://localhost:4000/notes/28cfed31-0166-4784-a7d6-c76d3fcd269e.html#leader-follower-replication",
+    "relUrl": "/notes/28cfed31-0166-4784-a7d6-c76d3fcd269e.html#leader-follower-replication"
+  },"9": {
+    "doc": "Ch05 - Replication",
+    "title": "Multi-leader replication",
+    "hpath": "books.tech.data-intensive-applications.ch5-replication",
+    "content": ". | use case: . | multi-datacenter | Clients with offline operation . | offline device each has a local database that acts as leader | . | Collaborative editing | . | conflict detection likely async - if sync, might as well use single leader | conflict avoidance . | different “home” cluster for diff users | . | achieving convergent conflict resolution . | each write unique ID, pick the highest ID | assign priority between writers | merge the values e.g. concat. | record the conflict | . | custom conflict resolution logic . | on write | on read | . | auto conflict resolution research: . | Conflict-free replicated datatypes (CRDTs) - family of data structures for sets, maps, ordered lists, counters, etc . | CRDTs slide deck | . | Mergeable persistent data structures - like Git, 3 way merge function . | Mergeable Persistent Data Structures paper | . | Operational transformation for collab. editing e.g. Google Docs. | papaer | . | . | Multi-Leader Replication Topologies . | all-to-all, circular, or star (generalize to trees) | circular or star topology may be broken with one failed node | all-to-all has problem of inconsistent ordering | . | . ",
+    "url": "http://localhost:4000/notes/28cfed31-0166-4784-a7d6-c76d3fcd269e.html#multi-leader-replication",
+    "relUrl": "/notes/28cfed31-0166-4784-a7d6-c76d3fcd269e.html#multi-leader-replication"
+  },"10": {
+    "doc": "Ch05 - Replication",
+    "title": "Leaderless Replication - quorum based",
+    "hpath": "books.tech.data-intensive-applications.ch5-replication",
+    "content": ". | “Dynamo-style” - Riak, Cassandra, and Voldemort, inspired by Amazon Dynamo | catch-up options: . | Read repair - reader can detect stale response and update | anti-entropy - background process | . | quorum condition: w + r &gt; n - b.c. set of nodes for w and r must overlap | issues with quorum: . | write partial failure needs to be rolled back | eventual consistent without the type of replication lag gaurantees - hard to quantify | difficult to mointor staleness | . | sloppy quorum: writes and reads still require w and r successful responses, but those may include nodes that are not among the designated n “home” nodes for a value. | once network inerruption is fixed, writes go back to “home” nodes - hinted handoff. so reads might not see the update. | . | Multi-datacenter: . | Cassandra and Voldemort extends quorum to multi-datacenter. high latency writes to other datacenters often async. | Riak - all local. cross-dc happen async in the background | . | concurrent writes: . | the application developer neesd to understand the internals on this | Last write wins based on a timestamp . | only option in Cassandra | optionl on Riak | only safe way: each key is immutable | . | The “happens-before” relationship: . | B depends on A - “happens-before” | A and B are independent - concurrent | . | Option 1: Capturing the happens-before relationship (client send version number it depends on) . | server maintain version for each key | when client writes, must include the version of a prev read and merge with it | server can clean up versions &lt;= version number received in the write - since it knows it has been merged. then incre curr version # and return it in response | . | Option 2: Merging concurrently written values . | for collections, just union the writes | deletes require a tombstones with a version number | . | version vectors: multiple replicas, each need a version number . | collection of version numbers for all replicats | Dotted Version Vectors: Logical Clocks for Optimistic Replication paper | . | . | . ",
+    "url": "http://localhost:4000/notes/28cfed31-0166-4784-a7d6-c76d3fcd269e.html#leaderless-replication---quorum-based",
+    "relUrl": "/notes/28cfed31-0166-4784-a7d6-c76d3fcd269e.html#leaderless-replication---quorum-based"
+  },"11": {
+    "doc": "Ch05 - Replication",
+    "title": "Summary",
+    "hpath": "books.tech.data-intensive-applications.ch5-replication",
+    "content": ". | Single-leader replication is popular because it is fairly easy to understand and there is no conflict resolution | Multi-leader and quorum based can be more robust in the presence of faulty nodes, network interruptions, and latency spikes—at the cost of being harder to reason about and providing only very weak consistency guarantees. | . ",
+    "url": "http://localhost:4000/notes/28cfed31-0166-4784-a7d6-c76d3fcd269e.html#summary",
+    "relUrl": "/notes/28cfed31-0166-4784-a7d6-c76d3fcd269e.html#summary"
+  },"12": {
+    "doc": "Ch05 - Replication",
+    "title": "Reseach: Chain replication",
+    "hpath": "books.tech.data-intensive-applications.ch5-replication",
+    "content": ". | Chain Replication for Supporting High Throughput and Availability paper | Object Storage on CRAQ High-throughput chain replication for read-mostly workloads paper | Windows Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency paper | . ",
+    "url": "http://localhost:4000/notes/28cfed31-0166-4784-a7d6-c76d3fcd269e.html#reseach-chain-replication",
+    "relUrl": "/notes/28cfed31-0166-4784-a7d6-c76d3fcd269e.html#reseach-chain-replication"
+  },"13": {
+    "doc": "Ch05 - Replication",
+    "title": "Ch05 - Replication",
+    "hpath": "books.tech.data-intensive-applications.ch5-replication",
+    "content": "Reasons for multi-machine: . | scalability | HA | latency (route user closer to them) | Disconnected operation | . Scaling . | shared-memory | shared-disk - e.g. Oracle RAC? | shared-nothing . i.e. horizontal scaling | . ",
+    "url": "http://localhost:4000/notes/28cfed31-0166-4784-a7d6-c76d3fcd269e.html",
+    "relUrl": "/notes/28cfed31-0166-4784-a7d6-c76d3fcd269e.html"
+  },"14": {
+    "doc": "Foundamentals of GIS",
+    "title": "Foundamentals of GIS",
+    "hpath": "courses.gis.foundamental",
+    "content": "https://www.coursera.org/learn/gis . ",
+    "url": "http://localhost:4000/notes/361e2dd0-1ffb-4497-b812-18984976daf7.html",
+    "relUrl": "/notes/361e2dd0-1ffb-4497-b812-18984976daf7.html"
+  },"15": {
+    "doc": "Deployment",
+    "title": "Deployment",
+    "hpath": "topics.cloud.aws.deployment",
+    "content": "AWS Proton . - . ",
+    "url": "http://localhost:4000/notes/36636d89-cff6-43b1-baa9-e0db120a117a.html",
+    "relUrl": "/notes/36636d89-cff6-43b1-baa9-e0db120a117a.html"
+  },"16": {
+    "doc": "Ch03 - Storage and Retrieval",
+    "title": "Chapter 3: Storage and retrieval",
+    "hpath": "books.tech.data-intensive-applications.ch3-DB-storage",
+    "content": " ",
+    "url": "http://localhost:4000/notes/3722a8e7-0d0f-4460-b515-a66c21a18358.html#chapter-3-storage-and-retrieval",
+    "relUrl": "/notes/3722a8e7-0d0f-4460-b515-a66c21a18358.html#chapter-3-storage-and-retrieval"
+  },"17": {
+    "doc": "Ch03 - Storage and Retrieval",
+    "title": "Data structures that power your DB",
+    "hpath": "books.tech.data-intensive-applications.ch3-DB-storage",
+    "content": "Hash indexes . | Use log for writing key + value; key + value | Index: Key -&gt; byte offsets mapping | Used by - Bitcask - default storage engine for Riak - hashmap stored in memory | Good for: value of each key is updated frequently | Log compaction: . | Segment log files | Keep only the most recent update for each key | Merging and compaction is written to a new file - in background | After compaction, switch to new merged segment | . | Lookup: each segment has its own hash table. First check most recent segment for key, then prior, … | File format: binary format is more space efficient and faster than CSVs | Deleting records: write tombstone record. During merge, discard prev entries | Crash recovery: If the database is restarted, the in-memory hash maps are lost. Snapshot segment hashmap on disk to speed up recovery | Concurrency control: one writer thread. Because of immutability, reads can be concurrent | Limitations: . | Table must fit in memory. Not good for large number of keys. Hashmap on disk bad perf: lots of random IO | Range queries not efficient | . | . SSTables and LSM trees . | SSTables introduced by Google bigtable paper | Sorted String table . | each key only appears once within each merged segment | Efficient merging | When write comes in - use in-memory balanced tree (i.e. memtable) | After size too big: write to disk as SSTable file | When read: first search in memtable, then in most recent on-disk segment, etc. | Run merge and compaction in background | Problem: crashes - most recent write is lost &lt;– keep a separate log for each write immediately on disk | . | Make LSM tree (log-structured merge-tree) out of SSTables . | keeping a cascade of SSTables that are merged in the background | LSM storage engines: based on this principle of merging and compacting sorted files | Performance optimizations: bad perf if key does not exist – use a bloom filter | . | . ",
+    "url": "http://localhost:4000/notes/3722a8e7-0d0f-4460-b515-a66c21a18358.html#data-structures-that-power-your-db",
+    "relUrl": "/notes/3722a8e7-0d0f-4460-b515-a66c21a18358.html#data-structures-that-power-your-db"
+  },"18": {
+    "doc": "Ch03 - Storage and Retrieval",
+    "title": "B-tree",
+    "hpath": "books.tech.data-intensive-applications.ch3-DB-storage",
+    "content": ". | Compared to log structed indexes : MB sized segments; B tree breaks 4KB blocks/pages. corresponds more closely to the underlying hardware. | Most databases can fit into a B-tree that is three or four levels | Grow a B tree by splitting a page | to make the database resilient to crashes: WAL - write-ahead log or redo log | Concurrency: protect with latches | Optimizations: . | Use copy-on-write instead of WAL | Abbreviating keys | Try to keep leaf pages sequential - harder than LSM trees | Additional pointers - such as sibling pages | . | . Comparing B trees and LSM trees . | LSM-trees are typically faster for writes, whereas B-trees are thought to be faster for reads - however no conclusive benchmark | Pro of LSM trees: . | A B-tree index must write every piece of data at least twice &amp; write an entire page at a time - write amplication | LSM-trees are typically able to sustain higher write throughput than B- trees, partly because they sometimes have lower write amplification | LSM-trees can be compressed better - B-tree storage engines leave some disk space unused | . | Con of LSM . | compaction process can sometimes interfere with the performance of ongoing RWs - impact higher percentiles- | If ill-configured, compaction cannot keep up with the rate of incoming writes - unmerged segments on disk keeps growing until you run out of disk space, and reads also slow down because they need to check more segment files | B tree each key exists in exactly one place - easier for locks &amp; transaction semantics | . | B tree common in relational, LSM in newer DBs | . Other strcutures . | Storing values within index: . | row is stored elsewhere (ie heapfile) | clustered index - row with index | In MySQL innDB - primary key is clusterd, secondary index refer to the primary key | Compromise: include some columns - covering index | . | Multi-column indexes . | Concatenated index | Multi-dimensional index for spatial data . | Option 1: translate 2 dimensional location into a single number using a space filling curve | Option 2: R trees with PostgreSQL’s Generalized Search Tree | . | . | Full-text search and fuzzy indexes | In memory DB: . | performance advantage of in-memory databases is not due to the fact that they don’t need to read from disk. | But because they can avoid the overheads of encoding in-memory data structures in a form that can be written to disk | Also offer data models difficult to implement with disk based indexes e.g. Redis | Future: NVM (non-volatile memory) | . | . ",
+    "url": "http://localhost:4000/notes/3722a8e7-0d0f-4460-b515-a66c21a18358.html#b-tree",
+    "relUrl": "/notes/3722a8e7-0d0f-4460-b515-a66c21a18358.html#b-tree"
+  },"19": {
+    "doc": "Ch03 - Storage and Retrieval",
+    "title": "Ch03 - Storage and Retrieval",
+    "hpath": "books.tech.data-intensive-applications.ch3-DB-storage",
+    "content": " ",
+    "url": "http://localhost:4000/notes/3722a8e7-0d0f-4460-b515-a66c21a18358.html",
+    "relUrl": "/notes/3722a8e7-0d0f-4460-b515-a66c21a18358.html"
+  },"20": {
+    "doc": "Graphql",
+    "title": "challenges",
+    "hpath": "topics.api-design.graphql",
+    "content": ". | monitoring . | partial successes | no easy error code like HTTP -&gt; track #of exceptions | . | Query complexity (can have pathologically nested queries) . | only allow cached queries (persisted queries) | calculate complexity score | calculate query depth | . | caching complexity . | Data loader | client side caching | . | . GraphQL @ Twitter . | Rebuilding Twitter’s public API . | GraphQL 2017 summit notes on GraphQL @ Twitter . | authN handled by a layer before GraphQL. authZ handled by lower-level services. the GraphQL API itself no auth responsibility | implementing subscriptions with existing internal event bus | ",
+    "url": "http://localhost:4000/notes/3bf41e97-8aeb-4462-bb76-168cebb241b4.html#challenges",
+    "relUrl": "/notes/3bf41e97-8aeb-4462-bb76-168cebb241b4.html#challenges"
+  },"21": {
+    "doc": "Graphql",
+    "title": "Strato: internal tech. a virtual database, aka federated database, brings together multiple data sources so they can be queried and mutated uniformly",
+    "hpath": "topics.api-design.graphql",
+    "content": "| . | . GraphQL Federation @Netflix . notes from 11/23/2020 . | How Netflix Scales its API with GraphQL Federation (Part 1) | why graphQL: . | disparate teams building single-use aggregation layers | teams building materialized views - data consistency issue | . | why federation: . | Bottleneck of the centralized graph API team - disconnected from the domain expertise and the product needs | . | Studio API federated GraphQL example . | new schema | architecture | Query planning and execution | detailed query plan | . | architecture evolution | . ",
+    "url": "http://localhost:4000/notes/3bf41e97-8aeb-4462-bb76-168cebb241b4.html#strato-internal-tech-a-virtual-database-aka-federated-database-brings-together-multiple-data-sources-so-they-can-be-queried-and-mutated-uniformly",
+    "relUrl": "/notes/3bf41e97-8aeb-4462-bb76-168cebb241b4.html#strato-internal-tech-a-virtual-database-aka-federated-database-brings-together-multiple-data-sources-so-they-can-be-queried-and-mutated-uniformly"
+  },"22": {
+    "doc": "Graphql",
+    "title": "Graphql",
+    "hpath": "topics.api-design.graphql",
+    "content": " ",
+    "url": "http://localhost:4000/notes/3bf41e97-8aeb-4462-bb76-168cebb241b4.html",
+    "relUrl": "/notes/3bf41e97-8aeb-4462-bb76-168cebb241b4.html"
+  },"23": {
+    "doc": "Reference",
+    "title": "Reference",
+    "hpath": "reference",
+    "content": " ",
+    "url": "http://localhost:4000/notes/3caaca75-734b-4ed3-a82e-ee73438b60ab.html",
+    "relUrl": "/notes/3caaca75-734b-4ed3-a82e-ee73438b60ab.html"
+  },"24": {
+    "doc": "Frameworks",
+    "title": "Frameworks",
+    "hpath": "frameworks",
+    "content": " ",
+    "url": "http://localhost:4000/notes/3cce73ba-3a76-4ee2-80e9-a4b338e1360c.html",
+    "relUrl": "/notes/3cce73ba-3a76-4ee2-80e9-a4b338e1360c.html"
+  },"25": {
+    "doc": 404,
+    "title": "404",
+    "hpath": null,
+    "content": "Page not found . ",
+    "url": "http://localhost:4000/404.html#404",
+    "relUrl": "/404.html#404"
+  },"26": {
+    "doc": 404,
+    "title": 404,
+    "hpath": null,
+    "content": " ",
+    "url": "http://localhost:4000/404.html",
+    "relUrl": "/404.html"
+  },"27": {
+    "doc": "Ch02 - Data Models and Query Languages",
+    "title": "Chapter 2 - data models and query languages",
+    "hpath": "books.tech.data-intensive-applications.ch2-data-models",
+    "content": " ",
+    "url": "http://localhost:4000/notes/45199987-a515-40d0-8bc8-c447503f21b1.html#chapter-2---data-models-and-query-languages",
+    "relUrl": "/notes/45199987-a515-40d0-8bc8-c447503f21b1.html#chapter-2---data-models-and-query-languages"
+  },"28": {
+    "doc": "Ch02 - Data Models and Query Languages",
+    "title": "Relational vs document",
+    "hpath": "books.tech.data-intensive-applications.ch2-data-models",
+    "content": "Roots of RDMS: business data processing - mainframe in the 1960s and ’70s. | transaction processing (entering sales or banking transactions, airline reservations, stock-keeping in warehouses) | batch processing (customer invoicing, payroll, reporting ) | . Object-relational mismatch . | For a data structure like a résumé, which is mostly a self-contained document, a JSON representation can be quite appropriate | Document: better locality | one-to-many relationships imply tree structure- captured well by JSON | Many-to one relationships - e.g. normalizing city of people . | not easy with doc data base | Emulate join in application code rather than database | . | Many to many relationships | Not a new debate: . | Hierarchical model | Network model | . | . RDMS vs document databases today . | Document: schema flexibility, performance due to locality, sometimes closer to data structures used by application | Which data model leads to simpler application code? . | Document: If the data in your application has a document-like structure (i.e., a tree of one-to- many relationships, where typically the entire tree is loaded at once | highly interconnected data : document is awkward, relational acceptable, graph most natural | . | Schema . | Document databases - schema-on-read - like dynamic type checking . | advantageous if the items in the collection don’t all have the same structure for some reason | . | Relational - schema-on-write. - like static/compile time type checking . | most relational database systems execute the ALTER TABLE statement in a few milliseconds except MySQL | . | . | Data locality for queries . | Document is usually stored as single continuous string. So if often eed access to entire doc, performance advantage | Not limited to document db: . | locality property in a relational model . | Spanner: rows nested in parent | Oracle: multi-table index cluster table | Bigtable, Cassandra and HBase : column family | . | . | . | . ",
+    "url": "http://localhost:4000/notes/45199987-a515-40d0-8bc8-c447503f21b1.html#relational-vs-document",
+    "relUrl": "/notes/45199987-a515-40d0-8bc8-c447503f21b1.html#relational-vs-document"
+  },"29": {
+    "doc": "Ch02 - Data Models and Query Languages",
+    "title": "Query languages",
+    "hpath": "books.tech.data-intensive-applications.ch2-data-models",
+    "content": ". | declarative query language: . | hides implementation details - Improve perf w/o requiring query changes | lend themselves to parallel execution | Example: css | MapReduce query in MongoDB . | Neither declarative nor fully imperative | Alternative: Mongo Aggregation pipeline: declarative - looks a lot like SQL | “a NoSQL system may find itself accidentally reinventing SQL, albeit in disguise. “ | . | . | . ",
+    "url": "http://localhost:4000/notes/45199987-a515-40d0-8bc8-c447503f21b1.html#query-languages",
+    "relUrl": "/notes/45199987-a515-40d0-8bc8-c447503f21b1.html#query-languages"
+  },"30": {
+    "doc": "Ch02 - Data Models and Query Languages",
+    "title": "Graph data models",
+    "hpath": "books.tech.data-intensive-applications.ch2-data-models",
+    "content": ". | Great for many-to-many relationships | Can be emulated with recursive queries in Relational. But awkward | Type: . | Property graph - Neo4J | Triple-store model . | Resource Description Framework (RDF) - designed for semantic web - never took off | Subject - predicate - object | Predicate used for both property and edges ``` . | prefix : &lt;urn:example:&gt;. _:lucy a :Person. _:lucy :name “Lucy”. _:lucy :bornIn _:idaho ``` | . | . | . | Query language: . | Declarative: . | SparQL - for triple stores using the RDF data model | Datalog - predicate(subject, object) - build rules small steps at a time | Cypher - neo4j | . | Imperative: . | Gremlin | . | . | . ",
+    "url": "http://localhost:4000/notes/45199987-a515-40d0-8bc8-c447503f21b1.html#graph-data-models",
+    "relUrl": "/notes/45199987-a515-40d0-8bc8-c447503f21b1.html#graph-data-models"
+  },"31": {
+    "doc": "Ch02 - Data Models and Query Languages",
+    "title": "Summary",
+    "hpath": "books.tech.data-intensive-applications.ch2-data-models",
+    "content": ". | Historically, data started out being represented as one big tree (the hierarchical model), but that wasn’t good for representing many-to-many relationships, so the relational model was invented to solve that problem | Recently noSQL: . | Document - when relationships across docs is rare | Graph - when anything is related to anything | . | . ",
+    "url": "http://localhost:4000/notes/45199987-a515-40d0-8bc8-c447503f21b1.html#summary",
+    "relUrl": "/notes/45199987-a515-40d0-8bc8-c447503f21b1.html#summary"
+  },"32": {
+    "doc": "Ch02 - Data Models and Query Languages",
+    "title": "Ch02 - Data Models and Query Languages",
+    "hpath": "books.tech.data-intensive-applications.ch2-data-models",
+    "content": " ",
+    "url": "http://localhost:4000/notes/45199987-a515-40d0-8bc8-c447503f21b1.html",
+    "relUrl": "/notes/45199987-a515-40d0-8bc8-c447503f21b1.html"
+  },"33": {
+    "doc": "Cloud",
+    "title": "Cloud",
+    "hpath": "topics.cloud",
+    "content": ". | Using HPC and ML on AWS to understand climate change . | Maxar Technologies - weather prediction models . | c5n.18xlarge + EFA networking adapter | 14TB FSx for Lustre with progressive file layout (PFL) across the 12 object storage targets (OSTs). | . | cloud efficiencies: . | A typical large-scale cloud provider achieves ~65 % server utilization rates versus 15% on-premises (source - Data Center Efficiency Assessment). which means when companies move to the cloud they typically provision fewer than ¼ of the servers than they would on-premises. | A typical on-premises data center is 29% less efficient in their use of power compared to a typical large-scale cloud provider | . | . | . ",
+    "url": "http://localhost:4000/notes/48575b62-61b9-4ee8-be31-67c48966a2fe.html",
+    "relUrl": "/notes/48575b62-61b9-4ee8-be31-67c48966a2fe.html"
+  },"34": {
+    "doc": "Qgis",
+    "title": "QGIS",
+    "hpath": "courses.gis.foundamental.qgis",
+    "content": ". | Tutorial: https://docs.qgis.org/3.16/en/docs/training_manual/index.html | . ",
+    "url": "http://localhost:4000/notes/4944904a-3fb3-4916-8a08-319e0de5d058.html#qgis",
+    "relUrl": "/notes/4944904a-3fb3-4916-8a08-319e0de5d058.html#qgis"
+  },"35": {
+    "doc": "Qgis",
+    "title": "Qgis",
+    "hpath": "courses.gis.foundamental.qgis",
+    "content": " ",
+    "url": "http://localhost:4000/notes/4944904a-3fb3-4916-8a08-319e0de5d058.html",
+    "relUrl": "/notes/4944904a-3fb3-4916-8a08-319e0de5d058.html"
+  },"36": {
+    "doc": "Tools & Formats",
+    "title": "Tools & Formats",
+    "hpath": "courses.gis.foundamental.tools-and-formats",
+    "content": "Software . | ArcGIS . | heavyweight - the “microsoft” | expensive, fast, stable | industry standard, used by government, university, etc. | . | Quantum GIS . | newcomer | easiest, free, open source GIS | great complement to ArcGIS | . | Grass GIS . | old school | cmd line based, GUI available | free and open source | . | Others: Erdas Imagine, Mapinfo, Mapwindow, GvSig, Envi, Youdig, Saga, OpenJump. | some CAD software work with GIS data atoo . | https://en.wikipedia.org/wiki/Comparison_of_geographic_information_systems_software . | backup software: e.g. CrashPlan | . Formats . | Shapefile . | specific ESRI format | standard format used by most | comprised of 3-7 files | rely on old dBase IV data tables | slow, large, limiting, but useful for interchange | . | The GeoPackage open format is a SQLite container for GIS data (layers) in a single file. Unlike the ESRI Shapefile format, a single GeoPackage file can contain various data (both vector and raster) in different coordinate reference systems, as well as tables without spatial information . | SpatiaLite database format, like GeoPackage, is also an extension of the SQLite library | . ",
+    "url": "http://localhost:4000/notes/4cb91877-d9b8-48e7-bf3f-c8e082c34701.html",
+    "relUrl": "/notes/4cb91877-d9b8-48e7-bf3f-c8e082c34701.html"
+  },"37": {
+    "doc": "Tag",
+    "title": "Tag",
+    "hpath": "tag",
+    "content": " ",
+    "url": "http://localhost:4000/notes/596743fc-6d97-4658-9cc5-916152eefd35.html",
+    "relUrl": "/notes/596743fc-6d97-4658-9cc5-916152eefd35.html"
+  },"38": {
+    "doc": "Orchestration",
+    "title": "Orchestration",
+    "hpath": "topics.distributed-systems.orchestration",
+    "content": "Different Orchestration systems . | Category | Variations | Tradeoffs | . | Activity trigger | Push or Pull | cheap/fast (good for fast and lightweight steps) vs. throughput decoupled | . | Persistence level | Only as needed or after each step | cheap/fast vs. consistent | . | Process Execution | Sync or Async |   | . | Activity execution | Remote or Local |   | . | Process Trigger | Request driven or Event driven |   | . ",
+    "url": "http://localhost:4000/notes/5a064f50-f1fe-4fa0-8234-bc626fea65a8.html",
+    "relUrl": "/notes/5a064f50-f1fe-4fa0-8234-bc626fea65a8.html"
+  },"39": {
+    "doc": "Hobbies",
+    "title": "Hobbies",
+    "hpath": "hobbies",
+    "content": " ",
+    "url": "http://localhost:4000/notes/5cda1053-d80d-49ca-8433-c0abaac2f632.html",
+    "relUrl": "/notes/5cda1053-d80d-49ca-8433-c0abaac2f632.html"
+  },"40": {
+    "doc": "Unix",
+    "title": "Unix",
+    "hpath": "reference.unix",
+    "content": "Quick per line processing . e.g. clean up S3 buckets . while read -r line ; do; echo $line; aws s3 rm s3://$line --recursive &amp;&amp; aws s3 rb s3://$line ; done . ",
+    "url": "http://localhost:4000/notes/5d1093c0-c427-4f73-99bc-4d93fe865e82.html",
+    "relUrl": "/notes/5d1093c0-c427-4f73-99bc-4d93fe865e82.html"
+  },"41": {
+    "doc": "Tech Adoption",
+    "title": "Tech Adoption",
+    "hpath": "topics.tech-adoption",
+    "content": " ",
+    "url": "http://localhost:4000/notes/5d647f04-cc3d-45fd-8fcc-6f4f67671952.html",
+    "relUrl": "/notes/5d647f04-cc3d-45fd-8fcc-6f4f67671952.html"
+  },"42": {
+    "doc": "ML and technical debt",
+    "title": "Machine Learning: The High Interest Credit Card of Technical Debt",
+    "hpath": "topics.ml.ml-and-tech-debt",
+    "content": ". | link to paper: https://research.google/pubs/pub43146/ . | Complex Models Erode Boundaries . | Entanglement . | Generally not possible to make isolated changes - Changing Anything Changes Everything | Applies to features, signals, parameter settings, etc | Somewhat innate to ML | . | Hidden feedback loop . | ML system’s predictions end up influencing its own training data | May happen in surprising ways, such as two systems are dependencies of each other | Can result in gradual changes not immediately visible, hard to detect and debug | . | Undeclared consumers . | Changes to model impact undeclared downstream app | Also potential to create hidden feedback loops | . | . | Dependency debt . | Data dependency cost more than code dependencies . | Data dependency is harder to track than code dependencies | Unstable dependency | Legacy features | Bundle features | episilon Features – small improvement in accuracy with huge complexity overhead | Correction cascade – tendency to use another model and learn a calibration layer | . | . | System level spaghetti . | Glue code - most of the code is not the model itself. | Pipeline jungles | Dead Experimental Codepaths | Configuration Debt | . | . ",
+    "url": "http://localhost:4000/notes/6011ad5f-c0b5-43f3-a3a0-cd6a09611c28.html#machine-learning-the-high-interest-credit-card-of-technical-debt",
+    "relUrl": "/notes/6011ad5f-c0b5-43f3-a3a0-cd6a09611c28.html#machine-learning-the-high-interest-credit-card-of-technical-debt"
+  },"43": {
+    "doc": "ML and technical debt",
+    "title": "ML and technical debt",
+    "hpath": "topics.ml.ml-and-tech-debt",
+    "content": " ",
+    "url": "http://localhost:4000/notes/6011ad5f-c0b5-43f3-a3a0-cd6a09611c28.html",
+    "relUrl": "/notes/6011ad5f-c0b5-43f3-a3a0-cd6a09611c28.html"
+  },"44": {
+    "doc": "Ch07 - Transactions",
+    "title": "Chapter 7: Transactions",
+    "hpath": "books.tech.data-intensive-applications.ch7-transactions",
+    "content": "Purpose of transactions: simplify the programming model . ",
+    "url": "http://localhost:4000/notes/603d252d-91ec-4f35-950e-26211cd5112a.html#chapter-7-transactions",
+    "relUrl": "/notes/603d252d-91ec-4f35-950e-26211cd5112a.html#chapter-7-transactions"
+  },"45": {
+    "doc": "Ch07 - Transactions",
+    "title": "ACID definition is slippery",
+    "hpath": "books.tech.data-intensive-applications.ch7-transactions",
+    "content": ". | Atomicity: . | different from normal meaning in concurrency programming (nobody else sees a partially updated state) | means more abortability - when failure, all partial updates are reverted | . | Consistency: . | overloaded term | means some invariants to be true - but it’s more up to application. | ‘C’ doesn’t really belong | . | Isolation: . | concurrently executing transactions are isolated from each other: they cannot step on each other’s toes | i.e. serializability - result is the same as if they had run serially | in practice, strictly serializable isolation is rarely used. Oracle 11g doesn’t even implement it. | . | Durability . | once committed, data written is stored . | persisted to disk in single node | or replicated in multi-node | . | . | . single-object vs multi . | Atomicity and isolation apply both to single and multi-object . | on single object: . | almost universally provided . | Atomicity - log for crash recovery | isolation - a lock on each object | . | some provide atomic operations e.g. increment or compare-and-et | . | multi-object: . | in relational model, foreign key constraints to other table has to be met | in document, need transactions to prevent denormalized data going out of sync | update sconedary indexes | . | . | handling error . | ACID databases abandon transactino entirely if at risk of ACID | quorum storage - “best “effort” | . | . ",
+    "url": "http://localhost:4000/notes/603d252d-91ec-4f35-950e-26211cd5112a.html#acid-definition-is-slippery",
+    "relUrl": "/notes/603d252d-91ec-4f35-950e-26211cd5112a.html#acid-definition-is-slippery"
+  },"46": {
+    "doc": "Ch07 - Transactions",
+    "title": "Weak Isolation Levels",
+    "hpath": "books.tech.data-intensive-applications.ch7-transactions",
+    "content": "Serializable isolation has a performance cost, and many databases - including many popular relational DBs don’t want to pay that price. Read Committed . | when reading, only see committed data - no dirty reads | when writing, only overwrite data that has been fully committed - no dirty writes | very popular - deulat in Oracle 11g, PostgreSQL, SQL Server 2012 etc. | implementation . | prevent dirty writes by row level locks | prevent dirty reads: not by read locks, but by keeping the old commited value and the new value set by the transaction that currently holds the write lock. | . | . Snapshot Isolation and Repeatable Read . | reads might see effect of part of the transaction | use case where it’s important and useful: long-running, read-only queries . | backup | Analytic queries and integrity checks | . | Snapshot Isolation: each transaction reads from a consistent snapshot of the database | Implementation . | prevent dirty writes by locks | no read locks - instead, keep several different committed versions of an object - multi-version concurrency control (MVCC). | always-increasing transaction ID | when reading, only read the latest committed version of the row with write tx id &lt; read tx id | . | Indexes . | option 1: index simply point to all versions of an object, filter at read time | option 2: (PostgreSQL) avoid index updates if diff version on the same page | option 3: append-only B-trees - updates generate a new page. all parents up to root is copied and updated to new. a particular root is a consistent snapshot of the database at the point in time when it was created. require background compaction and garbage collection. | . | . | naming confusion . | different DB call it differently, and actual guarantees are different | because SQL standard has flawed defintion for repeatable read - | . | . ",
+    "url": "http://localhost:4000/notes/603d252d-91ec-4f35-950e-26211cd5112a.html#weak-isolation-levels",
+    "relUrl": "/notes/603d252d-91ec-4f35-950e-26211cd5112a.html#weak-isolation-levels"
+  },"47": {
+    "doc": "Ch07 - Transactions",
+    "title": "Ch07 - Transactions",
+    "hpath": "books.tech.data-intensive-applications.ch7-transactions",
+    "content": " ",
+    "url": "http://localhost:4000/notes/603d252d-91ec-4f35-950e-26211cd5112a.html",
+    "relUrl": "/notes/603d252d-91ec-4f35-950e-26211cd5112a.html"
+  },"48": {
+    "doc": "Governance",
+    "title": "Governance",
+    "hpath": "topics.cloud.aws.governance",
+    "content": " ",
+    "url": "http://localhost:4000/notes/626e1dd7-6f6f-45aa-bf72-faca04b22244.html",
+    "relUrl": "/notes/626e1dd7-6f6f-45aa-bf72-faca04b22244.html"
+  },"49": {
+    "doc": "Week 1",
+    "title": "Foundamentals review",
+    "hpath": "courses.investments.wk1",
+    "content": "Capital Asset Pricing Model (CAPM) . Excess return of a stock is proportional to its beta . \\( \\beta \\): covariance - systemtic risk - sensitivity to the market . | \\( \\beta \\) = 1, stock moves with the market exactly | \\( \\beta \\) &gt; 1, stock amplifies market | 0 &lt; \\( \\beta \\) &lt; 1, goes with market, but less so, e.g. Walmart | . Stadard deviation (\\(\\sigma\\)): measure of total risk . CAPM: assets with higher \\( \\beta \\) should have higher benchmarks. Can’t sipmly compare returns of assets. Prices and expected returns should reflect how sensitive it is to overall market . Alpha (\\(\\alpha)\\): performance of an asset relative to its CAPM predicte return. asset 1 less beta than market but still same return - better . 3-Factor model . In reality, \\( \\beta \\) generally does not predict returns as strongly as CAPM. Other factors that predict returns. | firm size . | small firm outperform large | . | famous value premium . | “value stock” have historically outperformed (vs. “growth stock”) | high book/market ratio - value stock | . | . augmenting CAPM: . Market efficiency . Interpretation of market anomalies: . | risk | irrational behavior | data mining - coincidentally fit the pattern | . Efficieint Market Hypothesis (EMH) . | Semi-strong form EMH: stock prices reflect all publically available information | . Regression . | p-value: prob. of finding the observed coefficient estimate under the null hypothesis . | common cutoff: 0.05 or smaller | . | statistical significance: 5% means p value is less than 0.05 | t-statistic: ratio of coefficient to the standard error of the coefficient . | common cutoff: 2 or more | . | (\\(r^2)\\)- goodness of fit. how much of variability of dependent variable is explained by independent variable ( 0= no relation 1= fit perfectly) | . ",
+    "url": "http://localhost:4000/notes/683498b7-eb79-4363-8ec7-bbbf909e9ba5.html#foundamentals-review",
+    "relUrl": "/notes/683498b7-eb79-4363-8ec7-bbbf909e9ba5.html#foundamentals-review"
+  },"50": {
+    "doc": "Week 1",
+    "title": "Compositions of Returns",
+    "hpath": "courses.investments.wk1",
+    "content": ". | Definition of return \\( Return_t = { ( Price_t - Price_{t-1} + Dividend_t ) \\over Price_{t-1} }\\) | . Realization-based capital gains tax . | realize loss within a year. so deduction is valued at regular income tax . | realize before 12/31 | . | realize gain after a year . | postpose after 12/31 so tax is delayed for next year | . | Tax delayed = tax saved . | example: if asset is 10% return, 20% cap gain tax, sell after 10 years -&gt; equivalent annual tax rate = 14.3% | | . | basis step-up at death . | when someone dies, potential cap gain liability dies with them | . | . Seasonality in stock returns . | january effect | . ",
+    "url": "http://localhost:4000/notes/683498b7-eb79-4363-8ec7-bbbf909e9ba5.html#compositions-of-returns",
+    "relUrl": "/notes/683498b7-eb79-4363-8ec7-bbbf909e9ba5.html#compositions-of-returns"
+  },"51": {
+    "doc": "Week 1",
+    "title": "Week 1",
+    "hpath": "courses.investments.wk1",
+    "content": " ",
+    "url": "http://localhost:4000/notes/683498b7-eb79-4363-8ec7-bbbf909e9ba5.html",
+    "relUrl": "/notes/683498b7-eb79-4363-8ec7-bbbf909e9ba5.html"
+  },"52": {
+    "doc": "Google BigTable",
+    "title": "Google BigTable",
+    "hpath": "topics.distributed-systems.bigtable",
+    "content": ". | Bigtable: A Distributed Storage System for Structured Data (https://research.google/pubs/pub27898/) | hosted on GCP: Cloud Bigtable | Inspired Apache Cassandra (from Facebook) | Spanner is layered on top | . ",
+    "url": "http://localhost:4000/notes/70076aa3-4564-4d29-8559-c766fa201698.html",
+    "relUrl": "/notes/70076aa3-4564-4d29-8559-c766fa201698.html"
+  },"53": {
+    "doc": "Google BigTable",
+    "title": "Logical data model",
+    "hpath": "topics.distributed-systems.bigtable",
+    "content": ". | Key (row:string, column:string, time:int64) → Value: string | Row: . | data stored in lexicographic order by row key | row range = tablet | when storing URLs, use reversed URL as row ID so URLs from the same domain are close to each other: com.google.maps com.google.images | . | Column Families . | Colume key: family:qualifier | . | Timestamps . | multiple versions of data | garbage-collect rules: . | # of versions to keep | discard versions older than x days | . | . | . ",
+    "url": "http://localhost:4000/notes/70076aa3-4564-4d29-8559-c766fa201698.html#logical-data-model",
+    "relUrl": "/notes/70076aa3-4564-4d29-8559-c766fa201698.html#logical-data-model"
+  },"54": {
+    "doc": "Google BigTable",
+    "title": "API",
+    "hpath": "topics.distributed-systems.bigtable",
+    "content": ". | Write - atomic operation on rows - supports single-row transactions Table *T = OpenOrDie(\"/bigtable/web/webtable\"); // Write a new anchor and delete an old anchor RowMutation r1(T, \"com.cnn.www\"); r1.Set(\"anchor:www.c-span.org\", \"CNN\"); r1.Delete(\"anchor:www.abc.com\"); Operation op; Apply(&amp;op, &amp;r1); . | Read - Clients can iterate over multiple column families for a row . Scanner scanner(T); ScanStream *stream; stream = scanner.FetchColumnFamily(\"anchor\"); stream-&gt;SetReturnAllVersions(); scanner.Lookup(\"com.cnn.www\"); for (; !stream-&gt;Done(); stream-&gt;Next()) { printf(\"%s %s %lld %s\\n\", scanner.RowName(), stream-&gt;ColumnName(),stream-&gt;MicroTimestamp(), stream-&gt;Value()); . | . ",
+    "url": "http://localhost:4000/notes/70076aa3-4564-4d29-8559-c766fa201698.html#api",
+    "relUrl": "/notes/70076aa3-4564-4d29-8559-c766fa201698.html#api"
+  },"55": {
+    "doc": "Google BigTable",
+    "title": "Implementation",
+    "hpath": "topics.distributed-systems.bigtable",
+    "content": ". | master: . | assign tablets to tablet servers | detecting the addition and expiration of tablet servers | balancing tablet-server load | GFS garbage collection | . | tablet servers: . | 100-200 MB each by default | tablet server holds an exclusive lock in Chubby | master detect by asking each tablet server for lock status . | if fails, master attempts to aquire the server lock. if success, delete the server file, and move assgiment to other tablets | master failure does not change assigment | . | master at startup: . | takes a master lock | scan server directory in Chubby | contact tablet to learn current assigments | reads METADATA to find tablets | assign un-assigned tablets | . | . | . | image from Youtube: 深入浅出BigTable | . ",
+    "url": "http://localhost:4000/notes/70076aa3-4564-4d29-8559-c766fa201698.html#implementation",
+    "relUrl": "/notes/70076aa3-4564-4d29-8559-c766fa201698.html#implementation"
+  },"56": {
+    "doc": "Async job scheduling",
+    "title": "Async job scheduling",
+    "hpath": "topics.distributed-systems.async",
+    "content": "[Blog] Asynchronous computing @Facebook . | https://engineering.fb.com/2020/08/17/production-engineering/async/ | Problem with simple priority queues: . | large use cases dominate | bad jobs stuck | uneven utilization between peaks &amp; valleys | . | Building to scale . | introduce delay tolerance | Capacity optimization: . | classifying use cases: . | daily traffic: predictable | major events: semi-predictable | Incident response: short and spikey, unpredictable | . | Time shifting: . | Predictive - which data may need, precomputes and cache | Deferred compute | . | batching: . | reduce # of requests to other components | potential high cache reuse and code warmup | . | . | Capacity policy: quota and rate limiting . | CPU instruction utilization and memory limit - when exceeded, throttle and send alert | rate limit on intake | . | . | . ",
+    "url": "http://localhost:4000/notes/7ec6a7fa-7000-45e0-bec0-e3aa2e3493c5.html",
+    "relUrl": "/notes/7ec6a7fa-7000-45e0-bec0-e3aa2e3493c5.html"
+  },"57": {
+    "doc": "GIS",
+    "title": "GIS",
+    "hpath": "courses.gis",
+    "content": "Other map related tools and tutorials: . | Command-Line Cartography using d3-geo, TopoJSON and ndjson-cli to make thematic maps | Leaflet JS an open-source JavaScript library for mobile-friendly interactive maps | . ",
+    "url": "http://localhost:4000/notes/8d510207-4138-4032-a284-28fa028e7c2b.html",
+    "relUrl": "/notes/8d510207-4138-4032-a284-28fa028e7c2b.html"
+  },"58": {
+    "doc": "Designing Data-intensive Applications",
+    "title": "Main takeaways",
+    "hpath": "books.tech.data-intensive-applications",
+    "content": ". | even ACID relational DBs does not provide the strong guarantees that we often assume -weak isolation levels | . ",
+    "url": "http://localhost:4000/notes/a42eba1d-b978-4cdc-9160-1f3e9c7cf025.html#main-takeaways",
+    "relUrl": "/notes/a42eba1d-b978-4cdc-9160-1f3e9c7cf025.html#main-takeaways"
+  },"59": {
+    "doc": "Designing Data-intensive Applications",
+    "title": "Designing Data-intensive Applications",
+    "hpath": "books.tech.data-intensive-applications",
+    "content": " ",
+    "url": "http://localhost:4000/notes/a42eba1d-b978-4cdc-9160-1f3e9c7cf025.html",
+    "relUrl": "/notes/a42eba1d-b978-4cdc-9160-1f3e9c7cf025.html"
+  },"60": {
+    "doc": "Api Design",
+    "title": "Api Design",
+    "hpath": "topics.api-design",
+    "content": " ",
+    "url": "http://localhost:4000/notes/a943fdf0-9f93-40f9-8d93-09304935dd44.html",
+    "relUrl": "/notes/a943fdf0-9f93-40f9-8d93-09304935dd44.html"
+  },"61": {
+    "doc": "Week1 - Intro",
+    "title": "Week1 - Intro",
+    "hpath": "courses.gis.foundamental.week1",
+    "content": ". | Definition of GIS: software and data that enables to answer questions involving location and spatial info. Yelp, G maps, etc. all count | Desktop GIS - editting, processing, | Web GIS - mostly for displaying | . terminology . https://www.coursera.org/learn/gis/supplement/lMYp2/glossary-of-terms . | Vector and feature data . | categorical and multivariate data . | e.g. each watershed has an attribute table | . | Points, lines, polygons . | Lines: 1D, can have an attribute record | Polygons: 2D, can have an attribute record | . | . | Raster data - continuous data . | grid of fixed-size pixels - uniform value within in pixel | imagery (multiband raster data e.g. RGB) is raster data | . | map documents in ArcGIS . | stores representation of data, provide a workspace | ext: .mxd | the map data is not embeded. | . | Orthophoto: arieal photo after location corrected to the map . | Watershed Analysis . | NHD – National Hydrography Dataset – A dataset that contains water bodies and streamlines for the United States . | Flowlines – the streamlines contained within NHD | NHDPlus – an enhanced version of NHD that adds additional attributes for each streamline, such as contributing area, flow, elevation, WBD, etc. Often used in place of NHD. | . | WBD – Watershed Boundary Dataset – a dataset containing nested watershed boundaries for the United States . | HUCs – Hydrologic Unit Codes – the watersheds created by the WBD | . | . | . ",
+    "url": "http://localhost:4000/notes/ae4197f7-ef66-4d95-8500-f54327559d1d.html",
+    "relUrl": "/notes/ae4197f7-ef66-4d95-8500-f54327559d1d.html"
+  },"62": {
+    "doc": "Courses",
+    "title": "Courses",
+    "hpath": "courses",
+    "content": "My notes from taking MOOCs . ",
+    "url": "http://localhost:4000/notes/b0e90360-9cfe-47a5-b978-d007c2f1f305.html",
+    "relUrl": "/notes/b0e90360-9cfe-47a5-b978-d007c2f1f305.html"
+  },"63": {
+    "doc": "Ch10 - Batch processing",
+    "title": "The Unix Philosophy",
+    "hpath": "books.tech.data-intensive-applications.ch10-batch",
+    "content": ". | Make each program do one thing well | output of every program to become the input to another unkonwn program | friendly to experimentation | Use tools in preference to unskilled help (prefer automation) | . example: linux sort util: do one thing really well, but only powerful when combined with other tools . | Batch Processing with Unix Tools . | Chain of commands versus custom program . | Sorting vs in-memory aggregation: example - count the most frequent URLs . | if large amount of data, sorting can make efficient use of disks . | Mergesort has sequential access patterns that perform well on disks | . | small number of uniq values: in memory hash table may works great | . | . | . | A uniform interface . | interface is file: actual file, socket, stdin, stdout, device driver, etc. | . | Separation of logic and wiring . | defaulting to stdin and stdout allows loose coupling and program doesn’t know or care where input comes from or output going | . | Transparency and experimentation . | input immutable, can repeatly run | can inspect intermediate results | piping output to file allows checkpointing progress | . | . ",
+    "url": "http://localhost:4000/notes/b0ec61b7-70af-48f2-8c44-df56afab8f5d.html#the-unix-philosophy",
+    "relUrl": "/notes/b0ec61b7-70af-48f2-8c44-df56afab8f5d.html#the-unix-philosophy"
+  },"64": {
+    "doc": "Ch10 - Batch processing",
+    "title": "MapReduce",
+    "hpath": "books.tech.data-intensive-applications.ch10-batch",
+    "content": "Lots of parallel with Unix: . - . ",
+    "url": "http://localhost:4000/notes/b0ec61b7-70af-48f2-8c44-df56afab8f5d.html#mapreduce",
+    "relUrl": "/notes/b0ec61b7-70af-48f2-8c44-df56afab8f5d.html#mapreduce"
+  },"65": {
+    "doc": "Ch10 - Batch processing",
+    "title": "Ch10 - Batch processing",
+    "hpath": "books.tech.data-intensive-applications.ch10-batch",
+    "content": " ",
+    "url": "http://localhost:4000/notes/b0ec61b7-70af-48f2-8c44-df56afab8f5d.html",
+    "relUrl": "/notes/b0ec61b7-70af-48f2-8c44-df56afab8f5d.html"
+  },"66": {
+    "doc": "Big data",
+    "title": "Big data",
+    "hpath": "frameworks.big-data",
+    "content": " ",
+    "url": "http://localhost:4000/notes/b26ba764-c2c2-4d3f-93b6-2fde6e596463.html",
+    "relUrl": "/notes/b26ba764-c2c2-4d3f-93b6-2fde6e596463.html"
+  },"67": {
+    "doc": "Sewing",
+    "title": "Sewing",
+    "hpath": "hobbies.sewing",
+    "content": ". | intro video on Udemy: https://www.udemy.com/course/how-to-sew | Choosing sewing machines . | front loading bobbin | drop-in bobbin - easier for beginner | . | supplies . | scissors, iron, iron board | seam ripper | pin | pin cushions | machine needle and hand needle . | Choosing machine needles: https://www.singer.com/sewing-machine-needles | . | tailor’s chalk | tracing paper and wheel | . | . Darning jeans . | supplies . | [] cotton darning thread | [] stablizing fabric: cotton organdy or muslin | . | . ",
+    "url": "http://localhost:4000/notes/b5bec914-8e1c-441c-80d2-f152cbc25367.html",
+    "relUrl": "/notes/b5bec914-8e1c-441c-80d2-f152cbc25367.html"
+  },"68": {
+    "doc": "Topics",
+    "title": "Topics",
+    "hpath": "topics",
+    "content": " ",
+    "url": "http://localhost:4000/notes/bee70da8-e282-4d98-9709-1bad45e8a734.html",
+    "relUrl": "/notes/bee70da8-e282-4d98-9709-1bad45e8a734.html"
+  },"69": {
+    "doc": "Algorithmic Fairness",
+    "title": "Algorithmic Fairness",
+    "hpath": "topics.ml.algorithmic-fairness",
+    "content": "Algorithmic Fairness from a Non-ideal Perspective . | author/speaker: Zack Lipton | https://arxiv.org/abs/2001.09773 . | important moments: . | ProPublica machine bias article from 2016 - a galvanizing event prompting interest: https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing | Gender Shades- 2018. unbalanced dataset of facial benchmarks | biased allocation of healthcare - https://www.theverge.com/2019/10/24/20929337/care-algorithm-study-race-bias-health | . | Philosophy of justice . | https://plato.stanford.edu/entries/justice/ . | obligation (“one’s due”) in contrast to charity | resolve conflicts when interests clash | impartiality - two cases relvantly alike should be treated similarly | . | convservative (conserving existing norms) vs ideal (demand reform of norms and practicies) | corrective (bilateral, wrong-doer &lt;&gt; wronged ) vs distributive (allocating goods to individuals, mutltilateral with a distributing agent) | procedural (procedure) vs substantive (end result) | comparative (a position was offered to a less qualified candidate) vs non-comparative (regardless of comparison, e.g. basic human rights) . | ML disccussion often focus on comparative. should also consider non-comparative | . | scope of justice | ideal and non-ideal theorizing (The Imperative of Integration - Elizabeth S. Anderson) . | ideal: . | imagine perfectly just world (Rawls) | try to minimzie discrepancy between reality and ideal | e.g. been used to argue against affirmative acction - ideal world is color blind | . | non-ideal: . | understand causual explanation of the problem, determine waht can be done and who to correct it. | . | . | . | economics . | “the economics of discrimination” - Becker . | simulation of employer taste-based discrimination | . | Arrow’s Rebuttal to Becker 1973 . | imperfect information as alternative cause | . | “Statistical theory of racism and sexism” ``` . | Efficient candidate screening under multiple tests and implications for fairness ``` | . https://arxiv.org/abs/1905.11361 . - concerns noise - by adjusting number of interviews. hitting boundary on left, can equalize FP and FN across groups w different noise level - but more num of interviews can negatively affect candidates too - Will Affirmative-Action Policies Eliminate Negative Stereotypes? - Stephen Coate and Glenn C. Loury - https://www.brown.edu/Departments/Economics/Faculty/Glenn_Loury/louryhomepage/papers/Coate%20and%20Loury%20(AER%201993).pdf - even when groups are equal ex ante, equilibrium outcomes following some internventions can appear to confirm negative sterotypes . | . | ML fairness . | https://www.theatlantic.com/technology/archive/2018/05/machine-learning-is-stuck-on-asking-why/560675/?utm_source=twb . | “ML is stuck on … learning associations “ | it learns associations and not causal relations | on one hand, curve fitting turned out useful many places | but in many problems, curve fitting is not enough | . | http://approximatelycorrect.com/2016/11/07/the-foundations-of-algorithmic-bias/ . | taking inspiration from law: . | title 7 of civil rights law . | disparate treatment . | addresses intentional discrimination . | protected characterstic | also via proxy variables | with exceptions e.g. if goal is to promote diversity | . | what does intention mean in ML context? | . | disparate treament . | 3 tests: . | plaintiff must demo statistical disparity (4/5 rule) | defendent must show descirions are justified by business necessity | plaintiff must show defendent can achieve goal w alternative practice | . | first one can be done using stats. | later 2 of the 3 tests of the above are not well adressed by ML, require causal reasoning | . | . | . | . | typical . | treatment parity . | output does not depend on sensitive characteristic . | Model cannot use that feature | . | . | impact parity . | outcome independent of group status . | model can use the feature, but result algo outcome is indenpdent | . | . | representational parity . | the input map to some representation that you can’t infer their demographics | entails impact parity | . | equalized odds / opportunity parity . | equal FN and/or FP rates | . | . | problem . | the different parities are mutually irreconcilable | statisctical parity may not capture legal/philosophical notions | lack ingredients to determine just action . | how did disparities arive | impact of the decision | responsibilities of the decision maker | . | . | “impossibility” theorem: . | if we start from a non-ideal world, no set of action can simultaneously satisfy all the ideal | meeting the ideal in some respect may require widening other gaps | “equity” - peyton young, 1994 ``` . | different definition of equity which all seem reasonable by itself, when together causes non-reconcible conflict ``` =&gt; must make some choices | . | . | problem applications of attempts for fair algorithm . | . | for maximizing impact disparity, treatment disparity is optimal (theortical) . | if other features sufficiently can encode the sensitive feature, result is indistinguishable from teatment disparity (theortical) . | if other features partially encode sensitive feature =&gt; empirical side effects . | recorders within group that makes no (not procedurally justifiable) | produces potentially bizarre incentives to conform to steortype | . | example case study of gender study in CS admissions . | when applied DLP, the decisions were flipped neg to pos, for candidates that based on other traits were more likely to be female and vice versa . | in effect hurt female candidates who were applying to fields that are more male dominated | . | . | . | . | interesting research to follow . | causal approaches to fairness . | counterfactual fairness (Kusner 2017) | causal explanation (bareinboim 2017) | sensitive to subjectivity (different interpretations of the cause) | outsource the key issue to humans | . | feedback loops - next-step or equilibrium outcomes in a dynamic model . | Delayed impact of fair ML, Liu et al | Social Cost of strategic classification / Disparate effects of Strategic manipulation | Runaway Feedback Loops in predictive Policing | . | . | . ",
+    "url": "http://localhost:4000/notes/c23cc850-fa67-44ac-93df-bab59ef41f46.html",
+    "relUrl": "/notes/c23cc850-fa67-44ac-93df-bab59ef41f46.html"
+  },"70": {
+    "doc": "Ch06 - Partitioning",
+    "title": "Partitioning by Key Range",
+    "hpath": "books.tech.data-intensive-applications.ch6-partitioning",
+    "content": ". | used by BigTable, open source equivalent HBase, MongoDB before v2.4 | sorted in each partition: range scanes are easy | con: hot spots | . ",
+    "url": "http://localhost:4000/notes/c61cfa31-05a8-47de-897d-0fbd0a884e69.html#partitioning-by-key-range",
+    "relUrl": "/notes/c61cfa31-05a8-47de-897d-0fbd0a884e69.html#partitioning-by-key-range"
+  },"71": {
+    "doc": "Ch06 - Partitioning",
+    "title": "partition by hash key",
+    "hpath": "books.tech.data-intensive-applications.ch6-partitioning",
+    "content": ". | choice of hash key: . | Cassandra and MongoDB use MD5, Vodemort uses Fowler– Noll–Vo function. | MurmurHash - non-cryptographic but lightweight | built-in Java hash function is bad, because same key -&gt; different hash . | it’s built for in memory hash tables and the behavior is a safety mechanism to prevent collding hash attacks | . | . | Consistent Hashing . | great for caches | does not work great for DBs | . | range query difficult - Cassandra and DynamoDB uses hash + sort ey | hotspot relief: application level - route writes to multiple keys: key_random_num | . ",
+    "url": "http://localhost:4000/notes/c61cfa31-05a8-47de-897d-0fbd0a884e69.html#partition-by-hash-key",
+    "relUrl": "/notes/c61cfa31-05a8-47de-897d-0fbd0a884e69.html#partition-by-hash-key"
+  },"72": {
+    "doc": "Ch06 - Partitioning",
+    "title": "Secondary Indexes",
+    "hpath": "books.tech.data-intensive-applications.ch6-partitioning",
+    "content": ". | local index - scatter writes, gather for eads . | Used by MongoDB, Riak, Cassandra, Elasticsearch, SolrCloud, and VoltDB | . | global index . | write reaches multiple partitions - distributed transaction or async update | . | . ",
+    "url": "http://localhost:4000/notes/c61cfa31-05a8-47de-897d-0fbd0a884e69.html#secondary-indexes",
+    "relUrl": "/notes/c61cfa31-05a8-47de-897d-0fbd0a884e69.html#secondary-indexes"
+  },"73": {
+    "doc": "Ch06 - Partitioning",
+    "title": "Rebalancing Partitions",
+    "hpath": "books.tech.data-intensive-applications.ch6-partitioning",
+    "content": ". | Fixed number of partitions . | more partitions than nodes | when new node join, steal partitions from others | Used in Riak, Elasticsearch, Couchbase, and Voldemort | hard to pick the right number of partitions | . | parition spliting and merging | # of partition proportionally to nodes . | when a new node joins the cluster, it randomly chooses a fixed number of existing partitions to split, and then takes ownership of half of each partition | used by Cassandra | . | . | auto vs manual rebalancing . | full automation can be dangerous in combination with automatic failure detection | . | . ",
+    "url": "http://localhost:4000/notes/c61cfa31-05a8-47de-897d-0fbd0a884e69.html#rebalancing-partitions",
+    "relUrl": "/notes/c61cfa31-05a8-47de-897d-0fbd0a884e69.html#rebalancing-partitions"
+  },"74": {
+    "doc": "Ch06 - Partitioning",
+    "title": "Request Routing",
+    "hpath": "books.tech.data-intensive-applications.ch6-partitioning",
+    "content": ". | require consensus . | use zookeeper - HBase, SolrCloud, Kafka, Espresso | gossip - Cassandra and Riak | no autobalancing, routing tier - couchbase | . | . ",
+    "url": "http://localhost:4000/notes/c61cfa31-05a8-47de-897d-0fbd0a884e69.html#request-routing",
+    "relUrl": "/notes/c61cfa31-05a8-47de-897d-0fbd0a884e69.html#request-routing"
+  },"75": {
+    "doc": "Ch06 - Partitioning",
+    "title": "Ch06 - Partitioning",
+    "hpath": "books.tech.data-intensive-applications.ch6-partitioning",
+    "content": ". | Partitioned databases were pioneered in the 1980s by products such as Teradata, rediscvoered by noSQL | . ",
+    "url": "http://localhost:4000/notes/c61cfa31-05a8-47de-897d-0fbd0a884e69.html",
+    "relUrl": "/notes/c61cfa31-05a8-47de-897d-0fbd0a884e69.html"
+  },"76": {
+    "doc": "Books",
+    "title": "Books",
+    "hpath": "books",
+    "content": " ",
+    "url": "http://localhost:4000/notes/d088ab77-c2f6-4f7a-be4a-7597b00daff0.html",
+    "relUrl": "/notes/d088ab77-c2f6-4f7a-be4a-7597b00daff0.html"
+  },"77": {
+    "doc": "Testing",
+    "title": "Testing",
+    "hpath": "topics.testing",
+    "content": "Stress testing: . | 字节跳动全链路压测(Rhino)的实践 | . ",
+    "url": "http://localhost:4000/notes/d12b00d4-6ba1-4505-8472-b729e901ba48.html",
+    "relUrl": "/notes/d12b00d4-6ba1-4505-8472-b729e901ba48.html"
+  },"78": {
+    "doc": "Domain-driven Design Distilled",
+    "title": "Domain-driven Design Distilled",
+    "hpath": "books.tech.ddd-distilled",
+    "content": " ",
+    "url": "http://localhost:4000/notes/d33e7310-3439-469d-9ba7-67cbf94f529b.html",
+    "relUrl": "/notes/d33e7310-3439-469d-9ba7-67cbf94f529b.html"
+  },"79": {
+    "doc": "Scheduler",
+    "title": "Scheduler",
+    "hpath": "topics.distributed-systems.scheduler",
+    "content": "[Blog]- An Approach to Designing a Distributed, Fault-Tolerant, Horizontally Scalable Event Scheduler . | https://medium.com/walmartglobaltech/an-approach-to-designing-distributed-fault-tolerant-horizontally-scalable-event-scheduler-278c9c380637 | . ",
+    "url": "http://localhost:4000/notes/d388fa7b-7a1f-4030-8c7d-b92c8e982490.html",
+    "relUrl": "/notes/d388fa7b-7a1f-4030-8c7d-b92c8e982490.html"
+  },"80": {
+    "doc": "Investments II",
+    "title": "Investments II",
+    "hpath": "courses.investments",
+    "content": "https://www.coursera.org/learn/investments-applications/home/welcome . ",
+    "url": "http://localhost:4000/notes/d4747935-416b-44ef-abe2-c472208aa31b.html",
+    "relUrl": "/notes/d4747935-416b-44ef-abe2-c472208aa31b.html"
+  },"81": {
+    "doc": "Survival Analysis",
+    "title": "Survival analysis",
+    "hpath": "topics.ml.survival-analysis",
+    "content": "Survival analysis is a branch of statistics for analyzing the expected duration of time until one or more events happen, such as death in biological organisms and failure in mechanical systems. - wikipedia . Historically, originally developed and used by acturaries and medical researchers to estimate population lifetimes. | Video: Censoring . | Assume: censoring is non-informative - being censored or not is not related to the probablity of event happening | . | Video: Survival Function, Hazard, &amp; Hazard Ratio . | Survival function: S(t) = P(T&gt;t) = prob. of survival beyond time t | Hazard: HAZ = P(T&lt; t + dt | T &gt;t) = prob of dying in next few seconds, given alive now | Hazard ratio (HR) , prob of dying in next few seconds given exposure vs. not . \\( HR = {HAZ, x=1 \\over HAZ, x=0} \\) . | . | Video: comparing 3 . | model | Kaplan-Meier | Exponential | Cox-PH model | . | type | non-parametric | parametric | semi-parametric | . | prob | Simple can est S(t) | can est S(t) and HR | hazard can fluctuate with time can est HR | . | con | No functional form cannot est HR * | not always realistic assume constant HAZ Weibull model allows haz to proprotially ↗ or ↘ with time) | cannot est S(t) | . | Video: part 4- Kaplan-Meier model . | Process to compute the survival curve: | censored data get incorporated for all the prob. calculations before they drop out | a tick indicate censored data | example graph from water pipe break paper | . | Video: Exponential Model . | Video: Exponential vs Weibull vs Cox Proportional Hazards . | Overall: . | \\( Survival Function = S(t) = P(T&gt;t) = e^{-HAZ*t} \\) | \\( HAZ = e^{ b_{0} + b_{1}x_{1} + b_{2}x_{2} + … + b_{k}x_{k}} \\) | \\( \\ln(HAZ) = b_{0} + b_{1}x_{1} + b_{2}x_{2} + … + b_{k}x_{k} \\) | \\( b_0 \\) is \\( \\ln(HAZ) \\) for reference (at T=0) | . | Exponential . | \\( b_0 \\) is constant -&gt; constant hazard | . | Weibull . | \\( b_0 \\) is proprotional to time: \\( \\ln(\\alpha) \\ln(t) + b_0 \\) =&gt; \\( b_0 \\) | \\(\\alpha = 1 \\) - constant hazard | \\(\\alpha &gt; 1 \\) - hazard increase with time | \\(\\alpha &lt; 1 \\) - hazard decrease with time | . | Cox Proportional Hazards . | \\( b_0 \\) is a function of time | the algo can estimate \\( b_1, b_2, …. \\) without having to specify the funtion for \\( b_0 \\) | good for analyzing hazard ratios: how effective is treatment A vs B, exposure or non-exposure | can’t do predictive models on survival | . | . Lifelines: Survival analysis in python . | Talk from the author . | Docs: https://lifelines.readthedocs.io/en/latest/index.html | . Coursera: AI for Medical Prognosis . | prognosis vs diagnosis: . | prognosis = predicting the likely or expected development of a disease | . | examples in medical practice: . | CHA2DS2-VASc score for atrial fibrillation | MELD score for end-stage liver desease: . | \\( ln \\) terms | contain an intercept = if all other values is 0, expected risk score | . | ASCVD (Atherosclerotic Cardiovascular Disease) Risk Calculator . | interaction terms - capture dependence btw variables . | e.g. blood pressure has less effect of risk when patient is older | . | . | . | . ",
+    "url": "http://localhost:4000/notes/d4dd9201-c58d-4f4d-aa38-498c8c6e6267.html#survival-analysis",
+    "relUrl": "/notes/d4dd9201-c58d-4f4d-aa38-498c8c6e6267.html#survival-analysis"
+  },"82": {
+    "doc": "Survival Analysis",
+    "title": "Evaluating risk scores",
+    "hpath": "topics.ml.survival-analysis",
+    "content": ". | Concordant Pairs: . | | Concordant = patient with worse outcome has higher risk score | if outcome ties =&gt; exclude | if outcome different =&gt; permissible pair =&gt; inlcude | rule: . | +1 for permissible pair that is Concordant | +0.5 for permissible pair with risk tie (outcome different, but same risk score) | . | . | C-index . \\( C-index = { Count_{concordant} + 0.5 Count_{ties} \\over Count_{permissible}} \\) . | Applying c-index on censored data - Harrel’s C-Index . | patient A &amp; B both not censored =&gt; always permissible, even if A &amp; B has same time-to-event | patient A &amp; B both censored =&gt; not permissible | patient A censored, B not censored: ``` . | if A &lt; B - not permissible | if A &gt;= B - permissible ``` | . | . | . ",
+    "url": "http://localhost:4000/notes/d4dd9201-c58d-4f4d-aa38-498c8c6e6267.html#evaluating-risk-scores",
+    "relUrl": "/notes/d4dd9201-c58d-4f4d-aa38-498c8c6e6267.html#evaluating-risk-scores"
+  },"83": {
+    "doc": "Survival Analysis",
+    "title": "Survival Analysis",
+    "hpath": "topics.ml.survival-analysis",
+    "content": " ",
+    "url": "http://localhost:4000/notes/d4dd9201-c58d-4f4d-aa38-498c8c6e6267.html",
+    "relUrl": "/notes/d4dd9201-c58d-4f4d-aa38-498c8c6e6267.html"
+  },"84": {
+    "doc": "Week2 - ArcGIS Basics",
+    "title": "Using ArcMap for data exploration",
+    "hpath": "courses.gis.foundamental.week2",
+    "content": ". | right click ‘Identify’ to look at attributes for one item . | or multi select -&gt; Right click on layer -&gt; open attribute table, to see attributes of the multiple selection . | Add a basemap for reference and change transparency (Layer Property -&gt; Display) of the new layer to explore to overlay on top of basemap . | Right click on layer -&gt; Data -&gt; item description to read metadata about the file . | Layer property . | scale dependent rendering: don’t show when scale &gt; x | Choose grouping and color ramp; | Definition query: e.g. “CumulativeArea.TotDASqKM &gt; 5” | Labels - choose label field | . | Select by attribute: . | query: . | use “Get Unique Values” to help find value options for query | string matching GNIS_NAME LIKE '%Sacramento River' | . | layer -&gt; zoom to selection | . | Calculate geometry . | to find sum of length of rivers named X: select by atttribute -&gt; create a new column -&gt; calculate geometry -&gt; statistics on the column | . | Select by location . | after selecting some regions -&gt; Select by location -&gt; can find things in another layer that intersects/within/centroid lands in/ + add a radius… with the current selection | . | Export the selected data for future | . ",
+    "url": "http://localhost:4000/notes/d9b98137-dd44-478a-a7d0-5831287cfdbc.html#using-arcmap-for-data-exploration",
+    "relUrl": "/notes/d9b98137-dd44-478a-a7d0-5831287cfdbc.html#using-arcmap-for-data-exploration"
+  },"85": {
+    "doc": "Week2 - ArcGIS Basics",
+    "title": "Projections",
+    "hpath": "courses.gis.foundamental.week2",
+    "content": ". | Datum - fixed reference point for coordinates | Geographic coordinate systems | Projected coordinate system . | conformal - preserves local shape | equal area - preserves area | equidistant - preserve distances between points | . | common projections . | equirectagular: equal constant distance between parallels and meridians | Mercator (conformal): angles preservation, good for navigation, standard for web, optimized for calculation speed | Mollweide (equal area): relative area preserved but shape distorted | Universal Transverse Mercator | . | . ",
+    "url": "http://localhost:4000/notes/d9b98137-dd44-478a-a7d0-5831287cfdbc.html#projections",
+    "relUrl": "/notes/d9b98137-dd44-478a-a7d0-5831287cfdbc.html#projections"
+  },"86": {
+    "doc": "Week2 - ArcGIS Basics",
+    "title": "Geoprocessing",
+    "hpath": "courses.gis.foundamental.week2",
+    "content": ". | Geoprocessing tool box: . | Union: join two features (e.g. take NA map and SA map into a hemisphere map) | . | Environment variables . | change projections | Processing extent: limit the area to do analysis | . | Spatial Join Tool . | ArcToolbox -&gt; Analysis Tools -&gt; Overlay -&gt; Spatial Join . | JOIN_ONE_TO_ONE: use merge rule (e.g. join counties to watershed, but each watershed may go across multiple counties) . | JOIN_ONE_TO_MANY: each watershet + county is a new row . | example uses: . | use it for summarizaiton | which road cross a river | join multiple layers (e.g. electoral district + water + utility ) | . | . | . ",
+    "url": "http://localhost:4000/notes/d9b98137-dd44-478a-a7d0-5831287cfdbc.html#geoprocessing",
+    "relUrl": "/notes/d9b98137-dd44-478a-a7d0-5831287cfdbc.html#geoprocessing"
+  },"87": {
+    "doc": "Week2 - ArcGIS Basics",
+    "title": "Week2 - ArcGIS Basics",
+    "hpath": "courses.gis.foundamental.week2",
+    "content": " ",
+    "url": "http://localhost:4000/notes/d9b98137-dd44-478a-a7d0-5831287cfdbc.html",
+    "relUrl": "/notes/d9b98137-dd44-478a-a7d0-5831287cfdbc.html"
+  },"88": {
+    "doc": "Ch04 - Encoding and evolution",
+    "title": "Chapter 4: Encoding and evolution",
+    "hpath": "books.tech.data-intensive-applications.ch4-encoding",
+    "content": ". | Backward compatibility: Newer code can read data that was written by older code. | Forward compatibility: Older code can read data that was written by newer code. | . ",
+    "url": "http://localhost:4000/notes/e22dd5a3-f940-4548-b1d7-22a26b5386ce.html#chapter-4-encoding-and-evolution",
+    "relUrl": "/notes/e22dd5a3-f940-4548-b1d7-22a26b5386ce.html#chapter-4-encoding-and-evolution"
+  },"89": {
+    "doc": "Ch04 - Encoding and evolution",
+    "title": "Formats of encoding",
+    "hpath": "books.tech.data-intensive-applications.ch4-encoding",
+    "content": "Lang specific format . | Tied to a particular langaguage | Security concern - decoding process needs to be able to instantiate arbitrary classes | Versioning is after thought | . JSON, XML, CSV . | Usually good choice for comm between organizations | Problems: . | ambiguity around the encoding of numbers. | e.g. large numbers - integers greater than 2^53 cannot be exactly represented in floating point in javascript | . | Lack support for binary string - base64 enciding as workaround. – increase data size by 33% | Schema support not widely used. Decoding logic needs hardcoding | . | . Binary format . | Benefits . | More compact (JSON etc. needs to be self describing. Lots of space used in each record) | The schema is a valuable form of documentation | Keeping a database of schemas allows you to check forward and backward compatibility of schema changes, before anything is deployed. | Code gen for static typed languages | . | . | Apach Thrift (originally Facebook) and ProtoBuf (ori. Google) . | example Protobuf schema message Person { required string user_name = 1; optional int64 favorite_number = 2; repeated string interests = 3; } . | Field tags and schema evolution . | Each field contain the tag number and value | Tag number can’t change | Protobuf has no list type, but repeated flag - can evolve from single to repeated | Thrift has dedicated list type =&gt; supports nested lists | . | . | Avro - designed for hadoop . | No reference to field tag | Record appear in order | Translate between The writer’s schema and the reader’s schema | To maintain compatibility, you must only add or remove a field that has a default value | how to find writer schema: different options . | Large file with lots of records - include the writer’s schema once at the beginning of the large file | Version number + database to look up schema | Negotiate version on connection setup - AVRO RPC | . | Benefit: . | Support dynamically generated schemas - e.g. no need to hardcode translation between DB columns and schema if doing a dump | Code generation and dynamically typed languages - Thrift and Protocol Buffers rely on code generation, not great for dynamic lang. In Avro code gen is optional - for dynamic type, can read directly | . | . | . The Merits of Schemas . | Many DBs proprietary binary encoding: JDBC/ODBC driver can decode responses from the DBs’s network protocol into in-memory data structures. | Thrift, Protobuf and Avro all support schema, but simpler than XML or json (e.g. regex constraints) | . ",
+    "url": "http://localhost:4000/notes/e22dd5a3-f940-4548-b1d7-22a26b5386ce.html#formats-of-encoding",
+    "relUrl": "/notes/e22dd5a3-f940-4548-b1d7-22a26b5386ce.html#formats-of-encoding"
+  },"90": {
+    "doc": "Ch04 - Encoding and evolution",
+    "title": "Modes of dataflow",
+    "hpath": "books.tech.data-intensive-applications.ch4-encoding",
+    "content": "Through Databases . | Backward compatibility is clearly necessary: same client, newer version needs to read older writes | Forward compatibility is also needed: newer client writes a record, a older client reads | Common error: newer client adds a field, older client update the row, that unknown field get dropped– if it can’t parse new field, should keep as-is | Data outlives code: App updates fast. Data from a long time ago is still stored . | Schema evolution thus allows the entire database to appear as if it was encoded with a single schema, even though the underlying storage may contain records encoded with various historical versions of the schema. | . | Archival storage: . | data dump will typically be encoded using the latest schema | Avro object container often good fit - or parquet for analytic friendliness | . | . Through Services: REST and RPC . | REST is not a protocol, but rather a design philosophy that builds upon the principles of HTTP - “REST-ful” . | URL as resource | HTTP features for cache control, authentication, and content type negotiation | it doesn’t try to hide the fact that it’s a network protocol | . | SOAP: . | avoid HTTP specific features | WSDL enables code generation so that a client can access a remote service using local classes and method calls - not as useful for dynamically typed languages | . | problems with RPCs pretending to be local calls - is flawed idea: . | Unpredictable, may require retry | may not know whether succeeded or failed (in case of timeout) | Retry and idempotence - request may be going through but didn’t get successful response | Latency longer | Passing data | . | REST is usually used for external comm, RPC may be internal | Evolution: . | can assume all the servers will be updated first, and all the clients second -&gt; only need backward compatibility on requests, and forward compatibility on responses. | REST api provider can store client APIs + version they are requesting to help manage. E.g. stripe . | Thrift, gRPC (Protocol Buffers), and Avro RPC can be evolved according to the compatibility rules of the respective encoding format | . | . | . Message-Passing Dataflow . | Actor programming model: communicates by send/receiving async messages. process one message at a time. assume message may be lost | Compared to RPC, less mismatch between local vs remote communication | example distributed actor frameworks: message broker + actor programming model . | Akka - Java’s built-in serialization by default -&gt; no fw/bw compatibility. supports using with ProtoBuf etc. to do rolling upgrades | Orleans - also support custom serailization plug-ins | Erlang OTP | . | . ",
+    "url": "http://localhost:4000/notes/e22dd5a3-f940-4548-b1d7-22a26b5386ce.html#modes-of-dataflow",
+    "relUrl": "/notes/e22dd5a3-f940-4548-b1d7-22a26b5386ce.html#modes-of-dataflow"
+  },"91": {
+    "doc": "Ch04 - Encoding and evolution",
+    "title": "Ch04 - Encoding and evolution",
+    "hpath": "books.tech.data-intensive-applications.ch4-encoding",
+    "content": " ",
+    "url": "http://localhost:4000/notes/e22dd5a3-f940-4548-b1d7-22a26b5386ce.html",
+    "relUrl": "/notes/e22dd5a3-f940-4548-b1d7-22a26b5386ce.html"
+  },"92": {
+    "doc": "Cooking",
+    "title": "Cooking",
+    "hpath": "hobbies.cooking",
+    "content": "Pizza dough: https://thefoodery.la/pizza-dough/ . ",
+    "url": "http://localhost:4000/notes/e64b6f7d-e6b5-4528-9b0e-f91965791ca0.html",
+    "relUrl": "/notes/e64b6f7d-e6b5-4528-9b0e-f91965791ca0.html"
+  },"93": {
+    "doc": "Ch08 - Problems with distributed systems",
+    "title": "Ch08 - Problems with distributed systems",
+    "hpath": "books.tech.data-intensive-applications.ch8-challenges",
+    "content": ". | Supercomputing . | deals with partial failure by letting it escalate into total failure | . | Cloud computing . | Unreliable network . | telephone network is sync. call establish a circuit, fixed, guaranteed amount of bandwidth is allocated for the call, along the entire route between the two callers. - has bounded delay | Ethernet and IP are packet-switched protocols, which suffer from queueing and thus unbounded delays in the network. These protocols do not have the concept of a circuit &lt;- because optimized for bursty traffic. audio or video call needs to transfer a fairly constant number of bps. TCP dynamically adapts the rate of data transfer to the available network capacity. | dynamic resource allocation: has downside of queueing, but pro: it maximizes utilization of the wire. | static resource partitioning: Latency guarantees. but reduced utilization. | . | Unreliable Clocks . | possible to achieve good accuracy invest significant resources. e.g. the MiFID II draft EU regulation for financial institutions requires all HFT funds to synchronize to within 100 microseconds of UTC - uses GPS receivers, the Precision Time Protocol (PTP) careful deployment and monitoring | typical NTP is fickle - limited by the network round-trip time, in addition to quartz drift, etc. | Clock readings have a confidence interval . | mostly not exposed, but Google’s TrueTime API in Spanner: when you ask it for the current time, you get back two values: [earliest, latest], | . | Synchronized clocks for global snapshots . | typically require monotonically increasing transaction ID | when distributed, Spanner approach: use the TrueTime API, if A[earliest] &lt; A[latest] &lt; B[earliest] &lt; B[latest], then A is before B | deliberately waits for the length of the confidence interval before committing a read-write transaction | to keep uncertainty small, use GPS receiver or atomic clock in each datacenter | . | problem with leader lease: get request check lease expiration if not expired, handle request . | if rely on time-of-day expiry time, then out of sync | what happens if process pause between check lease and handling of request? potential causes . | GC pause | virtual machine suspended due to live migrations | I/O blocking | context-switches | . | . | . | . | . ",
+    "url": "http://localhost:4000/notes/e9abdfa6-2451-442e-a681-5165daba5f36.html",
+    "relUrl": "/notes/e9abdfa6-2451-442e-a681-5165daba5f36.html"
+  },"94": {
+    "doc": "Architecture",
+    "title": "Robert C. Martin - Clean Architecture and Design",
+    "hpath": "topics.architecture",
+    "content": "recording: https://www.youtube.com/watch?v=2dKZ-dWaCiU slides: https://t.co/QeDePKaJl6?amp=1 . | some back of envelope math: the numer of programmers in the world is doubling every few years =&gt; half of the programmers in the world have &lt; 5 yrs of experience . | software is everywhere - before a programmer kills 10,000 ppl and the industry becomes a heavily regulated industry, should have discipline . | The architecture should scream its purpose like architect’s house plans . | “Object-Oriented Software Engineering: A Use Case Driven Approach” book - Ivar Jacobson | the web is detail - it’s a type of I/O. e.g. in Unix I/O the application doesn’t care what kind of thing it’s writing to. | . | From Ivar: . | Entities = application independent rules : even if there’s no computer . | Interactors = application specific business rules . | interactor can be tested without the web/delivery mech. | . | MVC . | MVC goes wrong and boundaries blur | Model View Presenter: | . | Databases . | Story of FitNesse - acceptance testing + wiki framework . | deferred the database | | . | On testing: . | anything on the edge of the system is hard to test, e.g. GUI | . | . Clean Architecture slides: https://www.dropbox.com/s/e60688nq18cnfz7/Clean%20Architecture.pdf?dl=0 . ",
+    "url": "http://localhost:4000/notes/edcb01a7-1033-41f2-9428-9c3034fdc066.html#robert-c-martin---clean-architecture-and-design",
+    "relUrl": "/notes/edcb01a7-1033-41f2-9428-9c3034fdc066.html#robert-c-martin---clean-architecture-and-design"
+  },"95": {
+    "doc": "Architecture",
+    "title": "Architecture",
+    "hpath": "topics.architecture",
+    "content": " ",
+    "url": "http://localhost:4000/notes/edcb01a7-1033-41f2-9428-9c3034fdc066.html",
+    "relUrl": "/notes/edcb01a7-1033-41f2-9428-9c3034fdc066.html"
+  },"96": {
+    "doc": "Tech",
+    "title": "Tech",
+    "hpath": "books.tech",
+    "content": " ",
+    "url": "http://localhost:4000/notes/ede45f4d-8d30-42a9-bd27-f1b3ba37d6e0.html",
+    "relUrl": "/notes/ede45f4d-8d30-42a9-bd27-f1b3ba37d6e0.html"
+  },"97": {
+    "doc": "Inference  accelerator",
+    "title": "GPUs vs AWS Inferentia vs Amazon EIs",
+    "hpath": "topics.ml.inference-accelerator",
+    "content": "A complete guide to AI accelerators for deep learning inference — GPUs, AWS Inferentia and Amazon Elastic Inference . Deep learning inference acceleration landscape . | CPUs acquired support for advanced vector extensions (AVX-512) | GPUs acquired new capabilities such as support for reduced precision arithmetic (FP16 and INT8) further accelerating inference | AWS Inferentia, a custom-designed ASIC | . Considerations . | Model type and programmability: model size, custom operators, supported frameworks . | AWS Inferentia - fixed set of supported operations exposed via AWS Neuron SDK compiler | CPU - fully programmable | GPU - in between | if have custom code written in high level languages, fall back to CPU: . | NVIDIA GPUs: option to reimplement custom code using CUDA. | this is hard to do w ASIC | . | . | Target throughput, latency and cost: . | GPUs are throughput processors . | If latency is not critical, GPU utilization can be kept high and cost low - great for batch processing &amp; offline inference | if you are unable to keep your GPU utilization at its maximum at all times, due to e.g. sporadic inference request, cost / inference request goes up . | better to use Amazon Elastic Inference which lets you access just enough GPU acceleration for lower cost. | . | . | CPUs are not parallel, but may be better for realtime inference of smaller models as long as latency is acceptable . | Inferentia’s performance and lower cost could be most cost effective and performant option if model is fully supported | . | Compiler and runtime toolchain and ease of use . | GPU: . | deep learning framework is good but not optimized | use a dedicated inference compiler such as NVIDIA TensorRT for up to 10x speedup . | Quantization: reduce precision - from FP32 -&gt; FR16 or INT8 | Graph fusion: fusing multiple layers/ops into a single function call | . | . | . | . AWS Inferentia . | precisions: . | automatically cast your FP32 model to BF16 | or can provide model in FP16 | . | increase performance by: . | batching: reducing cost of loading weights for each layer from external memory for each input | pipelining: load weights of different subgraphs on different NeuronCores | both require setting options during compilation | . | Using all NeuronCores on your Inf1 instances: . | smallest instance type: inf1.xlarge automatically perform data parallel execution on all 4 NeuronCores (=replicating your model 4 times and loading it into each NeuronCore and running 4 Python threads to feed input to data to each core) | larger instance: must spawn multiple threads and use python threadpools | . | divide NeuronCores to run different models | . Amazon Elastic Inference . Attached through the network using an AWS PrivateLink . Why choose Amazon EI over dedicated GPU instances? . | if don’t have sufficient demand or multiple models to serve and share the GPU to keep up utilization, can attach “just enough” GPU acceleration to a CPU instance | The cost of the CPU instance + EI accelerator would still be cheaper than a dedicated GPU instance | EI adds some latency compared to GPU instance, but can be faster than CPU only | need to use an EI enabled framework such as TensorFlow, PyTorch or Apache MXNet | . ",
+    "url": "http://localhost:4000/notes/ee5aabfa-c76b-465e-8a60-63a8b391d6b4.html#gpus-vs-aws-inferentia-vs-amazon-eis",
+    "relUrl": "/notes/ee5aabfa-c76b-465e-8a60-63a8b391d6b4.html#gpus-vs-aws-inferentia-vs-amazon-eis"
+  },"98": {
+    "doc": "Inference  accelerator",
+    "title": "Choosing the right GPU for deep learning on AWS",
+    "hpath": "topics.ml.inference-accelerator",
+    "content": ". | G4 instance: NVIDIA T4 GPUs . | go-to for inference | FP64, FP32, FP16, Tensor Cores (mixed-precision), and INT8 precision types | 16 GB of GPU memory | . | P3: if need more throughput or need more memory per GPU | . ",
+    "url": "http://localhost:4000/notes/ee5aabfa-c76b-465e-8a60-63a8b391d6b4.html#choosing-the-right-gpu-for-deep-learning-on-aws",
+    "relUrl": "/notes/ee5aabfa-c76b-465e-8a60-63a8b391d6b4.html#choosing-the-right-gpu-for-deep-learning-on-aws"
+  },"99": {
+    "doc": "Inference  accelerator",
+    "title": "Inference  accelerator",
+    "hpath": "topics.ml.inference-accelerator",
+    "content": " ",
+    "url": "http://localhost:4000/notes/ee5aabfa-c76b-465e-8a60-63a8b391d6b4.html",
+    "relUrl": "/notes/ee5aabfa-c76b-465e-8a60-63a8b391d6b4.html"
+  },"100": {
+    "doc": "Rust",
+    "title": "Rust",
+    "hpath": "tag.rust",
+    "content": " ",
+    "url": "http://localhost:4000/notes/f17a0af2-4b92-4464-ba66-f5eea84b5bd6.html",
+    "relUrl": "/notes/f17a0af2-4b92-4464-ba66-f5eea84b5bd6.html"
+  },"101": {
+    "doc": "Building tech standards at AWS",
+    "title": "“Building technology standards at Amazon scale” by Marc Brooker",
+    "hpath": "topics.tech-adoption.building-tech-standards-at-aws",
+    "content": ". | session : https://virtual.awsevents.com/media/1_q557au4h . | notes from Yancui: https://threadreaderapp.com/thread/1334467949369896961.html . | case study : . | tenet: . | Think long term: cost of operations and maintenance outweigh the initial cost of development. | . | standards: use sparingly. limits tring new things . | focus on incentives and ownership | . #rust . ",
+    "url": "http://localhost:4000/notes/fbfe00ff-109f-4d84-8e62-22298363c305.html#building-technology-standards-at-amazon-scale-by-marc-brooker",
+    "relUrl": "/notes/fbfe00ff-109f-4d84-8e62-22298363c305.html#building-technology-standards-at-amazon-scale-by-marc-brooker"
+  },"102": {
+    "doc": "Building tech standards at AWS",
+    "title": "Building tech standards at AWS",
+    "hpath": "topics.tech-adoption.building-tech-standards-at-aws",
+    "content": " ",
+    "url": "http://localhost:4000/notes/fbfe00ff-109f-4d84-8e62-22298363c305.html",
+    "relUrl": "/notes/fbfe00ff-109f-4d84-8e62-22298363c305.html"
+  },"103": {
+    "doc": "Resources",
+    "title": "resources",
+    "hpath": "courses.gis.foundamental.resources",
+    "content": ". | resources pdf (link only works locally) . | source: https://www.coursera.org/learn/gis/supplement/UFDWI/resources-and-help-for-gis | . | https://gis.stackexchange.com/ | http://geonet.esri.com/ | reddit/askgis | . Data . Data Finders . | List of High Quality Datasets: https://github.com/nickrsan/awesome-public-datasets/ | NRCS Geospatial Data Gateway: http://datagateway.nrcs.usda.gov/GDGOrder.aspx | List of worldwide GIS data sources from the US Geological Survey: http://education.usgs.gov/lessons/geospatialwebsites.html | An incredible list of data links from Humboldt State University: http://library.humboldt.edu/infoservices/staff/rls/geospatial/intgis.htm | National Map: http://viewer.nationalmap.gov/viewer/ | American Factfinder (US Census data): http://factfinder2.census.gov | Book: The GIS Guide to Public Domain Data: https://spatialreserves.wordpress.com/about-thebook/ | . Datasets . | Enhanced National Hydrography Dataset (NHDPlus): http://www.horizon-systems.com/nhdplus/ | GeoNames (GNIS): http://geonames.usgs.gov/domestic/download_data.htm | National Land Cover Dataset (NLCD): http://www.mrlc.gov/ | TIGER (National lines and boundaries – Census): http://www.census.gov/geo/maps-data/data/tiger.html | USGS Water Data for the Nation: http://waterdata.usgs.gov/nwis | Listing of Global Terrain Data: http://vterrain.org/Elevation/global.html | World Terrain Data: http://www.naturalearthdata.com/ | World Borders: http://thematicmapping.org/downloads/world_borders.php | . ",
+    "url": "http://localhost:4000/notes/fcbd17a1-8969-4026-9319-128703eeb871.html#resources",
+    "relUrl": "/notes/fcbd17a1-8969-4026-9319-128703eeb871.html#resources"
+  },"104": {
+    "doc": "Resources",
+    "title": "Resources",
+    "hpath": "courses.gis.foundamental.resources",
+    "content": " ",
+    "url": "http://localhost:4000/notes/fcbd17a1-8969-4026-9319-128703eeb871.html",
+    "relUrl": "/notes/fcbd17a1-8969-4026-9319-128703eeb871.html"
+  },"105": {
+    "doc": "Root",
+    "title": "My notes",
+    "hpath": "root",
+    "content": "Hello there! This is where I keep and share my notes on books, tech, travel, and other hobbies :) . ",
+    "url": "http://localhost:4000/#my-notes",
+    "relUrl": "/#my-notes"
+  },"106": {
+    "doc": "Root",
+    "title": "Root",
+    "hpath": "root",
+    "content": " ",
+    "url": "http://localhost:4000/",
+    "relUrl": "/"
+  }
+}

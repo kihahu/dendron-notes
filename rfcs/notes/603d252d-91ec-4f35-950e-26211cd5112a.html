@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  
+  <title>Ch07 - Transactions - Angela's note universe</title>
+  
+
+  <link
+    rel="shortcut icon"
+    href="https://angelarwang.com/dendron-notes/favicon.ico"
+    type="image/x-icon"
+  />
+  <link
+    rel="stylesheet"
+    href="https://angelarwang.com/dendron-notes/assets/css/just-the-docs-default.css"
+  />
+  <script
+    type="text/javascript"
+    src="https://angelarwang.com/dendron-notes/assets/js/just-the-docs.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+    crossorigin="anonymous"
+  />
+  <script
+    type="text/javascript"
+    src="https://angelarwang.com/dendron-notes/assets/js/vendor/lunr.min.js"
+  ></script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+   
+  
+<meta name="description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
+<meta name="author" content="[object Object]">
+
+<link rel="canonical" href="https://angelarwang.com/notes/603d252d-91ec-4f35-950e-26211cd5112a.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://angelarwang.com/notes/603d252d-91ec-4f35-950e-26211cd5112a.html">
+<meta property="og:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
+<meta property="og:image" content="https://angelarwang.com/logo.png">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@{"card":"summary","username":"angelaw_ruohan"}">
+<meta name="twitter:url" content="https://angelarwang.com/notes/603d252d-91ec-4f35-950e-26211cd5112a.html">
+<meta name="twitter:description" content="This is where I keep and share my notes on books, tech, travel, and other hobbies :)">
+<meta name="twitter:image" content="https://angelarwang.com/logo.png">
+
+
+  <meta property="og:title" content="Ch07 - Transactions - Angela's note universe" />
+  <meta name="twitter:title" content="Ch07 - Transactions - Angela's note universe" />
+  
+</head>
+
+
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="svg-link" viewBox="0 0 24 24">
+        <title>Link</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+      </symbol>
+      <symbol id="svg-search" viewBox="0 0 24 24">
+        <title>Search</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+          <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </symbol>
+      <symbol id="svg-menu" viewBox="0 0 24 24">
+        <title>Menu</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+          <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </symbol>
+      <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+        <title>Expand</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </symbol>
+      <symbol id="svg-doc" viewBox="0 0 24 24">
+        <title>Document</title>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+        </svg>
+      </symbol>
+    </svg>
+
+    <div class="side-bar">
+      <div class="site-header">
+        <a href="https://angelarwang.com/dendron-notes" class="site-title lh-tight">
+  <div class="site-logo"></div>
+
+ </a>
+        <a href="#" id="menu-button" class="site-button">
+          <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+        </a>
+      </div>
+
+      <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+      </nav>
+      <footer class="site-footer">
+        🌱 with 💕 using <a href="https://www.dendron.so/"> Dendron 🌲 </a>
+      </footer>
+    </div>
+    <div class="main" id="top">
+        <div id="main-header" class="main-header">
+          
+            <div class="search">
+              <div class="search-input-wrap">
+                <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Angela's note universe" aria-label="Search Angela's note universe" autocomplete="off">
+                <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+              </div>
+              <div id="search-results" class="search-results"></div>
+            </div>
+          
+          
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      
+        
+          <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes">Root</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\d088ab77-c2f6-4f7a-be4a-7597b00daff0.html">Books</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\ede45f4d-8d30-42a9-bd27-f1b3ba37d6e0.html">Tech</a></li><li class="breadcrumb-nav-list-item"><a href="https://angelarwang.com/dendron-notes/notes\a42eba1d-b978-4cdc-9160-1f3e9c7cf025.html">Designing Data-intensive Applications</a></li><li class="breadcrumb-nav-list-item">Ch07 - Transactions</li></ol>
+          </nav>
+        
+      
+      <div id="main-content" class="main-content" role="main">
+
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        
+        
+
+        
+
+        
+
+        
+
+        <script>
+          $(function () {
+            $('[data-toggle="popover"]').popover({html: true})
+          })
+        </script>
+
+        
+
+<div id="main" role="main">
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Ch07 - Transactions">
+    
+    <meta itemprop="datePublished" content="2020-11-01T23:14:38+00:00">
+    <meta itemprop="dateModified" content="2021-02-28T13:30:39+00:00">
+
+    <div class="page__inner-wrap">
+
+      
+
+      <section class="page__content" itemprop="text">
+
+        
+
+        <h1 id="ch07---transactions"><a aria-hidden="true" class="anchor-heading" href="#ch07---transactions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Ch07 - Transactions</h1>
+<h1 id="chapter-7-transactions"><a aria-hidden="true" class="anchor-heading" href="#chapter-7-transactions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chapter 7: Transactions</h1>
+<p>Purpose of transactions: simplify the programming model</p>
+<h2 id="acid-definition-is-slippery"><a aria-hidden="true" class="anchor-heading" href="#acid-definition-is-slippery"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>ACID definition is slippery</h2>
+<ul>
+<li>Atomicity:
+<ul>
+<li>different from normal meaning in concurrency programming (nobody else sees a partially updated state)</li>
+<li>means more <em>abortability</em> - when  failure, all partial updates are reverted </li>
+</ul>
+</li>
+<li>Consistency: 
+<ul>
+<li>overloaded term</li>
+<li>means some <em>invariants</em> to be true - but it's more up to application. </li>
+<li>'C' doesn't really belong</li>
+</ul>
+</li>
+<li>Isolation:
+<ul>
+<li>concurrently executing transactions are isolated from each other: they cannot step on each other’s toes</li>
+<li>i.e. <em>serializability</em> - result is the same as if they had run serially</li>
+<li>in practice, <strong>strictly serializable isolation is rarely used</strong>. Oracle 11g doesn’t even implement it.</li>
+</ul>
+</li>
+<li>Durability
+<ul>
+<li>once committed, data written is stored 
+<ul>
+<li>persisted to disk in single node</li>
+<li>or replicated in multi-node</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="single-object-vs-multi"><a aria-hidden="true" class="anchor-heading" href="#single-object-vs-multi"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>single-object vs multi</h3>
+<ul>
+<li>Atomicity and isolation apply both to single and multi-object
+<ul>
+<li>on single object:
+<ul>
+<li>almost universally provided 
+<ul>
+<li>Atomicity - log for crash recovery </li>
+<li>isolation - a lock on each object </li>
+</ul>
+</li>
+<li>some provide atomic operations e.g. increment or compare-and-et </li>
+</ul>
+</li>
+<li>multi-object:
+<ul>
+<li>in relational model, foreign key constraints to other table has to be met </li>
+<li>in document, need transactions to prevent denormalized data going out of sync </li>
+<li>update sconedary indexes </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>handling error
+<ul>
+<li>ACID databases abandon transactino entirely if at risk of ACID</li>
+<li>quorum storage - "best "effort" </li>
+</ul>
+</li>
+</ul>
+<h2 id="weak-isolation-levels"><a aria-hidden="true" class="anchor-heading" href="#weak-isolation-levels"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Weak Isolation Levels</h2>
+<p>Serializable isolation has a performance cost, and many databases - including <strong>many popular relational DBs</strong> don’t want to pay that price. </p>
+<h3 id="read-committed"><a aria-hidden="true" class="anchor-heading" href="#read-committed"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Read Committed</h3>
+<ul>
+<li>when reading, only see committed data - <strong>no dirty reads</strong></li>
+<li>when writing, only overwrite data that has been fully committed  - <strong>no dirty writes</strong></li>
+<li>very popular - deulat in Oracle 11g, PostgreSQL, SQL Server 2012 etc.</li>
+<li>implementation
+<ul>
+<li>prevent dirty writes by row level locks </li>
+<li>prevent dirty reads: not by read locks, but by <strong>keeping the old commited value and the new value set by the transaction that currently holds the write lock</strong>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="snapshot-isolation-and-repeatable-read"><a aria-hidden="true" class="anchor-heading" href="#snapshot-isolation-and-repeatable-read"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Snapshot Isolation and Repeatable Read</h3>
+<ul>
+<li>reads might see effect of part of the transaction </li>
+<li>use case where it's important and useful: <strong>long-running, read-only queries</strong>
+<ul>
+<li>backup </li>
+<li>Analytic queries and integrity checks</li>
+</ul>
+</li>
+<li>Snapshot Isolation: each transaction reads from a consistent snapshot of the database</li>
+<li>Implementation
+<ul>
+<li>prevent dirty writes by locks</li>
+<li>no read locks - instead, keep several different committed versions of an object - <strong>multi-version concurrency control (MVCC)</strong>.
+<ul>
+<li>always-increasing transaction ID
+<img src="/dendron-notes/assets/images/2020-11-11-22-47-29.png"></li>
+<li>when reading, only read the latest committed version of the row with write tx id &#x3C; read tx id </li>
+</ul>
+</li>
+<li><strong>Indexes</strong> 
+<ul>
+<li>option 1: index simply point to all versions of an object, filter at read time</li>
+<li>option 2: (PostgreSQL) avoid index updates if diff version on the same page</li>
+<li>option 3: append-only B-trees - updates generate a new page. all parents up to root is copied and updated to new.  a particular root is a consistent snapshot of the database at the point in time when it was created. require background compaction and garbage collection. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>naming confusion
+<ul>
+<li>different DB call it differently, and actual guarantees are different </li>
+<li>because SQL standard has flawed defintion for <strong>repeatable read</strong> - </li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="backlinks"><a aria-hidden="true" class="anchor-heading" href="#backlinks"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Backlinks</h2>
+<ul>
+<li><a href="https://angelarwang.com/dendron-notes/notes/a42eba1d-b978-4cdc-9160-1f3e9c7cf025.html">Designing Data-intensive Applications</a></li>
+</ul><span id="navId" data="603d252d-91ec-4f35-950e-26211cd5112a"></span>
+
+                
+      </section>
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+        <div class="thumbs feedback_trigger right-bottom"></div>
+
+        
+          <hr>
+          <footer>
+            
+            
+
+            
+              <div class="d-flex mt-2">
+              <p class="text-small text-grey-dk-000 mb-0 mr-2">
+                Page last modified: <span class="d-inline-block">2/28/2021</span>.
+              </p>
+            
+                
+                  <p class="text-small text-grey-dk-000 mb-0">
+                    <a href="https://github.com/angelarw/dendron-notes/edit/gh-pages/vault/books.tech.data-intensive-applications.ch7-transactions.md" id="edit-this-page">Edit this page on GitHub</a>
+                  </p>
+                
+              </div>
+          </footer>
+        
+    </div>
+</div>
+
+
+  
+
+  <div class="search-overlay"></div>
+
+</div>
+
+</body>
+</html>
