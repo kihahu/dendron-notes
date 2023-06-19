@@ -1,4 +1,4 @@
 site_name: 'RFCs Docs'
-docs_site: 'notes'
+docs_dir: 'notes'
 plugins:
   - techdocs-core
